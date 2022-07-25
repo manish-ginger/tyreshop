@@ -15,12 +15,18 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->integer('vehicle_category_id');
-            $table->integer('vehicle_model_id');
-            $table->integer('vehicle_brand_id');
-            $table->string('variant');
+            $table->integer('vehicle_category_id')->nullable();
+            $table->integer('vehicle_model_id')->nullable();
+            $table->integer('vehicle_brand_id')->nullable();
+            $table->string('variant')->nullable();
+            $table->string('width')->nullable();
+            $table->string('ratio')->nullable();
+            $table->string('construcion')->nullable();
+            $table->string('diameter')->nullable();
+            $table->string('loadrating')->nullable();
+            $table->string('speed')->nullable();
             $table->string('image')->nullable();
-            $table->string('shop_id');
+            $table->string('shop_id')->nullable();
             $table->string('approved')->default(0);
             $table->longText('desc')->nullable();
             $table->timestamps();

@@ -8,10 +8,10 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Tyre Make Year</h1>
+                                <h1 class="page-title">Tyre</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Make Year</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
@@ -31,17 +31,17 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Tyre Make Year</div>
+                                            <div class="card-title">Add New Tyre</div>
                                         </div>
                                         <form action="{{ route('vehicletyre.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Size :</label>
+                                                <label class="col-md-3 form-label">Tyre Brand :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_category_id" class="form-control"  required id="category">
-                                                        <option selected disabled value="">Choose Tyre Size</option>
+                                                        <option selected disabled value="">Choose Tyre Brand</option>
                                                         @foreach($vehicleCategories as $category)
                                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                                         @endforeach
@@ -50,7 +50,7 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Brand :</label>
+                                                <label class="col-md-3 form-label">Tyre Model :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_brand_id" class="form-control"  required id="brand">
                                                     </select>
@@ -58,7 +58,7 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Model :</label>
+                                                <label class="col-md-3 form-label">Tyre Size :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_model_id" class="form-control"  required id="model">
                                                     </select>
@@ -66,7 +66,7 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Variant :</label>
+                                                <label class="col-md-3 form-label">Tyre Number :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_variant_id" class="form-control"  required id="variant">
                                                     </select>
@@ -74,9 +74,9 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Make year:</label>
+                                                <label class="col-md-3 form-label">Tyre:</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="vehicle_tyre_year" class="form-control" placeholder="Tyre Make year"  required>
+                                                    <input type="text" name="vehicle_tyre_year" class="form-control" placeholder="Tyre"  required>
                                                 </div>
                                             </div>
 
@@ -98,7 +98,7 @@
 
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Year Approved :</label>
+                                                <label class="col-md-3 form-label">Approved :</label>
                                                 <div class="col-md-9">
                                                         <input type="checkbox" name="approved" value="1" class="checked_approved" checked>
                                                 </div>
@@ -112,7 +112,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Tyre Year</button> &nbsp; &nbsp;
+                                                <button class="btn btn-success">Add Tyre</button> &nbsp; &nbsp;
 
                                                 </div>
                                             </div>

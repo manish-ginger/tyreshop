@@ -13,10 +13,10 @@ use App\Models\VehicleBrand;
 
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Variant</h1>
+    <h1 class="page-title">Tyre Number</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Variant</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Number</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -38,11 +38,11 @@ use App\Models\VehicleBrand;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Variants List</h3>
+                <h3 class="card-title">Tyre Numbers List</h3>
                 <div class="card-options">
                     <a href="<?php echo e(route('vehicle.create')); ?>" class="btn btn-primary btn-sm">
                         <i class="fe fe-plus"></i>
-                        Add New Variant</a>
+                        Add New Tyre Number</a>
                 </div>
             </div>
             <div class="card-body">
@@ -51,10 +51,10 @@ use App\Models\VehicleBrand;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Variant</th>
+                                <th class="wd-40p border-bottom-0">Tyre Number</th>
+                                <th class="wd-40p border-bottom-0">Size</th>
                                 <th class="wd-40p border-bottom-0">Model</th>
                                 <th class="wd-40p border-bottom-0">Brand</th>
-                                <th class="wd-40p border-bottom-0">Category</th>
                                 <th class="wd-15p border-bottom-0">Approved</th>
                                 <th class="wd-15p border-bottom-0">Image</th>
                                 <th class="wd-15p border-bottom-0">Action</th>

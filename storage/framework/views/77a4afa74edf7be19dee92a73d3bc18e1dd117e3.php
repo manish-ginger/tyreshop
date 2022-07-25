@@ -1,10 +1,8 @@
-@extends('layouts.app')
+        <?php $__env->startSection('styles'); ?>
 
-        @section('styles')
+        <?php $__env->stopSection(); ?>
 
-        @endsection
-
-        @section('content')
+        <?php $__env->startSection('content'); ?>
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
@@ -17,12 +15,13 @@
                                 </div>
                             </div>
                     <div>
-                    @if(Session::has('message'))
+                    <?php if(Session::has('message')): ?>
                     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                    {{ Session::get('message') }}
+                    <?php echo e(Session::get('message')); ?>
+
                     </div>
-                    @endif
+                    <?php endif; ?>
                     </div>
                             <!-- PAGE-HEADER END -->
 
@@ -33,8 +32,8 @@
                                         <div class="card-header">
                                             <div class="card-title">Add New Tyre Brand</div>
                                         </div>
-                                        <form action="{{ route('vehiclecategory.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
-                                        @csrf
+                                        <form action="<?php echo e(route('vehiclecategory.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
+                                        <?php echo csrf_field(); ?>
                                         <div class="card-body">
                                             <div class="row mb-4">
                                                 <label class="col-md-3 form-label">Tyre Brand:</label>
@@ -79,31 +78,33 @@
                             </div>
                             <!-- /ROW-1 CLOSED -->
 
-            @endsection
+            <?php $__env->stopSection(); ?>
 
-        @section('scripts')
+        <?php $__env->startSection('scripts'); ?>
 
         <!-- INPUT MASK JS-->
-        <script src="{{asset('assets/plugins/input-mask/jquery.mask.min.js')}}"></script>
+        <script src="<?php echo e(asset('assets/plugins/input-mask/jquery.mask.min.js')); ?>"></script>
 
         <!-- INTERNAL SELECT2 JS -->
-        <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-        <script src="{{asset('assets/js/select2.js')}}"></script>
+        <script src="<?php echo e(asset('assets/plugins/select2/select2.full.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script>
 
         <!-- INTERNAL WYSIWYG Editor JS -->
-        <script src="{{asset('assets/plugins/wysiwyag/jquery.richtext.js')}} "></script>
-        <script src="{{asset('assets/plugins/wysiwyag/wysiwyag.js')}} "></script>
+        <script src="<?php echo e(asset('assets/plugins/wysiwyag/jquery.richtext.js')); ?> "></script>
+        <script src="<?php echo e(asset('assets/plugins/wysiwyag/wysiwyag.js')); ?> "></script>
 
         <!-- INTERNAL File-Uploads Js-->
-        <script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
-        <script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
-        <script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
-        <script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
-        <script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
+        <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.ui.widget.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.fileupload.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/fancyuploder/fancy-uploader.js')); ?>"></script>
 
         <!-- Perfect SCROLLBAR JS-->
-        <script src="{{asset('assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
-        <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
-        <script src="{{asset('assets/plugins/p-scroll/pscroll-1.js')}}"></script>
+        <script src="<?php echo e(asset('assets/plugins/p-scroll/perfect-scrollbar.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll.js')); ?>"></script>
+        <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll-1.js')); ?>"></script>
 
-        @endsection
+        <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/vehiclecategory/create.blade.php ENDPATH**/ ?>

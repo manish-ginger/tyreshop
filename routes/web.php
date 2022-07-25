@@ -69,48 +69,48 @@ Route::post('save-notification', [NotificationController::class, 'store'])->name
 
 // Vehicle Routes
 Route::post('loadVariants', [VehicleTyreController::class, 'loadVariants'])->name('loadVariants');
-Route::get('tyreyear', [VehicleTyreController::class, 'index'])->name('vehicletyre');
-Route::get('add-tyreyear', [VehicleTyreController::class, 'create'])->name('vehicletyre.create');
-Route::post('save-tyreyear', [VehicleTyreController::class, 'store'])->name('vehicletyre.store');
-Route::get('edit-tyreyear/{vehicleTyreId}', [VehicleTyreController::class, 'edit'])->name('vehicletyre.edit');
-Route::post('update-tyreyear', [VehicleTyreController::class, 'update'])->name('vehicletyre.update');
-Route::get('delete-tyreyear/{vehicleTyreId}', [VehicleTyreController::class, 'destroy'])->name('vehicletyre.delete');
+Route::get('tyre', [VehicleTyreController::class, 'index'])->name('vehicletyre');
+Route::get('add-tyre', [VehicleTyreController::class, 'create'])->name('vehicletyre.create');
+Route::post('save-tyre', [VehicleTyreController::class, 'store'])->name('vehicletyre.store');
+Route::get('edit-tyre/{vehicleTyreId}', [VehicleTyreController::class, 'edit'])->name('vehicletyre.edit');
+Route::post('update-tyre', [VehicleTyreController::class, 'update'])->name('vehicletyre.update');
+Route::get('delete-tyre/{vehicleTyreId}', [VehicleTyreController::class, 'destroy'])->name('vehicletyre.delete');
 
 
 // Vehicle Routes
 Route::post('loadModels', [VehicleController::class, 'loadModels'])->name('loadModels');
-Route::get('variant', [VehicleController::class, 'index'])->name('vehicle');
-Route::get('add-variant', [VehicleController::class, 'create'])->name('vehicle.create');
-Route::post('save-variant', [VehicleController::class, 'store'])->name('vehicle.store');
-Route::get('edit-variant/{vehicleId}', [VehicleController::class, 'edit'])->name('vehicle.edit');
-Route::post('update-variant', [VehicleController::class, 'update'])->name('vehicle.update');
-Route::get('delete-variant/{vehicleId}', [VehicleController::class, 'destroy'])->name('vehicle.delete');
+Route::get('tyrenumber', [VehicleController::class, 'index'])->name('vehicle');
+Route::get('add-tyrenumber', [VehicleController::class, 'create'])->name('vehicle.create');
+Route::post('save-tyrenumber', [VehicleController::class, 'store'])->name('vehicle.store');
+Route::get('edit-tyrenumber/{vehicleId}', [VehicleController::class, 'edit'])->name('vehicle.edit');
+Route::post('update-tyrenumber', [VehicleController::class, 'update'])->name('vehicle.update');
+Route::get('delete-tyrenumber/{vehicleId}', [VehicleController::class, 'destroy'])->name('vehicle.delete');
 // VehicleCategory Routes
-Route::get('tyresize', [VehicleCategoryController::class, 'index'])->name('vehiclecategory');
-Route::get('add-tyresize', [VehicleCategoryController::class, 'create'])->name('vehiclecategory.create');
-Route::post('save-tyresize', [VehicleCategoryController::class, 'store'])->name('vehiclecategory.store');
-Route::get('edit-tyresize/{vehicleCategoryId}', [VehicleCategoryController::class, 'edit'])->name('vehiclecategory.edit');
-Route::post('update-tyresize', [VehicleCategoryController::class, 'update'])->name('vehiclecategory.update');
-Route::get('delete-tyresize/{vehicleCategoryId}', [VehicleCategoryController::class, 'destroy'])->name('vehiclecategory.delete');
+Route::get('tyrebrand', [VehicleCategoryController::class, 'index'])->name('vehiclecategory');
+Route::get('add-tyrebrand', [VehicleCategoryController::class, 'create'])->name('vehiclecategory.create');
+Route::post('save-tyrebrand', [VehicleCategoryController::class, 'store'])->name('vehiclecategory.store');
+Route::get('edit-tyrebrand/{vehicleCategoryId}', [VehicleCategoryController::class, 'edit'])->name('vehiclecategory.edit');
+Route::post('update-tyrebrand', [VehicleCategoryController::class, 'update'])->name('vehiclecategory.update');
+Route::get('delete-tyrebrand/{vehicleCategoryId}', [VehicleCategoryController::class, 'destroy'])->name('vehiclecategory.delete');
 
 // VehicleBrand Routes
-Route::get('tyrebrand', [VehicleBrandController::class, 'index'])->name('vehiclebrand');
+Route::get('tyremodel', [VehicleBrandController::class, 'index'])->name('vehiclebrand');
 Route::get('brandpershop', [VehicleBrandController::class, 'brandpershop'])->name('brandpershop');
-Route::get('add-tyrebrand', [VehicleBrandController::class, 'create'])->name('vehiclebrand.create');
-Route::post('save-tyrebrand', [VehicleBrandController::class, 'store'])->name('vehiclebrand.store');
-Route::get('edit-tyrebrand/{vehicleBrandId}', [VehicleBrandController::class, 'edit'])->name('vehiclebrand.edit');
-Route::post('update-tyrebrand', [VehicleBrandController::class, 'update'])->name('vehiclebrand.update');
+Route::get('add-tyremodel', [VehicleBrandController::class, 'create'])->name('vehiclebrand.create');
+Route::post('save-tyremodel', [VehicleBrandController::class, 'store'])->name('vehiclebrand.store');
+Route::get('edit-tyremodel/{vehicleBrandId}', [VehicleBrandController::class, 'edit'])->name('vehiclebrand.edit');
+Route::post('update-tyremodel', [VehicleBrandController::class, 'update'])->name('vehiclebrand.update');
 Route::post('update-brandpershop', [VehicleBrandController::class, 'update_brandpershop'])->name('vehiclebrand.update_brandpershop');
-Route::get('delete-tyrebrand/{vehicleBrandId}', [VehicleBrandController::class, 'destroy'])->name('vehiclebrand.delete');
+Route::get('delete-tyremodel/{vehicleBrandId}', [VehicleBrandController::class, 'destroy'])->name('vehiclebrand.delete');
 
 // VehicleModel Routes
 Route::post('loadBrands', [VehicleModelController::class, 'loadBrands'])->name('loadBrands');
-Route::get('tyremodel', [VehicleModelController::class, 'index'])->name('vehiclemodel');
-Route::get('add-tyremodel', [VehicleModelController::class, 'create'])->name('vehiclemodel.create');
-Route::post('save-tyremodel', [VehicleModelController::class, 'store'])->name('vehiclemodel.store');
-Route::get('edit-tyremodel/{vehicleModelId}', [VehicleModelController::class, 'edit'])->name('vehiclemodel.edit');
-Route::post('update-tyremodel', [VehicleModelController::class, 'update'])->name('vehiclemodel.update');
-Route::get('delete-tyremodel/{vehicleModelId}', [VehicleModelController::class, 'destroy'])->name('vehiclemodel.delete');
+Route::get('tyresize', [VehicleModelController::class, 'index'])->name('vehiclemodel');
+Route::get('add-tyresize', [VehicleModelController::class, 'create'])->name('vehiclemodel.create');
+Route::post('save-tyresize', [VehicleModelController::class, 'store'])->name('vehiclemodel.store');
+Route::get('edit-tyresize/{vehicleModelId}', [VehicleModelController::class, 'edit'])->name('vehiclemodel.edit');
+Route::post('update-tyresize', [VehicleModelController::class, 'update'])->name('vehiclemodel.update');
+Route::get('delete-tyresize/{vehicleModelId}', [VehicleModelController::class, 'destroy'])->name('vehiclemodel.delete');
 
 // Washing Type Routes
 Route::get('washingtype', [WashingTypeController::class, 'index'])->name('washingtype');

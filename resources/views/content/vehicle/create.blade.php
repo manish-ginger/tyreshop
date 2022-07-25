@@ -8,10 +8,10 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Variants</h1>
+                                <h1 class="page-title">Tyre Numbers</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Variant</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Number</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
@@ -31,7 +31,7 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Variant</div>
+                                            <div class="card-title">Add New Tyre Number</div>
                                         </div>
                                         <form action="{{ route('vehicle.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         @csrf
@@ -50,7 +50,7 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Brand :</label>
+                                                <label class="col-md-3 form-label">Tyre Model :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_brand_id" class="form-control"  required id="brand">
                                                     </select>
@@ -58,7 +58,7 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Model :</label>
+                                                <label class="col-md-3 form-label">Tyre Size :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_model_id" class="form-control"  required id="model">
                                                     </select>
@@ -66,9 +66,44 @@
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Variant :</label>
+                                                <label class="col-md-3 form-label">Width :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="variant" class="form-control" placeholder="Variant"  required>
+                                                    <input type="text" name="width" class="form-control" placeholder="Width">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Ratio :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="ratio" class="form-control" placeholder="Ratio">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Construction :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="construction" class="form-control" placeholder="Construction">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Diameter :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="diameter" class="form-control" placeholder="Diameter">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Load :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="loadrating" class="form-control" placeholder="Load">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Speed :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="speed" class="form-control" placeholder="Speed">
                                                 </div>
                                             </div>
 
@@ -90,7 +125,7 @@
 
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Variant Approved :</label>
+                                                <label class="col-md-3 form-label">Approved :</label>
                                                 <div class="col-md-9">
                                                         <input type="checkbox" name="approved" value="1" class="checked_approved" checked>
                                                 </div>
@@ -104,8 +139,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Variant</button> &nbsp; &nbsp;
-
+                                                <button class="btn btn-success">Add Tyre Number</button> &nbsp; &nbsp;
                                                 </div>
                                             </div>
                                             <!--End Row-->
@@ -137,7 +171,7 @@
                             {
                                 if (!$.trim(result)){
 
-                                    $('#brand').html('<option disabled selected>No brand for this size.  Try another size</option>');
+                                    $('#brand').html('<option disabled selected>No model for this brand.  Try another brand</option>');
                                 }
                                 else{
                                     $.each( result, function(k, v) {
@@ -176,7 +210,7 @@
                         {
                             if (!$.trim(result)){
 
-                                $('#model').html('<option disabled selected>No model for this brand and size.  Try with another brand and category</option>');
+                                $('#model').html('<option disabled selected>No size for this brand and model.  Try with another brand and model</option>');
                             }
                             else{
                                 $.each( result, function(k, v) {

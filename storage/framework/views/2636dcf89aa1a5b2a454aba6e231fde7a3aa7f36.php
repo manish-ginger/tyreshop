@@ -30,22 +30,22 @@
                                 <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('shop')); ?>"><i class="side-menu__icon fe fe-box"></i><span class="side-menu__label">Shops</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclecategory')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Tyre Size</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclecategory')); ?>"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Tyre Brand</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclebrand')); ?>"><i class="side-menu__icon fe fe-hash"></i><span class="side-menu__label">Tyre Brand</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclebrand')); ?>"><i class="side-menu__icon fe fe-hash"></i><span class="side-menu__label">Tyre Model</span></a>
+                            </li>
+
+
+
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclemodel')); ?>"><i class="side-menu__icon fe fe-circle"></i><span class="side-menu__label">Tyre Size</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('brandpershop')); ?>"><i class="side-menu__icon fe fe-book-open"></i><span class="side-menu__label">Brands in Shops</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehicle')); ?>"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Tyre Number</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehiclemodel')); ?>"><i class="side-menu__icon fe fe-circle"></i><span class="side-menu__label">Tyre Model</span></a>
-                            </li>
-                            <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehicle')); ?>"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Tyre Variant</span></a>
-                            </li>
-                            <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehicletyre')); ?>"><i class="side-menu__icon fe fe-aperture"></i><span class="side-menu__label">Tyre Year</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('vehicletyre')); ?>"><i class="side-menu__icon fe fe-aperture"></i><span class="side-menu__label">Tyre</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('washingtype')); ?>"><i class="side-menu__icon fe fe-droplet"></i><span class="side-menu__label">Washing Category</span></a>

@@ -4,10 +4,10 @@
 <?php $__env->startSection('content'); ?>
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Variants</h1>
+        <h1 class="page-title">Tyre Numbers</h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Variant</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Number</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Variant</div>
+                    <div class="card-title">Update Tyre Number</div>
                 </div>
                 <form action="<?php echo e(route('vehicle.update')); ?>" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
@@ -39,10 +39,10 @@
                                value="<?php if(isset($vehicle->id)): ?> <?php echo e(encrypt($vehicle->id)); ?> <?php endif; ?>">
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size :</label>
+                            <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option selected disabled value="">Choose Tyre Size</option>
+                                    <option selected disabled value="">Choose Tyre Brand</option>
                                     <?php $__currentLoopData = $vehicleCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($category->id); ?>" <?php if($category->id==$vehicle->vehicle_category_id): ?>selected <?php endif; ?>><?php echo e($category->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -51,10 +51,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand :</label>
+                            <label class="col-md-3 form-label">Tyre Model :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_brand_id" class="form-control"  required id="brand">
-                                    <option disabled value="">Choose Tyre Brand</option>
+                                    <option disabled value="">Choose Tyre Model</option>
                                     <?php $__currentLoopData = $vehicleBrands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($brand->id); ?>" <?php if($brand->id==$vehicle->vehicle_brand_id): ?>selected <?php endif; ?>><?php echo e($brand->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -65,10 +65,10 @@
 
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Model :</label>
+                            <label class="col-md-3 form-label">Tyre Size :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_model_id" class="form-control"  required id="model">
-                                    <option disabled value="">Choose Tyre model</option>
+                                    <option disabled value="">Choose Tyre Size</option>
                                     <?php $__currentLoopData = $vehicleModels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($model->id); ?>" <?php if($model->id==$vehicle->vehicle_model_id): ?> <?php endif; ?>><?php echo e($model->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -77,12 +77,63 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Variant :</label>
+                            <label class="col-md-3 form-label">Width :</label>
                             <div class="col-md-9">
-                                <input type="text" name="variant" class="form-control"
-                                    value="<?php if(isset($vehicle->variant)): ?> <?php echo e($vehicle->variant); ?> <?php endif; ?>" required>
+                                <input type="text" name="width" class="form-control"
+                                    value="<?php if(isset($vehicle->width)): ?> <?php echo e($vehicle->width); ?> <?php endif; ?>">
                             </div>
                         </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Ratio :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="ratio" class="form-control"
+                                       value="<?php if(isset($vehicle->ratio)): ?> <?php echo e($vehicle->ratio); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Ratio :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="ratio" class="form-control"
+                                       value="<?php if(isset($vehicle->ratio)): ?> <?php echo e($vehicle->ratio); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Construction :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="construction" class="form-control"
+                                       value="<?php if(isset($vehicle->construction)): ?> <?php echo e($vehicle->construction); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Diameter :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="diameter" class="form-control"
+                                       value="<?php if(isset($vehicle->diameter)): ?> <?php echo e($vehicle->diameter); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Load :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="loadrating" class="form-control"
+                                       value="<?php if(isset($vehicle->loadrating)): ?> <?php echo e($vehicle->loadrating); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Speed :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="speed" class="form-control"
+                                       value="<?php if(isset($vehicle->speed)): ?> <?php echo e($vehicle->speed); ?> <?php endif; ?>">
+                            </div>
+                        </div>
+
 
                         <!-- Row -->
                         <div class="row">
@@ -127,7 +178,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Variant Approved :</label>
+                            <label class="col-md-3 form-label">Approved :</label>
                             <div class="col-md-9">
                                     <input type="checkbox" name="approved" value="1" <?php if($vehicle->approved=='1'): ?>checked <?php endif; ?>>
                             </div>
@@ -141,7 +192,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Variant</button>
+                                <button class="btn btn-success">Update Tyre Number</button>
                             </div>
                         </div>
                         <!--End Row-->
@@ -172,7 +223,7 @@
                     {
                         if (!$.trim(result)){
 
-                            $('#brand').html('<option disabled selected>No brand for this size.  Try another size</option>');
+                            $('#brand').html('<option disabled selected>No model for this brand.  Try another brand</option>');
                         }
                         else{
                             $.each( result, function(k, v) {
@@ -211,7 +262,7 @@
                 {
                     if (!$.trim(result)){
 
-                        $('#model').html('<option disabled selected>No model for this brand and category.  Try with another brand and category</option>');
+                        $('#model').html('<option disabled selected>No size for this brand and model.  Try with another brand and model</option>');
                     }
                     else{
                         $.each( result, function(k, v) {

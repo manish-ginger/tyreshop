@@ -6,10 +6,10 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Tyre Make Year</h1>
+        <h1 class="page-title">Tyre  </h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Make Year</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre  </a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -29,7 +29,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Tyre Make Year</div>
+                    <div class="card-title">Update Tyre  </div>
                 </div>
                 <form action="{{ route('vehicletyre.update') }}" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
@@ -40,10 +40,10 @@
                                value="@if (isset($vehicleTyre->id)) {{ encrypt($vehicleTyre->id) }} @endif">
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size :</label>
+                            <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option selected disabled value="">Choose Tyre Size</option>
+                                    <option selected disabled value="">Choose Tyre Brand</option>
                                     @foreach($vehicleCategories as $category)
                                         <option value="{{$category->id}}" @if($category->id==$vehicleTyre->vehicle_category_id)selected @endif>{{$category->name}}</option>
                                     @endforeach
@@ -52,10 +52,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand :</label>
+                            <label class="col-md-3 form-label">Tyre Model :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_brand_id" class="form-control"  required id="brand">
-                                    <option disabled value="">Choose Tyre brand</option>
+                                    <option disabled value="">Choose Tyre Model</option>
                                     @foreach($vehicleBrands as $brand)
                                         <option value="{{$brand->id}}" @if($brand->id==$vehicleTyre->vehicle_brand_id)selected @endif>{{$brand->name}}</option>
                                     @endforeach
@@ -66,10 +66,10 @@
 
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Model :</label>
+                            <label class="col-md-3 form-label">Tyre Size :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_model_id" class="form-control"  required id="model">
-                                    <option disabled value="">Choose Tyre model</option>
+                                    <option disabled value="">Choose Tyre Size</option>
                                     @foreach($vehicleModels as $model)
                                         <option value="{{$model->id}}" @if($model->id==$vehicleTyre->vehicle_model_id) @endif>{{$model->name}}</option>
                                     @endforeach
@@ -78,10 +78,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Variant :</label>
+                            <label class="col-md-3 form-label">Tyre Number :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_variant_id" class="form-control"  required id="variant">
-                                    <option disabled value="">Choose Variant</option>
+                                    <option disabled value="">Choose Tyre Number</option>
                                     @foreach($vehicleVariants as $variant)
                                         <option value="{{$variant->id}}" @if($variant->id==$vehicleTyre->vehicle_variant_id) @endif>{{$variant->variant}}</option>
                                     @endforeach
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Make year:</label>
+                            <label class="col-md-3 form-label">Tyre  :</label>
                             <div class="col-md-9">
                                 <input type="text" name="vehicle_tyre_year" class="form-control"
                                     value="@if (isset($vehicleTyre->vehicle_tyre_year)) {{ $vehicleTyre->vehicle_tyre_year }} @endif" required>
@@ -140,7 +140,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Year Approved :</label>
+                            <label class="col-md-3 form-label">Approved :</label>
                             <div class="col-md-9">
                                     <input type="checkbox" name="approved" value="1" @if($vehicleTyre->approved=='1')checked @endif>
                             </div>
@@ -154,7 +154,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Tyre Year</button>
+                                <button class="btn btn-success">Update Tyre </button>
                             </div>
                         </div>
                         <!--End Row-->

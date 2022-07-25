@@ -6,10 +6,10 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Tyre Model</h1>
+        <h1 class="page-title">Tyre Size</h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Size</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -29,7 +29,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Tyre Model</div>
+                    <div class="card-title">Update Tyre Size</div>
                 </div>
                 <form action="{{ route('vehiclemodel.update') }}" method="post" accept-charset="utf-8"
                       enctype="multipart/form-data">
@@ -37,10 +37,10 @@
                     <div class="card-body">
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size :</label>
+                            <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option disabled value="">Choose Tyre size</option>
+                                    <option disabled value="">Choose Tyre brand</option>
                                     @foreach($vehicleCategories as $category)
                                         <option value="{{$category->id}}" @if($vehicleModel->vehicle_category_id==$category->id)selected @endif">
                                             {{$category->name}}</option>
@@ -50,7 +50,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand :</label>
+                            <label class="col-md-3 form-label">Tyre Model :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_brand_id" class="form-control"  required id="brand">
                                     @foreach($vehicleBrands as $brand)
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Model Name :</label>
+                            <label class="col-md-3 form-label">Tyre Size Name :</label>
                             <div class="col-md-9">
                                 <input type="text" name="name" class="form-control"
                                        value="@if (isset($vehicleModel->name)) {{ $vehicleModel->name }} @endif" required>
@@ -129,7 +129,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Tyre Model</button>
+                                <button class="btn btn-success">Update Tyre Size</button>
                             </div>
                         </div>
                         <!--End Row-->

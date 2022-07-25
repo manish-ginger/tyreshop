@@ -6,10 +6,10 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Tyre Brand</h1>
+                                <h1 class="page-title">Tyre Model</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Brand</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
@@ -30,14 +30,14 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Tyre Brand</div>
+                                            <div class="card-title">Add New Tyre Model</div>
                                         </div>
                                         <form action="<?php echo e(route('vehiclebrand.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         <?php echo csrf_field(); ?>
                                         <div class="card-body">
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Size :</label>
+                                                <label class="col-md-3 form-label">Tyre Brand :</label>
                                             <div class="col-md-9">
                                                 <select name="vehicle_category_id" class="form-control"  required>
                                                     <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -48,9 +48,9 @@
                                           </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Brand Name :</label>
+                                                <label class="col-md-3 form-label">Tyre Model Name :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="name" class="form-control" placeholder="Tyre Brand Name"  required>
+                                                    <input type="text" name="name" class="form-control" placeholder="Tyre Model Name"  required>
                                                 </div>
                                             </div>
 
@@ -80,7 +80,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Tyre Brand</button> &nbsp; &nbsp;
+                                                <button class="btn btn-success">Add Tyre Model</button> &nbsp; &nbsp;
 
                                                 </div>
                                             </div>

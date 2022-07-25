@@ -4,10 +4,10 @@
 <?php $__env->startSection('content'); ?>
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Tyre Brand</h1>
+        <h1 class="page-title">Tyre Model</h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Brand</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -28,14 +28,14 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Tyre Brand</div>
+                    <div class="card-title">Update Tyre Model</div>
                 </div>
                 <form action="<?php echo e(route('vehiclebrand.update')); ?>" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <div class="card-body">
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size :</label>
+                            <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required>
                                     <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand Name :</label>
+                            <label class="col-md-3 form-label">Tyre Model Name :</label>
                             <div class="col-md-9">
                                 <input type="text" name="name" class="form-control"
                                     value="<?php if(isset($vehicleBrand->name)): ?> <?php echo e($vehicleBrand->name); ?> <?php endif; ?>" required>
@@ -111,7 +111,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Tyre Brand</button>
+                                <button class="btn btn-success">Update Tyre Model</button>
                             </div>
                         </div>
                         <!--End Row-->

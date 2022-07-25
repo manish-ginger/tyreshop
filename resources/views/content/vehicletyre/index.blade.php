@@ -14,10 +14,10 @@ use App\Models\Vehicle;
 
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Tyre Make Year</h1>
+    <h1 class="page-title">Tyre </h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Year Make</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -38,11 +38,11 @@ use App\Models\Vehicle;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Tyre Year Make List</h3>
+                <h3 class="card-title">Tyre List</h3>
                 <div class="card-options">
                     <a href="{{route('vehicletyre.create')}}" class="btn btn-primary btn-sm">
                         <i class="fe fe-plus"></i>
-                        Add New Tyre Year</a>
+                        Add New Tyre</a>
                 </div>
             </div>
             <div class="card-body">
@@ -51,11 +51,11 @@ use App\Models\Vehicle;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Tyre Make Year</th>
-                                <th class="wd-40p border-bottom-0">Variant</th>
+                                <th class="wd-40p border-bottom-0">Tyre </th>
+                                <th class="wd-40p border-bottom-0">Number</th>
+                                <th class="wd-40p border-bottom-0">Size</th>
                                 <th class="wd-40p border-bottom-0">Model</th>
                                 <th class="wd-40p border-bottom-0">Brand</th>
-                                <th class="wd-40p border-bottom-0">Category</th>
                                 <th class="wd-15p border-bottom-0">Approved</th>
                                 <th class="wd-15p border-bottom-0">Image</th>
                                 <th class="wd-15p border-bottom-0">Action</th>

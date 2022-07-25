@@ -1,23 +1,14 @@
-<?php
-use App\Models\VehicleCategory;
-use App\Models\VehicleModel;
-use App\Models\VehicleBrand;
-use App\Models\Vehicle;
-?>
-
-
 <?php $__env->startSection('styles'); ?>
 
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Tyre </h1>
+    <h1 class="page-title">Shop</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Shop</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -39,11 +30,11 @@ use App\Models\Vehicle;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Tyre List</h3>
+                <h3 class="card-title">Shops List</h3>
                 <div class="card-options">
-                    <a href="<?php echo e(route('vehicletyre.create')); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo e(route('shop.create')); ?>" class="btn btn-primary btn-sm">
                         <i class="fe fe-plus"></i>
-                        Add New Tyre</a>
+                        Add New Shop</a>
                 </div>
             </div>
             <div class="card-body">
@@ -52,55 +43,27 @@ use App\Models\Vehicle;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Tyre </th>
-                                <th class="wd-40p border-bottom-0">Number</th>
-                                <th class="wd-40p border-bottom-0">Size</th>
-                                <th class="wd-40p border-bottom-0">Model</th>
-                                <th class="wd-40p border-bottom-0">Brand</th>
+                                <th class="wd-40p border-bottom-0">Shop</th>
                                 <th class="wd-15p border-bottom-0">Approved</th>
-                                <th class="wd-15p border-bottom-0">Image</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $__currentLoopData = $rows; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $shops; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $shop): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td><?php echo e($loop->iteration); ?></td>
-                                <td><?php echo e($vehicle->vehicle_tyre_year); ?></td>
-                                <td>
-                                    <?php $vehicle_variants = Vehicle::where('id',$vehicle->vehicle_variant_id)->get();
-                                    if(isset($vehicle_variants[0]->variant)){echo $vehicle_variants[0]->variant; }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php $vehicle_models = VehicleModel::where('id',$vehicle->vehicle_model_id)->get();
-                                    if(isset($vehicle_models[0]->name)){echo $vehicle_models[0]->name; }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php
-                                    $vehicle_brands = VehicleBrand::where('id',$vehicle->vehicle_brand_id)->get();
-                                     if(isset($vehicle_brands[0]->name)){echo $vehicle_brands[0]->name; }
-                                    ?>
-                                </td>
-                                <td>
-                                    <?php $vehicle_categories = VehicleCategory::where('id',$vehicle->vehicle_category_id)->get();
-                                    if(isset($vehicle_categories[0]->name)){echo $vehicle_categories[0]->name;}
-                                    ?>
-                                </td>
-				<td><?php if($vehicle->approved==0): ?>INACTIVE  <?php else: ?> ACTIVE <?php endif; ?></td>
-                                <td>
-                                    <?php if($vehicle->image!=''): ?>
-                                        <img src="<?php echo e('/' . $vehicle->image); ?>" style="max-height: 100px; max-width: 100px;" >
-                                    <?php endif; ?>
-                                </td>
+                                <td><?php echo e($shop->name); ?></td>
+                                <td><?php if($shop->approved==0): ?>DISABLED  <?php else: ?> ENABLED <?php endif; ?></td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="<?php echo e(route('vehicletyre.edit',encrypt($vehicle->id))); ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?php echo e(route('shop.edit',encrypt($shop->id))); ?>" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="<?php echo e(route('vehicletyre.delete',encrypt($vehicle->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('shop.delete',encrypt($shop->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
                                             <span class="fe fe-trash-2"> </span>
+                                        </a>
+                                        <a href="<?php echo e(route('shop.show',encrypt($shop->id))); ?>" class="btn btn-sm btn-warning">
+                                            <span class="fe fe-eye"> </span>
                                         </a>
                                     </div>
                                 </td>
@@ -139,4 +102,6 @@ use App\Models\Vehicle;
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/vehicletyre/index.blade.php ENDPATH**/ ?>
+
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/shop/index.blade.php ENDPATH**/ ?>

@@ -12,10 +12,10 @@ use App\Models\VehicleBrand;
 
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Tyre Model</h1>
+    <h1 class="page-title">Tyre Size</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Size</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -36,11 +36,11 @@ use App\Models\VehicleBrand;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Tyre Model List</h3>
+                <h3 class="card-title">Tyre Size List</h3>
                 <div class="card-options">
                     <a href="{{route('vehiclemodel.create')}}" class="btn btn-primary btn-sm">
                         <i class="fe fe-plus"></i>
-                        Add New Tyre Model</a>
+                        Add New Tyre Size</a>
                 </div>
             </div>
             <div class="card-body">
@@ -49,9 +49,9 @@ use App\Models\VehicleBrand;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Tyre Model</th>
                                 <th class="wd-40p border-bottom-0">Tyre Size</th>
                                 <th class="wd-40p border-bottom-0">Tyre Brand</th>
+                                <th class="wd-40p border-bottom-0">Tyre Model</th>
                                 <th class="wd-40p border-bottom-0">Image</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>

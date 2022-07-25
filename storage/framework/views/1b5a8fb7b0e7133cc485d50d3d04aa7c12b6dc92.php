@@ -4,10 +4,10 @@
 <?php $__env->startSection('content'); ?>
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Tyre Make Year</h1>
+        <h1 class="page-title">Tyre  </h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Make Year</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre  </a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -28,7 +28,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Tyre Make Year</div>
+                    <div class="card-title">Update Tyre  </div>
                 </div>
                 <form action="<?php echo e(route('vehicletyre.update')); ?>" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
@@ -39,10 +39,10 @@
                                value="<?php if(isset($vehicleTyre->id)): ?> <?php echo e(encrypt($vehicleTyre->id)); ?> <?php endif; ?>">
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size :</label>
+                            <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option selected disabled value="">Choose Tyre Size</option>
+                                    <option selected disabled value="">Choose Tyre Brand</option>
                                     <?php $__currentLoopData = $vehicleCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($category->id); ?>" <?php if($category->id==$vehicleTyre->vehicle_category_id): ?>selected <?php endif; ?>><?php echo e($category->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -51,10 +51,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand :</label>
+                            <label class="col-md-3 form-label">Tyre Model :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_brand_id" class="form-control"  required id="brand">
-                                    <option disabled value="">Choose Tyre brand</option>
+                                    <option disabled value="">Choose Tyre Model</option>
                                     <?php $__currentLoopData = $vehicleBrands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($brand->id); ?>" <?php if($brand->id==$vehicleTyre->vehicle_brand_id): ?>selected <?php endif; ?>><?php echo e($brand->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -65,10 +65,10 @@
 
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Model :</label>
+                            <label class="col-md-3 form-label">Tyre Size :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_model_id" class="form-control"  required id="model">
-                                    <option disabled value="">Choose Tyre model</option>
+                                    <option disabled value="">Choose Tyre Size</option>
                                     <?php $__currentLoopData = $vehicleModels; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($model->id); ?>" <?php if($model->id==$vehicleTyre->vehicle_model_id): ?> <?php endif; ?>><?php echo e($model->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -89,7 +89,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Make year:</label>
+                            <label class="col-md-3 form-label">Tyre  :</label>
                             <div class="col-md-9">
                                 <input type="text" name="vehicle_tyre_year" class="form-control"
                                     value="<?php if(isset($vehicleTyre->vehicle_tyre_year)): ?> <?php echo e($vehicleTyre->vehicle_tyre_year); ?> <?php endif; ?>" required>
@@ -139,7 +139,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Year Approved :</label>
+                            <label class="col-md-3 form-label">Approved :</label>
                             <div class="col-md-9">
                                     <input type="checkbox" name="approved" value="1" <?php if($vehicleTyre->approved=='1'): ?>checked <?php endif; ?>>
                             </div>
@@ -153,7 +153,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Tyre Year</button>
+                                <button class="btn btn-success">Update Tyre </button>
                             </div>
                         </div>
                         <!--End Row-->

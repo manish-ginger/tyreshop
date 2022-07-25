@@ -58,14 +58,17 @@ class VehicleController extends Controller
             'vehicle_category_id' => 'required',
             'vehicle_brand_id' => 'required',
             'vehicle_model_id' => 'required',
-            'variant' => 'required',
         ]);
 
-        if(Vehicle::where('variant', 'LIKE', request('variant'))->where('vehicle_category_id',request('vehicle_category_id'))->where('vehicle_brand_id',request('vehicle_brand_id'))
+        $variant = request('width').'/'.request('ratio').' '.request('construction').request('diameter').request('loadrating').request('speed');
+
+        if(Vehicle::where('variant', 'LIKE', $variant)
+                ->where('vehicle_category_id',request('vehicle_category_id'))
+                ->where('vehicle_brand_id',request('vehicle_brand_id'))
                 ->where('vehicle_model_id',request('vehicle_model_id'))
                 ->count() > 0) {
             return redirect()->route('vehicle.create')
-                ->with('message', "Not Added. Vehicle Variant with this category,brand and model already exists.");
+                ->with('message', "Not Added. Tyre number with this brand,model and size already exists.");
         }
 
         $data = new Vehicle;
@@ -73,7 +76,13 @@ class VehicleController extends Controller
         $data->vehicle_category_id = request('vehicle_category_id');
         $data->vehicle_brand_id = request('vehicle_brand_id');
         $data->vehicle_model_id = request('vehicle_model_id');
-        $data->variant = request('variant');
+        $data->width = request('width');
+        $data->ratio = request('ratio');
+        $data->construction = request('construction');
+        $data->diameter = request('diameter');
+        $data->loadrating = request('loadrating');
+        $data->speed = request('speed');
+        $data->variant = request('width').'/'.request('ratio').' '.request('construction').request('diameter').request('loadrating').request('speed');
         $data->desc = request('desc');
         $request->has('approved') ? $approved = 1 : $approved = 0 ;
         $data->approved = $approved;
@@ -138,7 +147,6 @@ class VehicleController extends Controller
             'vehicle_category_id' => 'required',
             'vehicle_brand_id' => 'required',
             'vehicle_model_id' => 'required',
-            'variant' => 'required',
         ]);
 
 
@@ -175,12 +183,16 @@ class VehicleController extends Controller
         }
         }
 
-        if($vehicle->variant!=request('variant')) {
-            if (Vehicle::where('variant', 'LIKE', request('variant'))->where('vehicle_category_id', request('vehicle_category_id'))->where('vehicle_brand_id', request('vehicle_brand_id'))
+        $variant = request('width').'/'.request('ratio').' '.request('construction').request('diameter').request('loadrating').request('speed');
+
+        if($vehicle->variant!=$variant) {
+            if (Vehicle::where('variant', 'LIKE',$variant)
+                    ->where('vehicle_category_id', request('vehicle_category_id'))
+                    ->where('vehicle_brand_id', request('vehicle_brand_id'))
                     ->where('vehicle_model_id', request('vehicle_model_id'))
                     ->count() > 0) {
                 return redirect()->back()
-                    ->with('message', "Not Added. Vehicle Variant with this category,brand and model already exists.");
+                    ->with('message', "Not Added. Tyre Number with this brand,model and size already exists.");
             }
         }
 
@@ -189,7 +201,13 @@ class VehicleController extends Controller
             'vehicle_model_id' => request('vehicle_model_id'),
             'vehicle_category_id' => request('vehicle_category_id'),
             'vehicle_brand_id' => request('vehicle_brand_id'),
-            'variant' => request('variant'),
+            'width' => request('width'),
+            'ratio' => request('ratio'),
+            'construction' => request('construction'),
+            'diameter' => request('diameter'),
+            'loadrating' => request('loadrating'),
+            'speed' => request('speed'),
+            'variant' => request('width').'/'.request('ratio').' '.request('construction').request('diameter').request('loadrating').request('speed'),
             'desc' => request('desc'),
             'approved' => $approved,
         ]);
