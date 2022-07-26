@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/WorkingdaysController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1654146216882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1654146216882,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse App\\Models\\Workingdays;\nuse Illuminate\\Http\\Request;\nuse Session;\n\nclass WorkingdaysController extends Controller\n{\n\n    public function index()\n    {\n        $shop_id=Session::get('Shop_ID');\n        $days=array('monday','tuesday','wednesday','thursday','friday','saturday','sunday');\n        return view('content.workingdays.index', compact('days','shop_id'));\n    }\n\n\n    public function create()\n    {\n        return view('content.workingdays.create');\n    }\n\n\n    public function store(Request $request)\n    {\n        $validated = $request->validate([\n            'days' => 'required',\n            'from' => 'required',\n            'to' => 'required',\n        ]);\n\n        $data = new Workingdays();\n        $data->shop_id =Session::get('Shop_ID');\n        $data->days = request('days');\n        $data->from = request('from');\n        $data->to = request('to');\n        $data->save();\n\n        return redirect()->route('workingdays.create')\n            ->with('message', \"Working Day Saved Successfully\");\n    }\n\n\n    public function show(Workingdays $workingday)\n    {\n        //\n    }\n\n\n    public function edit(Workingdays $workingday, $workingdayId)\n    {\n        $day = decrypt($workingdayId);\n        $shop_id=Session::get('Shop_ID');\n        $workingday = Workingdays::where('days','=',$day)->where('shop_id','=',$shop_id)->first();\n        return view('content.workingdays.edit', compact('workingday','day'));\n    }\n\n\n    public function update(Request $request)\n    {\n        $validated = $request->validate([\n            'day' => 'required',\n            'from' => 'required',\n            'to' => 'required',\n        ]);\n\n        $day = request('day');\n        $shop_id=Session::get('Shop_ID');\n        $data_update = Workingdays::where('days','=',$day)->where('shop_id','=',$shop_id)->first();\n        $request->has('status') ? $status = 1 : $status = 0 ;\n\n        if (is_null($data_update)) {\n            $data = new Workingdays();\n            $data->shop_id =$shop_id;\n            $data->days = $day;\n            $data->from = request('from');\n            $data->to = request('to');\n            $data->status = $status;\n            $data->save();\n        }\n        else\n        {\n            $data_update->update([\n                'shop_id' => $shop_id,\n                'days' => $day,\n                'from' => request('from'),\n                'to' => request('to'),\n                'status' => $status,\n            ]);\n        }\n\n        return redirect()->route('workingdays')\n            ->with('message', \"Working days created successfully\");\n    }\n\n\n    public function destroy(Workingdays $workingdays,$workingdayId)\n    {\n        $id = decrypt($workingdayId);\n        $paId = WorkingDays::where('id', $id);\n        $paId->delete();\n        return redirect()->route('workingdays')\n            ->with('message', \"Working days Removed Successfully\");\n    }\n}\n"
+        }
+    ]
+}

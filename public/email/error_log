@@ -1,0 +1,54 @@
+[21-Apr-2022 04:08:36 UTC] PHP Warning:  Undefined variable $fromName in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 04:08:36 UTC] PHP Warning:  Undefined variable $from in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 04:08:36 UTC] PHP Warning:  Undefined variable $to in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 57
+[21-Apr-2022 04:08:36 UTC] PHP Warning:  Undefined variable $subject in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 57
+[21-Apr-2022 04:09:29 UTC] PHP Warning:  Undefined variable $fromName in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 216
+[21-Apr-2022 04:09:29 UTC] PHP Warning:  Undefined variable $from in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 216
+[21-Apr-2022 04:09:29 UTC] PHP Warning:  Undefined variable $to in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 221
+[21-Apr-2022 04:09:29 UTC] PHP Warning:  Undefined variable $subject in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 221
+[21-Apr-2022 04:12:08 UTC] PHP Warning:  Undefined variable $fromName in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 33
+[21-Apr-2022 04:12:08 UTC] PHP Warning:  Undefined variable $from in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 33
+[21-Apr-2022 04:12:08 UTC] PHP Warning:  Undefined variable $to in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 38
+[21-Apr-2022 04:12:08 UTC] PHP Warning:  Undefined variable $subject in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 38
+[21-Apr-2022 07:37:41 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function redirect() in /home/pwwslnlu9cgv/public_html/email/email_send.php:38
+Stack trace:
+#0 {main}
+  thrown in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 38
+[21-Apr-2022 17:18:35 UTC] PHP Fatal error:  Uncaught PHPMailer\PHPMailer\Exception: SMTP Error: Could not authenticate. in /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/PHPMailer.php:2178
+Stack trace:
+#0 /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/PHPMailer.php(1988): PHPMailer\PHPMailer\PHPMailer->smtpConnect()
+#1 /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/PHPMailer.php(1654): PHPMailer\PHPMailer\PHPMailer->smtpSend()
+#2 /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/PHPMailer.php(1492): PHPMailer\PHPMailer\PHPMailer->postSend()
+#3 /home/pwwslnlu9cgv/public_html/email/email_send.php(376): PHPMailer\PHPMailer\PHPMailer->send()
+#4 /home/pwwslnlu9cgv/public_html/email/email_send.php(46): send_to_owner()
+#5 {main}
+  thrown in /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/PHPMailer.php on line 2178
+[21-Apr-2022 17:27:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:284) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 378
+[21-Apr-2022 17:46:36 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 397
+[21-Apr-2022 17:46:55 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 397
+[21-Apr-2022 18:01:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:280) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 382
+[21-Apr-2022 18:36:07 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:36:40 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:37:00 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:38:09 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:38:30 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:39:38 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:40:10 UTC] PHP Warning:  Undefined variable $email in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 28
+[21-Apr-2022 18:41:02 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 18:41:23 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 18:55:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 18:57:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 19:06:39 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 19:06:45 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/pwwslnlu9cgv/public_html/email/vendor/phpmailer/phpmailer/src/SMTP.php:283) in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 385
+[21-Apr-2022 19:13:52 UTC] PHP Warning:  Array to string conversion in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 59
+[21-Apr-2022 19:18:14 UTC] PHP Warning:  Undefined variable $data in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 19:18:14 UTC] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home/pwwslnlu9cgv/public_html/email/email_send.php:52
+Stack trace:
+#0 {main}
+  thrown in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 19:18:14 UTC] PHP Warning:  Undefined variable $data in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 19:18:14 UTC] PHP Fatal error:  Uncaught Error: Value of type null is not callable in /home/pwwslnlu9cgv/public_html/email/email_send.php:52
+Stack trace:
+#0 {main}
+  thrown in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 52
+[21-Apr-2022 19:18:41 UTC] PHP Parse error:  syntax error, unexpected variable "$data" in /home/pwwslnlu9cgv/public_html/email/email_send.php on line 51
