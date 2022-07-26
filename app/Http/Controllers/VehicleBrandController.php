@@ -121,14 +121,14 @@ class VehicleBrandController extends Controller
     public function update_brandpershop(Request $request, VehicleBrand $vehicleBrand)
     {
         $id = request('vehicle_brand_id');
-        $vehicleBrand = VehicleBrand::find($id);
+        $vehicleCategory = VehicleCategory::find($id);
 
         $shops = '';
         if(request('shops')!='') {
             $shops = implode(', ', request('shops'));
         }
 
-        $vehicleBrand->update([
+        $vehicleCategory->update([
             'shops' => $shops,
         ]);
 

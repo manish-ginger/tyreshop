@@ -47,14 +47,14 @@ use App\Models\Shop;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Tyre Brand</th>
+
                                 <th class="wd-40p border-bottom-0">Tyre Size</th>
                                 <th class="wd-40p border-bottom-0">Shops</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $__currentLoopData = $vehicleBrands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehiclebrand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehiclebrand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
 
                                 <td>
@@ -66,12 +66,9 @@ use App\Models\Shop;
 
                                 </td>
                                 <td><?php echo e($vehiclebrand->name); ?></td>
-                                <td>
-                                    <?php
-                                    $vehicle_categories = VehicleCategory::where('id',$vehiclebrand->vehicle_category_id)->get();
-                                    if(isset($vehicle_categories[0]->name)){echo $vehicle_categories[0]->name; }
-                                    ?>
-                                </td>
+
+
+
                                 <td>
                                     <?php
                                         $shops_db = explode(',', $vehiclebrand->shops);

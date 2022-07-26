@@ -50,9 +50,9 @@
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{route('vehiclebrand')}}"><i class="side-menu__icon fe fe-hash"></i><span class="side-menu__label">Tyre Model</span></a>
                             </li>
-{{--                            <li class="slide">--}}
-{{--                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('brandpershop')}}"><i class="side-menu__icon fe fe-book-open"></i><span class="side-menu__label">Brands in Shops</span></a>--}}
-{{--                            </li>--}}
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('brandpershop')}}"><i class="side-menu__icon fe fe-book-open"></i><span class="side-menu__label">Brands in Shops</span></a>
+                            </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{route('vehiclemodel')}}"><i class="side-menu__icon fe fe-circle"></i><span class="side-menu__label">Tyre Size</span></a>
                             </li>

@@ -46,14 +46,14 @@ use App\Models\Shop;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Tyre Brand</th>
+{{--                                <th class="wd-40p border-bottom-0">Tyre Brand</th>--}}
                                 <th class="wd-40p border-bottom-0">Tyre Size</th>
                                 <th class="wd-40p border-bottom-0">Shops</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($vehicleBrands as $vehiclebrand)
+                            @foreach($vehicle_categories as $vehiclebrand)
                             <tr>
 
                                 <td>
@@ -64,12 +64,12 @@ use App\Models\Shop;
                                     {{ $loop->iteration }}
                                 </td>
                                 <td>{{ $vehiclebrand->name }}</td>
-                                <td>
-                                    @php
-                                    $vehicle_categories = VehicleCategory::where('id',$vehiclebrand->vehicle_category_id)->get();
-                                    if(isset($vehicle_categories[0]->name)){echo $vehicle_categories[0]->name; }
-                                    @endphp
-                                </td>
+{{--                                <td>--}}
+{{--                                    @php--}}
+{{--                                    $vehicle_categories = VehicleCategory::where('id',$vehiclebrand->vehicle_category_id)->get();--}}
+{{--                                    if(isset($vehicle_categories[0]->name)){echo $vehicle_categories[0]->name; }--}}
+{{--                                    @endphp--}}
+{{--                                </td>--}}
                                 <td>
                                     @php
                                         $shops_db = explode(',', $vehiclebrand->shops);

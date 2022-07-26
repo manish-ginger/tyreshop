@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class VehicleCategory extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','desc','image'];
+    protected $fillable = ['name','desc','image','shops'];
 }

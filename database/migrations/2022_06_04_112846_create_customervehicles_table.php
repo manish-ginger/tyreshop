@@ -22,6 +22,7 @@ class CreateCustomervehiclesTable extends Migration
             $table->string('brand')->nullable();
             $table->string('model')->nullable();
             $table->string('variant')->nullable();
+            $table->string('tyre')->nullable();
             $table->timestamps();
         });
     }
