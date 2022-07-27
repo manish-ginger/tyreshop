@@ -41,6 +41,7 @@ class CustomerController extends Controller
             if($notifications[0]->shop_status==1) {
                 foreach ($customers as $row) {
                     $allow_reminder=0;
+                    $wash_frequency=$row->wash_frequency;
                     if($row->notification_type==1){
                         if($notifications[0]->status==1) {
                             $content = $notifications[0]->content;
@@ -84,6 +85,17 @@ class CustomerController extends Controller
 
 //                              return view('emails.reminder', compact('details'));
                                 ChangeBookingStatus::dispatch($details);
+                                }
+
+                                $before_days_before=$days_diff-$wash_frequency;
+                                if(($before_days_before==0)||($before_days_before==1)||($before_days_before==2))
+                                {
+                                    $details->vehicle_number = $row_vehicle->vehicle_number;
+                                    $details->date = $booking->date;
+                                    $details->time = $booking->time;
+
+//                              return view('emails.reminder', compact('details'));
+                                    ChangeBookingStatus::dispatch($details);
                                 }
                             }
                         }

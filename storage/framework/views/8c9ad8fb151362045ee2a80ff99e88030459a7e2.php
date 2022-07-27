@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('styles')
+<?php $__env->startSection('styles'); ?>
     <style>
         .bootstrap-timepicker-meridian, .meridian-column
         {
@@ -9,9 +7,9 @@
     </style>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <h1 class="page-title">Service </h1>
@@ -22,12 +20,13 @@
         </div>
     </div>
     <div>
-        @if (Session::has('message'))
+        <?php if(Session::has('message')): ?>
             <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                {{ Session::get('message') }}
+                <?php echo e(Session::get('message')); ?>
+
             </div>
-        @endif
+        <?php endif; ?>
     </div>
     <!-- PAGE-HEADER END -->
 
@@ -38,9 +37,9 @@
                 <div class="card-header">
                     <div class="card-title">Update Service</div>
                 </div>
-                <form action="{{ route('feature.update') }}" method="post" accept-charset="utf-8"
+                <form action="<?php echo e(route('feature.update')); ?>" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
-                    @csrf
+                    <?php echo csrf_field(); ?>
                     <div class="card-body">
 
                         <div class="row mb-4">
@@ -48,8 +47,8 @@
                             <div class="col-md-9">
                                 <select name="feature_name" class="form-control" required>
                                     <option disabled value="">Choose Service Type</option>
-                                    @foreach ($washing_types as $washing_type)
-                                        @php
+                                    <?php $__currentLoopData = $washing_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $washing_type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <?php
                                             $c=0;
                                                 $shop_id =Session::get('Shop_ID');
                                                     $washing_type_shops=$washing_type->shops;
@@ -59,14 +58,14 @@
                                                            $c=1;
                                                        }
                                                 }
-                                        @endphp
-                                        @if($c==1)
-                                        <option value="{{$washing_type->name}}" @if($washing_type->name==$feature->feature_name) selected @endif>{{$washing_type->name}}</option>
-                                        @endif
-                                    @endforeach
+                                        ?>
+                                        <?php if($c==1): ?>
+                                        <option value="<?php echo e($washing_type->name); ?>" <?php if($washing_type->name==$feature->feature_name): ?> selected <?php endif; ?>><?php echo e($washing_type->name); ?></option>
+                                        <?php endif; ?>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <input type="hidden" name="featureid"
-                                       value="@if (isset($feature->id)) {{ encrypt($feature->id) }} @endif">
+                                       value="<?php if(isset($feature->id)): ?> <?php echo e(encrypt($feature->id)); ?> <?php endif; ?>">
 
                             </div>
                         </div>
@@ -76,9 +75,9 @@
                             <div class="col-md-9">
                                 <select name="vehicle_category" class="form-control" id="category">
                                     <option disabled value="">Choose Vehicle category</option>
-                                    @foreach ($vehicle_categories as $vehicle_category)
-                                        <option value="{{$vehicle_category->id}}" @if($vehicle_category->id==$feature->vehicle_category) selected @endif>{{$vehicle_category->name}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($vehicle_category->id); ?>" <?php if($vehicle_category->id==$feature->vehicle_category): ?> selected <?php endif; ?>><?php echo e($vehicle_category->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -87,9 +86,9 @@
                             <label class="col-md-3 form-label">Vehicle Brand :</label>
                             <div class="col-md-9">
                                 <select name="brand" class="form-control" id="brand">
-                                    @foreach ($vehicle_brands as $vehicle_brand)
-                                        <option value="{{$vehicle_brand->id}}" @if($vehicle_brand->id==$feature->brand) selected @endif>{{$vehicle_brand->name}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $vehicle_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($vehicle_brand->id); ?>" <?php if($vehicle_brand->id==$feature->brand): ?> selected <?php endif; ?>><?php echo e($vehicle_brand->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -98,29 +97,29 @@
                             <label class="col-md-3 form-label">Vehicle Model :</label>
                             <div class="col-md-9">
                                 <select name="model" class="form-control" id="model">
-                                    @foreach ($vehicle_models as $vehicle_model)
-                                        <option value="{{$vehicle_model->id}}" @if($vehicle_model->id==$feature->model) selected @endif>{{$vehicle_model->name}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $vehicle_models; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($vehicle_model->id); ?>" <?php if($vehicle_model->id==$feature->model): ?> selected <?php endif; ?>><?php echo e($vehicle_model->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
 
-{{--                        <div class="row mb-4">--}}
-{{--                            <label class="col-md-3 form-label">Vehicle Variant :</label>--}}
-{{--                            <div class="col-md-9">--}}
-{{--                                <select name="variant" class="form-control" id="variant">--}}
-{{--                                    @foreach ($variants as $variant)--}}
-{{--                                        <option value="{{$variant->id}}" @if($variant->id==$feature->variant) selected @endif>{{$variant->variant}}</option>--}}
-{{--                                    @endforeach--}}
-{{--                                </select>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
+
+
+
+
+
+
+
+
+
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label"> Actual Price :</label>
                             <div class="col-md-9">
                                 <input type="text" name="actual_price" class="form-control"
-                                value="@if (isset($feature->actual_price)) {{ $feature->actual_price }} @endif" required>
+                                value="<?php if(isset($feature->actual_price)): ?> <?php echo e($feature->actual_price); ?> <?php endif; ?>" required>
                             </div>
                         </div>
 
@@ -128,7 +127,7 @@
                             <label class="col-md-3 form-label"> Discounted Price :</label>
                             <div class="col-md-9">
                                 <input type="text" name="discounted_price" class="form-control"
-                                value="@if (isset($feature->discounted_price)) {{ $feature->discounted_price }} @endif" required>
+                                value="<?php if(isset($feature->discounted_price)): ?> <?php echo e($feature->discounted_price); ?> <?php endif; ?>" required>
                             </div>
                         </div>
 
@@ -138,8 +137,8 @@
                             <label class="col-md-3 form-label"> Percentage OR Amount:</label>
                             <div class="col-md-9">
                                 <select name="perc_or_amount" class="form-control">
-                                    <option value="percentage" @if ($feature->perc_or_amount=='percentage') selected @endif>Percentage</option>
-                                    <option value="amount" @if ($feature->perc_or_amount=='amount') selected @endif>Amount</option>
+                                    <option value="percentage" <?php if($feature->perc_or_amount=='percentage'): ?> selected <?php endif; ?>>Percentage</option>
+                                    <option value="amount" <?php if($feature->perc_or_amount=='amount'): ?> selected <?php endif; ?>>Amount</option>
                                   </select>
                             </div>
                         </div>
@@ -149,15 +148,15 @@
                             <div class="col-md-9">
                                 <select name="coupon" class="form-control" required>
                                     <option disabled>
-                                        @if(count($coupons)>0)
+                                        <?php if(count($coupons)>0): ?>
                                             Choose a coupon
-                                        @else
+                                        <?php else: ?>
                                             No coupons
-                                        @endif
+                                        <?php endif; ?>
                                     </option>
-                                    @foreach ($coupons as $coupon)
-                                        <option value="{{$coupon->id}}" @if($coupon->id==$feature->coupon) selected @endif>{{$coupon->code}}</option>
-                                    @endforeach
+                                    <?php $__currentLoopData = $coupons; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $coupon): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($coupon->id); ?>" <?php if($coupon->id==$feature->coupon): ?> selected <?php endif; ?>><?php echo e($coupon->code); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                             </div>
                         </div>
@@ -167,22 +166,22 @@
                             <label class="col-md-3 form-label"> Accessory :</label>
                             <div class="col-md-9">
                                 <input type="text" name="accessory" class="form-control"
-                                value="@if (isset($feature->accessory)) {{ $feature->accessory }} @endif">
+                                value="<?php if(isset($feature->accessory)): ?> <?php echo e($feature->accessory); ?> <?php endif; ?>">
                             </div>
                         </div>
 
-{{--                        <div class="row mb-4">--}}
-{{--                            <label class="col-md-3 form-label"> Free Services :</label>--}}
-{{--                            <div class="col-md-9">--}}
-{{--                                <input type="text" name="free_services" class="form-control"--}}
-{{--                                value="@if (isset($feature->free_services)) {{ $feature->free_services }} @endif">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+
+
+
+
+
+
+
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label"> Duration :</label>
                             <div class="col-md-9">
-                                <input id="timepicker" type="text" name="duration" class="form-control" value="@if(isset($feature->duration)){{$feature->duration}}@endif">
+                                <input id="timepicker" type="text" name="duration" class="form-control" value="<?php if(isset($feature->duration)): ?><?php echo e($feature->duration); ?><?php endif; ?>">
                             </div>
                         </div>
 
@@ -190,21 +189,21 @@
                         <div class="row mb-4">
                             <label class="col-md-3 form-label"> Loyalty Points :</label>
                             <div class="col-md-9">
-                                <input type="text" name="loyalty_points" class="form-control" value="@if (isset($feature->loyalty_points)) {{ $feature->loyalty_points }} @endif" required>
+                                <input type="text" name="loyalty_points" class="form-control" value="<?php if(isset($feature->loyalty_points)): ?> <?php echo e($feature->loyalty_points); ?> <?php endif; ?>" required>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label"> Loyalty Points Validity (Days) :</label>
                             <div class="col-md-9">
-                                <input type="text" name="loyalty_points_validity" class="form-control" value="@if (isset($feature->loyalty_points_validity)) {{ $feature->loyalty_points_validity }} @endif" required>
+                                <input type="text" name="loyalty_points_validity" class="form-control" value="<?php if(isset($feature->loyalty_points_validity)): ?> <?php echo e($feature->loyalty_points_validity); ?> <?php endif; ?>" required>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Slots :</label>
                             <div class="col-md-9">
-                                <input type="text" name="slots" class="form-control" value="@if (isset($feature->slots)) {{ $feature->slots }} @endif" required>
+                                <input type="text" name="slots" class="form-control" value="<?php if(isset($feature->slots)): ?> <?php echo e($feature->slots); ?> <?php endif; ?>" required>
                             </div>
                         </div>
 
@@ -235,18 +234,18 @@
         </div>
     </div>
     <!-- /ROW-1 CLOSED -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
     <script>
         $(function(){
             $('#category').change(function(){
                 $('#brand').find('option').remove();
                 var id = $(this).val();
                 $.ajax({
-                    url : '{{ route( 'loadBrands' ) }}',
+                    url : '<?php echo e(route( 'loadBrands' )); ?>',
                     data: {
-                        "_token": "{{ csrf_token() }}",
+                        "_token": "<?php echo e(csrf_token()); ?>",
                         "id": id
                     },
                     type: 'post',
@@ -288,9 +287,9 @@
             // alert('get_models');
             $('#model').find('option').remove();
             $.ajax({
-                url : '{{ route( 'loadModels' ) }}',
+                url : '<?php echo e(route( 'loadModels' )); ?>',
                 data: {
-                    "_token": "{{ csrf_token() }}",
+                    "_token": "<?php echo e(csrf_token()); ?>",
                     "id": id
                 },
                 type: 'post',
@@ -320,9 +319,9 @@
             // alert('get_models');
             $('#variant').find('option').remove();
             $.ajax({
-                url : '{{ route( 'loadVariants' ) }}',
+                url : '<?php echo e(route( 'loadVariants' )); ?>',
                 data: {
-                    "_token": "{{ csrf_token() }}",
+                    "_token": "<?php echo e(csrf_token()); ?>",
                     "id": id
                 },
                 type: 'post',
@@ -366,12 +365,12 @@
                 if (confirm("Are You Sure?")) {
                     $(this).closest("DIV").hide();
                     let idz = $(this).attr("id");
-                    let url = "{{ url('delete-shopimg') }}";
+                    let url = "<?php echo e(url('delete-shopimg')); ?>";
                     $.ajax({
                         url: url,
                         type: "POST",
                         data: {
-                            "_token": "{{ csrf_token() }}",
+                            "_token": "<?php echo e(csrf_token()); ?>",
                             pkmg: idz,
                         },
                         success: function(response) {
@@ -385,12 +384,12 @@
                 if (confirm("Are You Sure?")) {
                     $(this).closest("DIV").hide();
                     let idz = $(this).attr("id");
-                    let url = "{{ url('delete-shopvideo') }}";
+                    let url = "<?php echo e(url('delete-shopvideo')); ?>";
                     $.ajax({
                         url: url,
                         type: "POST",
                         data: {
-                            "_token": "{{ csrf_token() }}",
+                            "_token": "<?php echo e(csrf_token()); ?>",
                             pkvd: idz,
                         },
                         success: function(response) {
@@ -416,25 +415,27 @@
     </script>
 
     <!-- INPUT MASK JS-->
-    <script src="{{ asset('assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/plugins/input-mask/jquery.mask.min.js')); ?>"></script>
 
     <!-- INTERNAL SELECT2 JS -->
-    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script src="<?php echo e(asset('assets/plugins/select2/select2.full.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/select2.js')); ?>"></script>
 
     <!-- INTERNAL WYSIWYG Editor JS -->
-    <script src="{{ asset('assets/plugins/wysiwyag/jquery.richtext.js') }} "></script>
-    <script src="{{ asset('assets/plugins/wysiwyag/wysiwyag.js') }} "></script>
+    <script src="<?php echo e(asset('assets/plugins/wysiwyag/jquery.richtext.js')); ?> "></script>
+    <script src="<?php echo e(asset('assets/plugins/wysiwyag/wysiwyag.js')); ?> "></script>
 
     <!-- INTERNAL File-Uploads Js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+    <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.ui.widget.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.fileupload.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/fancyuploder/fancy-uploader.js')); ?>"></script>
 
     <!-- Perfect SCROLLBAR JS-->
-    <script src="{{ asset('assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
-    <script src="{{ asset('assets/plugins/p-scroll/pscroll.js') }}"></script>
-    <script src="{{ asset('assets/plugins/p-scroll/pscroll-1.js') }}"></script>
-@endsection
+    <script src="<?php echo e(asset('assets/plugins/p-scroll/perfect-scrollbar.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll-1.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/feature/edit.blade.php ENDPATH**/ ?>

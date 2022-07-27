@@ -62,7 +62,7 @@
                                 <select name="vehicle_category" class="form-control" id="category" required>
                                     <option selected disabled value="">Choose Tyre Brand</option>
                                     <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php
+                                        `<?php
                                             $c=0;
                                                 $shop_id =Session::get('Shop_ID');
                                                     $vehicle_category_shops=$vehicle_category->shops;
@@ -72,7 +72,7 @@
                                                            $c=1;
                                                        }
                                                 }
-                                        ?>
+                                        ?>`
                                     <?php if($c==1): ?>
                                         <option value="<?php echo e($vehicle_category->id); ?>"><?php echo e($vehicle_category->name); ?></option>
                                         <?php endif; ?>

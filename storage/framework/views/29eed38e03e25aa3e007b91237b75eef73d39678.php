@@ -49,7 +49,20 @@ display: none;
                                                     <select name="feature_name" class="form-control" required>
                                                         <option selected disabled value="">Choose Service Type</option>
                                                         <?php $__currentLoopData = $washing_types; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $washing_type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <?php
+                                                                $c=0;
+                                                                    $shop_id =Session::get('Shop_ID');
+                                                                        $washing_type_shops=$washing_type->shops;
+                                                                        $shops_db = explode(',', $washing_type_shops);
+                                                                        foreach ($shops_db as $row_db){
+                                                                           if($row_db==$shop_id){
+                                                                               $c=1;
+                                                                           }
+                                                                    }
+                                                            ?>
+                                                            <?php if($c==1): ?>
                                                             <option value="<?php echo e($washing_type->name); ?>"><?php echo e($washing_type->name); ?></option>
+                                                            <?php endif; ?>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                     </select>
                                                 </div>

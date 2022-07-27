@@ -51,7 +51,20 @@ display: none;
                                                     <select name="feature_name" class="form-control" required>
                                                         <option selected disabled value="">Choose Service Type</option>
                                                         @foreach ($washing_types as $washing_type)
+                                                            @php
+                                                                $c=0;
+                                                                    $shop_id =Session::get('Shop_ID');
+                                                                        $washing_type_shops=$washing_type->shops;
+                                                                        $shops_db = explode(',', $washing_type_shops);
+                                                                        foreach ($shops_db as $row_db){
+                                                                           if($row_db==$shop_id){
+                                                                               $c=1;
+                                                                           }
+                                                                    }
+                                                            @endphp
+                                                            @if($c==1)
                                                             <option value="{{$washing_type->name}}">{{$washing_type->name}}</option>
+                                                            @endif
                                                         @endforeach
                                                     </select>
                                                 </div>

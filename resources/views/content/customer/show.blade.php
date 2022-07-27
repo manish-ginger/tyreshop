@@ -71,7 +71,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Customer Wash Frequency(days) :</label>
+                            <label class="col-md-3 form-label">Customer Tyre Shop Frequency(days) :</label>
                             <div class="col-md-9">
                                     @if (isset($customer->wash_frequency)) {{ $customer->wash_frequency }} @endif
                             </div>

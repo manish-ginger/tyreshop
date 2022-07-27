@@ -18,6 +18,7 @@ class CreateWashingTypesTable extends Migration
             $table->string('name');
             $table->longText('desc')->nullable();
             $table->string('image')->nullable();
+            $table->string('shops')->nullable();
             $table->timestamps();
         });
     }

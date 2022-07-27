@@ -63,7 +63,7 @@
                                 <select name="vehicle_category" class="form-control" id="category" required>
                                     <option selected disabled value="">Choose Tyre Brand</option>
                                     @foreach ($vehicle_categories as $vehicle_category)
-                                        @php
+                                        `@php
                                             $c=0;
                                                 $shop_id =Session::get('Shop_ID');
                                                     $vehicle_category_shops=$vehicle_category->shops;
@@ -73,7 +73,7 @@
                                                            $c=1;
                                                        }
                                                 }
-                                        @endphp
+                                        @endphp`
                                     @if($c==1)
                                         <option value="{{$vehicle_category->id}}">{{$vehicle_category->name}}</option>
                                         @endif

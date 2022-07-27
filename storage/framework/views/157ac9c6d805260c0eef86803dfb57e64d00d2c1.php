@@ -94,7 +94,7 @@
 
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Customer Wash Frequency(days) :</label>
+                            <label class="col-md-3 form-label">Customer Tyre Shop Frequency(days) :</label>
                             <div class="col-md-9">
                                 <input type="text" name="wash_frequency" class="form-control"
                                        value="<?php if(isset($customer->wash_frequency)): ?> <?php echo e($customer->wash_frequency); ?> <?php endif; ?>" required>
