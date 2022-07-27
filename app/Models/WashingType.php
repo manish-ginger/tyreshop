@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class WashingType extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','desc','image'];
+    protected $fillable = ['name','desc','image','shops'];
 }

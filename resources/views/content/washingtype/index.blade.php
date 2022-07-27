@@ -8,10 +8,10 @@
 
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Washing Category</h1>
+    <h1 class="page-title">Service Type</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Washing Category</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Service Type</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -32,11 +32,11 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Washing Categories List</h3>
+                <h3 class="card-title">Service Types List</h3>
                 <div class="card-options">
                     <a href="{{route('washingtype.create')}}" class="btn btn-primary btn-sm">
                         <i class="fe fe-plus"></i>
-                        Add New Washing Category</a>
+                        Add New Service Type</a>
                 </div>
             </div>
             <div class="card-body">
@@ -45,8 +45,9 @@
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-                                <th class="wd-40p border-bottom-0">Washing Category</th>
+                                <th class="wd-40p border-bottom-0">Service Type</th>
                                 <th class="wd-15p border-bottom-0">Icon</th>
+                                <th class="wd-40p border-bottom-0">Shops</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>
                         </thead>
@@ -59,6 +60,31 @@
                                     @if($washingtype->image!='')
                                         <img src="{{ '/' . $washingtype->image }}" style="max-height: 100px; max-width: 100px;" >
                                     @endif
+                                </td>
+                                <td>
+                                    <form action="{{ route('washingtype.update_washingtypepershop') }}" method="post" accept-charset="utf-8"
+                                          enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="washingtype_id" value="{{$washingtype->id}}">
+                                    @php
+                                        $shops_db = explode(',', $washingtype->shops);
+                                        $c=0;
+                                        foreach ($shops as $row)
+                                      {
+                                    @endphp
+                                    @if($c!=0)
+                                        <hr>
+                                    @endif
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="shops[]" value="{{$row->id}}" @if(in_array($row->id,$shops_db)) checked @endif>{{$row->name}}</label>
+                                    @php
+                                        $c++;
+                                      }
+                                    @endphp
+                                        <hr>
+                                        <div class="btn-list">
+                                            <button class="btn btn-success">Update</button>
+                                        </div>
+                                    </form>
                                 </td>
                                 <td>
                                     <div class="btn-list">

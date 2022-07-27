@@ -63,7 +63,7 @@
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{route('vehicletyre')}}"><i class="side-menu__icon fe fe-aperture"></i><span class="side-menu__label">Tyre</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('washingtype')}}"><i class="side-menu__icon fe fe-droplet"></i><span class="side-menu__label">Washing Category</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('washingtype')}}"><i class="side-menu__icon fe fe-aperture"></i><span class="side-menu__label">Service Type</span></a>
                             </li>
                             <li class="slide"> <a class="side-menu__item" data-bs-toggle="slide" href="{{route('notification')}}"><i class="side-menu__icon fe fe-alert-triangle"></i><span class="side-menu__label">Notification</span></a></li>
                             <li class="slide">

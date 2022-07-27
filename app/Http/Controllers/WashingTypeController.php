@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shop;
 use App\Models\WashingType;
 use Illuminate\Http\Request;
 use File;
@@ -16,8 +17,27 @@ class WashingTypeController extends Controller
     public function index()
     {
         $washingtypes = WashingType::latest()->get();
-        return view('content.washingtype.index', compact('washingtypes'));
+        $shops = Shop::latest()->get();
+        return view('content.washingtype.index', compact('washingtypes','shops'));
     }
+
+    public function update_washingtypepershop(Request $request)
+    {
+        $id = request('washingtype_id');
+        $washingType = WashingType::find($id);
+
+        $shops = '';
+        if(request('shops')!='') {
+            $shops = implode(', ', request('shops'));
+        }
+
+        $washingType->update([
+            'shops' => $shops,
+        ]);
+
+        return redirect()->route('washingtype');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -155,6 +175,7 @@ class WashingTypeController extends Controller
         return redirect()->route('washingtype')
             ->with('message', "Washing type Updated Successfully");
     }
+
 
     /**
      * Remove the specified resource from storage.

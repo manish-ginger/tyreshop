@@ -8,10 +8,10 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Washing Categories</h1>
+                                <h1 class="page-title">Service Types</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Washing Category</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Service Type</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
@@ -31,15 +31,15 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Washing Category</div>
+                                            <div class="card-title">Add New Service Type</div>
                                         </div>
                                         <form action="{{ route('washingtype.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Washing Category Name :</label>
+                                                <label class="col-md-3 form-label">Service Type Name :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="name" class="form-control" placeholder="Washing Type Name"  required>
+                                                    <input type="text" name="name" class="form-control" placeholder="Service Type Name"  required>
                                                 </div>
                                             </div>
 
@@ -66,7 +66,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Washing Category</button> &nbsp; &nbsp;
+                                                <button class="btn btn-success">Add Service Type</button> &nbsp; &nbsp;
 
                                                 </div>
                                             </div>

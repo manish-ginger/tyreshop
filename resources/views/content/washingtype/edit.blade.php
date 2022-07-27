@@ -1,4 +1,4 @@
-   @extends('layouts.app')
+@extends('layouts.app')
 
 @section('styles')
 @endsection
@@ -6,10 +6,10 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Washing Categories</h1>
+        <h1 class="page-title">Service Types</h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Washing Category</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Service Type</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -29,14 +29,14 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Washing Category</div>
+                    <div class="card-title">Update Service Type</div>
                 </div>
                 <form action="{{ route('washingtype.update') }}" method="post" accept-charset="utf-8"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Washing Category Name :</label>
+                            <label class="col-md-3 form-label">Service Type Name :</label>
                             <div class="col-md-9">
                                 <input type="text" name="name" class="form-control"
                                     value="@if (isset($washingtype->name)) {{ $washingtype->name }} @endif" required>
@@ -100,7 +100,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Washing Category</button>
+                                <button class="btn btn-success">Update Service Type</button>
                             </div>
                         </div>
                         <!--End Row-->

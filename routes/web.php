@@ -114,6 +114,7 @@ Route::get('delete-tyresize/{vehicleModelId}', [VehicleModelController::class, '
 
 // Washing Type Routes
 Route::get('washingtype', [WashingTypeController::class, 'index'])->name('washingtype');
+Route::post('update-washingtypepershop', [WashingTypeController::class, 'update_washingtypepershop'])->name('washingtype.update_washingtypepershop');
 Route::get('add-washingtype', [WashingTypeController::class, 'create'])->name('washingtype.create');
 Route::post('save-washingtype', [WashingTypeController::class, 'store'])->name('washingtype.store');
 Route::get('edit-washingtype/{washingtypeId}', [WashingTypeController::class, 'edit'])->name('washingtype.edit');
