@@ -98,10 +98,10 @@
                                 <select name="status" class="form-control" required>
                                     <option disabled value="">Choose Service Status</option>
                                     <option value="0" @if($row->status==0) selected @endif>Booked</option>
-                                    <option value="0" @if($row->status==1) selected @endif>Waiting</option>
-                                    <option value="1" @if($row->status==2) selected @endif>Vehicle Received</option>
-                                    <option value="2" @if($row->status==3) selected @endif>Processing</option>
-                                    <option value="3" @if($row->status==4) selected @endif>Finished</option>
+                                    <option value="1" @if($row->status==1) selected @endif>Waiting</option>
+                                    <option value="2" @if($row->status==2) selected @endif>Vehicle Received</option>
+                                    <option value="3" @if($row->status==3) selected @endif>Processing</option>
+                                    <option value="4" @if($row->status==4) selected @endif>Finished</option>
                                 </select>
                             </div>
                         </div>
@@ -109,7 +109,25 @@
 
                         <br>
                         <br>
-                        <!--Row-->
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Current odometer reading :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="curr_odo_reading" class="form-control"
+                                       value="@if(isset($row->curr_odo_reading)){{$row->curr_odo_reading}}@endif">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Next booking odometer reading :</label>
+                            <div class="col-md-9">
+                                <input type="text" name="next_odo_reading" class="form-control"
+                                       value="@if(isset($row->next_odo_reading)){{$row->next_odo_reading}}@endif">
+                            </div>
+                        </div>
+
+
+
                         <br>
                         <br>
 

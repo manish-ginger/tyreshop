@@ -57,6 +57,8 @@ class ServicerecordController extends Controller
             'date' => 'required',
             'service_id' => 'required',
             'booking_type' => 'required',
+            'curr_odo_reading' => 'required',
+            'next_odo_reading' => 'required',
         ]);
 
 
@@ -73,6 +75,8 @@ class ServicerecordController extends Controller
         $data->time = request('time');
         $data->service_id = request('service_id');
         $data->booking_type = request('booking_type');
+        $data->curr_odo_reading = request('curr_odo_reading');
+        $data->next_odo_reading = request('next_odo_reading');
         $data->shop_id =Session::get('Shop_ID');
         $data->save();
 
@@ -127,6 +131,8 @@ class ServicerecordController extends Controller
             'time' => 'required',
             'service_id' => 'required',
             'booking_type' => 'required',
+            'curr_odo_reading' => 'required',
+            'next_odo_reading' => 'required',
         ]);
 
 
@@ -151,6 +157,8 @@ class ServicerecordController extends Controller
             'time' => request('time'),
             'service_id' => request('service_id'),
             'booking_type' => request('booking_type'),
+            'curr_odo_reading' => request('curr_odo_reading'),
+            'next_odo_reading' => request('next_odo_reading'),
             'shop_id' => Session::get('Shop_ID'),
         ]);
 

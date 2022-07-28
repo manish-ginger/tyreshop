@@ -1,3 +1,13 @@
+<?php
+    use App\Models\Customer;
+    use App\Models\VehicleBrand;
+    use App\Models\VehicleModel;
+    use App\Models\Vehicle;
+    use App\Models\VehicleCategory;
+    use App\Models\Feature;
+?>
+
+
 <?php $__env->startSection('styles'); ?>
 <?php $__env->stopSection(); ?>
 
@@ -27,124 +37,126 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Booking</div>
                 </div>
-                <form action="<?php echo e(route('servicerecord.update')); ?>" method="post" accept-charset="utf-8"
-                      enctype="multipart/form-data">
-                    <?php echo csrf_field(); ?>
                     <div class="card-body">
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Vehicle Number :</label>
                             <div class="col-md-9">
-                                <select name="vehicle_number" class="form-control" id="vehicle_number" required>
-                                    <option disabled value="">Choose Vehicle Number</option>
-                                    <?php $__currentLoopData = $customervehicles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customervehicle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($customervehicle->vehicle_number); ?>" <?php if($customervehicle->vehicle_number==$row->vehicle_number): ?> selected <?php endif; ?>><?php echo e($customervehicle->vehicle_number); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                                <input type="hidden" name="id"
-                                       value="<?php if(isset($row->id)): ?> <?php echo e(encrypt($row->id)); ?> <?php endif; ?>">
+                                <?php echo e($customervehicle[0]->vehicle_number); ?>
+
                             </div>
                         </div>
 
                         <div class="row mb-4">
+                            <label class="col-md-3 form-label">Owner :</label>
+                            <div class="col-md-9">
+                                    <?php
+                                        $data =Customer::where('id',$customervehicle[0]->customer_id)->get();
+                                             if(isset($data[0]->name)){echo $data[0]->name; }
+                                    ?>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Category :</label>
+                            <div class="col-md-9">
+                                    <?php
+                                        $data =VehicleCategory::where('id',$customervehicle[0]->vehicle_category)->get();
+                                             if(isset($data[0]->name)){echo $data[0]->name; }
+                                    ?>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Brand :</label>
+                            <div class="col-md-9">
+                                    <?php
+                                        $data =VehicleBrand::where('id',$customervehicle[0]->brand)->get();
+                                             if(isset($data[0]->name)){echo $data[0]->name; }
+                                    ?>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Model :</label>
+                            <div class="col-md-9">
+                                <?php
+                                    $data =VehicleModel::where('id',$customervehicle[0]->model)->get();
+                                             if(isset($data[0]->name)){echo $data[0]->name; }
+                                ?>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Variant :</label>
+                            <div class="col-md-9">
+                                <?php
+                                    $data =Vehicle::where('id',$customervehicle[0]->variant)->get();
+                                             if(isset($data[0]->variant)){echo $data[0]->variant; }
+                                ?>
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-4">
                             <label class="col-md-3 form-label">Date :</label>
                             <div class="col-md-9">
-                                <input type="date" name="date" class="form-control"
-                                       value="<?php if(isset($row->date)): ?><?php echo e($row->date); ?><?php endif; ?>" required>
+                                <?php if(isset($row->date)): ?><?php echo e($row->date); ?><?php endif; ?>
                             </div>
                         </div>
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Time :</label>
                             <div class="col-md-9">
-                                <input type="time" name="time" class="form-control"
-                                       value="<?php if(isset($row->time)): ?><?php echo e($row->time); ?><?php endif; ?>" required>
+                                <?php if(isset($row->time)): ?><?php echo e($row->time); ?><?php endif; ?>
                             </div>
                         </div>
-
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Service :</label>
                             <div class="col-md-9">
-                                <select name="service_id" class="form-control" required>
-                                    <option disabled value="">Choose Service</option>
-                                    <?php $__currentLoopData = $features; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $feature): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($feature->id); ?>" <?php if($feature->id==$row->service_id): ?> selected <?php endif; ?>><?php echo e($feature->feature_name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
+                                <?php
+                                if(isset($row->service_id)){
+                                    $data = Feature::where('id',$row->service_id)->get();
+                                    if(isset($data[0]->feature_name)){echo $data[0]->feature_name;}
+                                }
+                                ?>
                             </div>
                         </div>
+
+
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Booking Type :</label>
                             <div class="col-md-9">
-                                <select name="booking_type" class="form-control" required>
-                                    <option disabled value="">Choose Booking Type</option>
-                                    <option value="0" <?php if($row->booking_type==0): ?> selected <?php endif; ?>>Pre Booked</option>
-                                    <option value="1" <?php if($row->booking_type==1): ?> selected <?php endif; ?>>Direct</option>
-                                </select>
+                                <?php if($row->booking_type==0): ?> Pre Booked <?php endif; ?>
+                                <?php if($row->booking_type==1): ?> Direct <?php endif; ?>
                             </div>
                         </div>
-
-
 
 
                         <div class="row mb-4">
                             <label class="col-md-3 form-label">Service Status :</label>
                             <div class="col-md-9">
-                                <select name="status" class="form-control" required>
-                                    <option disabled value="">Choose Service Status</option>
-                                    <option value="0" <?php if($row->status==0): ?> selected <?php endif; ?>>Booked</option>
-                                    <option value="0" <?php if($row->status==1): ?> selected <?php endif; ?>>Waiting</option>
-                                    <option value="1" <?php if($row->status==2): ?> selected <?php endif; ?>>Vehicle Received</option>
-                                    <option value="2" <?php if($row->status==3): ?> selected <?php endif; ?>>Processing</option>
-                                    <option value="3" <?php if($row->status==4): ?> selected <?php endif; ?>>Finished</option>
-                                </select>
+                                <?php if($row->status==0): ?> Booked <?php endif; ?>
+                                <?php if($row->status==1): ?> Waiting <?php endif; ?>
+                                <?php if($row->status==2): ?> Vehicle Received <?php endif; ?>
+                                <?php if($row->status==3): ?> Processing <?php endif; ?>
+                                <?php if($row->status==4): ?> Finished <?php endif; ?>
                             </div>
                         </div>
 
 
                         <br>
                         <br>
-
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Current odometer reading :</label>
-                            <div class="col-md-9">
-                                <input type="text" name="curr_odo_reading" class="form-control"
-                                       value="<?php if(isset($row->curr_odo_reading)): ?><?php echo e($row->curr_odo_reading); ?><?php endif; ?>">
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Next booking odometer reading :</label>
-                            <div class="col-md-9">
-                                <input type="text" name="next_odo_reading" class="form-control"
-                                       value="<?php if(isset($row->next_odo_reading)): ?><?php echo e($row->next_odo_reading); ?><?php endif; ?>">
-                            </div>
-                        </div>
-
-
-
-                        <br>
-                        <br>
-
-
-
-                    </div>
-                    <div class="card-footer">
                         <!--Row-->
-                        <div class="row">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-9 text-end">
-                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Book Service</button>
-                            </div>
-                        </div>
-                        <!--End Row-->
+                        <br>
+                        <br>
+
+
+
                     </div>
-                </form>
             </div>
         </div>
     </div>
@@ -230,4 +242,4 @@
     <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll-1.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/servicerecord/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/servicerecord/show.blade.php ENDPATH**/ ?>

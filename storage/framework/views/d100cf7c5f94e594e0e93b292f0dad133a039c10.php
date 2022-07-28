@@ -101,7 +101,19 @@
                             </div>
                         </div>
 
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Current odometer reading</label>
+                            <div class="col-md-9">
+                                <input type="text" name="curr_odo_reading" class="form-control" placeholder="Current odometer reading">
+                            </div>
+                        </div>
 
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Next booking odometer reading</label>
+                            <div class="col-md-9">
+                                <input type="text" name="next_odo_reading" class="form-control" placeholder="Next booking odometer reading">
+                            </div>
+                        </div>
 
 
 

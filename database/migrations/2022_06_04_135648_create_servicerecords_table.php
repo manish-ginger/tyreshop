@@ -21,6 +21,8 @@ class CreateServicerecordsTable extends Migration
             $table->string('time')->nullable();
             $table->string('service_id')->nullable();
             $table->bigInteger('booking_type')->default(0);
+            $table->string('curr_odo_reading')->nullable();
+            $table->string('next_odo_reading')->nullable();
             $table->bigInteger('shop_id')->nullable();
             $table->timestamps();
         });

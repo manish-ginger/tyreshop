@@ -1,6 +1,6 @@
-@php
+<?php
 use App\Models\Shop;
-@endphp
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +17,7 @@ use App\Models\Shop;
             font-family: Arial, sans-serif;
         }
 
-        @media screen and (max-width: 530px) {
+        @media  screen and (max-width: 530px) {
             .unsub {
                 display: block;
                 padding: 8px;
@@ -33,7 +33,7 @@ use App\Models\Shop;
             }
         }
 
-        @media screen and (min-width: 531px) {
+        @media  screen and (min-width: 531px) {
             .col-sml {
                 max-width: 27% !important;
             }
@@ -53,7 +53,7 @@ use App\Models\Shop;
                     <table role="presentation" style="width:94%;max-width:600px;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                         <tr>
                             <td style="padding:30px;background-color:#ffffff;">
-                                @php
+                                <?php
                                     if($details->status==0){
                                                 $status_display='Booked';
                                             }
@@ -69,10 +69,10 @@ use App\Models\Shop;
                                         if($details->status==4){
                                                 $status_display='Finished';
                                             }
-                                @endphp
-                                <h1 style="margin-top:0;margin-bottom:16px;font-size:16px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Dear {{ $details->customer_name }},</h1>
-                                <h5 style="margin-top:0;margin-bottom:16px;font-size:18px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Your vehicle number {{ $details->vehicle_number }} details are given below.</h5>
-                                <h5 style="margin-top:0;margin-bottom:16px;font-size:18px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Service Status : {{$status_display}} </h5>
+                                ?>
+                                <h1 style="margin-top:0;margin-bottom:16px;font-size:16px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Dear <?php echo e($details->customer_name); ?>,</h1>
+                                <h5 style="margin-top:0;margin-bottom:16px;font-size:18px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Your vehicle number <?php echo e($details->vehicle_number); ?> details are given below.</h5>
+                                <h5 style="margin-top:0;margin-bottom:16px;font-size:18px;line-height:32px;font-weight:bold;letter-spacing:-0.02em;">Service Status : <?php echo e($status_display); ?> </h5>
                             </td>
                         </tr>
                         <tr>
@@ -81,19 +81,20 @@ use App\Models\Shop;
                                     <img src="" width="115" alt="" style="width:115px;max-width:80%;margin-bottom:20px;">
                                 </div>
                                 <div class="col-lge" style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Vehicle Number: {{ $details->vehicle_number }}</p>
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Date: {{ $details->date }}</p>
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Time: {{ $details->time }}</p>
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Status: {{$status_display}}</p>
-                                    @if($status_display=='Finished')
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Current Odometer Reading: {{$details->curr_odo_reading}}</p>
-                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Next Booking Odometer Reading: {{$details->next_odo_reading}}</p>
-                                    @endif
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Vehicle Number: <?php echo e($details->vehicle_number); ?></p>
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Date: <?php echo e($details->date); ?></p>
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Time: <?php echo e($details->time); ?></p>
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Status: <?php echo e($status_display); ?></p>
+                                    <?php if($status_display=='Finished'): ?>
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Current Odometer Reading: <?php echo e($details->curr_odo_reading); ?></p>
+                                    <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">Next Booking Odometer Reading: <?php echo e($details->next_odo_reading); ?></p>
+                                    <?php endif; ?>
                                 </div>
 
                                 <div class="col-lge" style="display:inline-block;width:100%;max-width:395px;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                                     <p style="margin-top:0;margin-bottom:18px;color:#2f3640;">QR code</p>
-                                    {!! QrCode::size(300)->generate(route('servicerecord.show',encrypt($details->id))) !!}
+                                    <?php echo QrCode::size(300)->generate(route('servicerecord.show',encrypt($details->id))); ?>
+
                                 </div>
 
 
@@ -103,10 +104,10 @@ use App\Models\Shop;
                             <td style="padding:20px;background-color:#ffffff;">
                                 <p style="margin-top:0;margin-bottom:18px;color:#969aa0;">Thanks,</p>
                                 <p style="margin-top:0;margin-bottom:18px;color:#969aa0;">
-                                    @php
+                                    <?php
                                         $data =Shop::where('id',$details->shop_id)->get();
                                              if(isset($data[0]->name)){echo $data[0]->name; }
-                                    @endphp
+                                    ?>
                                 </p>
                             </td>
                         </tr>
@@ -118,3 +119,4 @@ use App\Models\Shop;
     </div>
 </body>
 </html>
+<?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/emails/redcontact.blade.php ENDPATH**/ ?>

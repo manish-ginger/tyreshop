@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Category :</label>
+                            <label class="col-md-3 form-label">Brand :</label>
                             <div class="col-md-9">
                                     @php
                                         $data =VehicleCategory::where('id',$customervehicle[0]->vehicle_category)->get();
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Brand :</label>
+                            <label class="col-md-3 form-label">Model :</label>
                             <div class="col-md-9">
                                     @php
                                         $data =VehicleBrand::where('id',$customervehicle[0]->brand)->get();
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Model :</label>
+                            <label class="col-md-3 form-label">Size :</label>
                             <div class="col-md-9">
                                 @php
                                     $data =VehicleModel::where('id',$customervehicle[0]->model)->get();
@@ -87,7 +87,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Variant :</label>
+                            <label class="col-md-3 form-label">Number :</label>
                             <div class="col-md-9">
                                 @php
                                     $data =Vehicle::where('id',$customervehicle[0]->variant)->get();
@@ -148,7 +148,22 @@
 
                         <br>
                         <br>
-                        <!--Row-->
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Current odometer reading :</label>
+                            <div class="col-md-9">
+                                @if(isset($row->curr_odo_reading)){{$row->curr_odo_reading}}@endif
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-4">
+                            <label class="col-md-3 form-label">Next booking odometer reading :</label>
+                            <div class="col-md-9">
+                                @if(isset($row->next_odo_reading)){{$row->next_odo_reading}}@endif
+                            </div>
+                        </div>
+
                         <br>
                         <br>
 
