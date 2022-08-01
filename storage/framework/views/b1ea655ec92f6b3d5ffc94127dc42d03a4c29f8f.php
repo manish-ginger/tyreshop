@@ -1,4 +1,4 @@
-@php
+<?php
     use App\Models\Customervehicle;
     use App\Models\Customer;
     use App\Models\VehicleCategory;
@@ -7,7 +7,7 @@
     use App\Models\Package;
     use App\Models\Feature;
     use App\Models\Coupon;
-@endphp
+?>
 
 
 <style>
@@ -28,18 +28,18 @@
 </style>
 
 
-<h3 class="card-title">Booking Report {{$file_name}} </h3>
+<h3 class="card-title">Booking Report <?php echo e($file_name); ?> </h3>
 <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
     <thead>
     <tr>
         <th class="wd-5p border-bottom-0">SL</th>
-        <th class="wd-40p border-bottom-0">Cust</th>
-        <th class="wd-40p border-bottom-0">No.</th>
+        <th class="wd-40p border-bottom-0">Customer</th>
+        <th class="wd-40p border-bottom-0">Number</th>
+        <th class="wd-40p border-bottom-0">Category</th>
         <th class="wd-40p border-bottom-0">Brand</th>
         <th class="wd-40p border-bottom-0">Model</th>
-        <th class="wd-40p border-bottom-0">Size</th>
-        <th class="wd-40p border-bottom-0">Current</th>
-        <th class="wd-40p border-bottom-0">Next</th>
+        <th class="wd-40p border-bottom-0">Current Odometer</th>
+        <th class="wd-40p border-bottom-0">Next Odometer</th>
         <th class="wd-40p border-bottom-0">Status</th>
         <th class="wd-40p border-bottom-0">Type</th>
         <th class="wd-40p border-bottom-0">Time</th>
@@ -50,74 +50,75 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($rows_services as $row)
-        @php
+    <?php $__currentLoopData = $rows_services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php
             $customervehicle_data=Customervehicle::where('vehicle_number','=',$row->vehicle_number)->get();
-        @endphp
+        ?>
         <tr>
-            <td>{{ $loop->iteration }}</td>
+            <td><?php echo e($loop->iteration); ?></td>
             <td>
-                @php
+                <?php
                     $data =Customer::where('id',$customervehicle_data[0]->customer_id)->get();
                          if(isset($data[0]->name)){echo $data[0]->name; }
-                @endphp
+                ?>
             </td>
-            <td>{{ $row->vehicle_number }}</td>
+            <td><?php echo e($row->vehicle_number); ?></td>
             <td>
-                @php
+                <?php
                     $data =VehicleCategory::where('id',$customervehicle_data[0]->vehicle_category)->get();
                          if(isset($data[0]->name)){echo $data[0]->name; }
-                @endphp
+                ?>
             </td>
             <td>
-                @php
+                <?php
                     $data =VehicleBrand::where('id',$customervehicle_data[0]->brand)->get();
                          if(isset($data[0]->name)){echo $data[0]->name; }
-                @endphp
+                ?>
             </td>
             <td>
-                @php
+                <?php
                     $data =VehicleModel::where('id',$customervehicle_data[0]->model)->get();
                          if(isset($data[0]->name)){echo $data[0]->name; }
-                @endphp
+                ?>
             </td>
-            <td>{{ $row->curr_odo_reading }}</td>
-            <td>{{ $row->next_odo_reading }}</td>
+            <td><?php echo e($row->curr_odo_reading); ?></td>
+            <td><?php echo e($row->next_odo_reading); ?></td>
             <td>
-                @if($row->status==0) Waiting @endif
-                @if($row->status==1) Vehicle Received @endif
-                @if($row->status==2) Processing @endif
-                @if($row->status==3) Finished @endif
+                <?php if($row->status==0): ?> Waiting <?php endif; ?>
+                <?php if($row->status==1): ?> Vehicle Received <?php endif; ?>
+                <?php if($row->status==2): ?> Processing <?php endif; ?>
+                <?php if($row->status==3): ?> Finished <?php endif; ?>
             </td>
             <td>
-                @if($row->booking_type==0) Pre Booked @endif
-                @if($row->booking_type==1) Direct @endif
+                <?php if($row->booking_type==0): ?> Pre Booked <?php endif; ?>
+                <?php if($row->booking_type==1): ?> Direct <?php endif; ?>
             </td>
-            <td>{{ $row->time }}</td>
-            <td>{{ $row->date }}</td>
+            <td><?php echo e($row->time); ?></td>
+            <td><?php echo e($row->date); ?></td>
             <td>
-                @php
+                <?php
                     $data =Feature::where('id',$row->service_id)->get();
                          if(isset($data[0]->coupon)){
                              $coupon_data =Coupon::where('id',$data[0]->coupon)->get();
                              if(isset($coupon_data[0]->code)){echo $coupon_data[0]->code; }
                           }
-                @endphp
+                ?>
             </td>
             <td>
-                @php
+                <?php
                     $data =Feature::where('id',$row->service_id)->get();
                          if(isset($data[0]->feature_name)){echo $data[0]->feature_name; }
-                @endphp
+                ?>
             </td>
             <td>
-                @php
+                <?php
                     $data =Feature::where('id',$row->service_id)->get();
                          if(isset($data[0]->actual_price)){echo $data[0]->discounted_price;
                          }
-                @endphp
+                ?>
             </td>
         </tr>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>
 </table>
+<?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/report/pdf_booking.blade.php ENDPATH**/ ?>

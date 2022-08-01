@@ -29,7 +29,7 @@ class ServiceRecordExport implements FromCollection
         $excel_collection = collect([]);
 
         if($this->request->type=='booking') {
-            $excel_collection->prepend(['SL','Customer Name','Vehicle Number','Category','Brand','Model','Status','Type','Time','Date','Coupon','Service','Price']);
+            $excel_collection->prepend(['SL','Customer Name','Vehicle Number','Brand','Model','Size','Current Odometer','Next Odometer','Status','Type','Time','Date','Coupon','Service','Price']);
 
             $rows = ReportsController::report_booking_rows($this->request);
 
@@ -76,9 +76,11 @@ class ServiceRecordExport implements FromCollection
                     'SL' => $i,
                     'customer_name' => $customer_name,
                     'vehicle_number' => $row->vehicle_number,
-                    'category' => $vehicle_category,
-                    'brand' => $brand,
-                    'model' => $model,
+                    'brand' => $vehicle_category,
+                    'model' => $brand,
+                    'size' => $model,
+                    'current_odo' => $row->curr_odo_reading,
+                    'next_odo' => $row->next_odo_reading,
                     'status' => $status,
                     'booking_type' => $booking_type,
                     'time' => $row->time,
