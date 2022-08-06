@@ -97,10 +97,10 @@
                                 <select name="status" class="form-control" required>
                                     <option disabled value="">Choose Service Status</option>
                                     <option value="0" <?php if($row->status==0): ?> selected <?php endif; ?>>Booked</option>
-                                    <option value="0" <?php if($row->status==1): ?> selected <?php endif; ?>>Waiting</option>
-                                    <option value="1" <?php if($row->status==2): ?> selected <?php endif; ?>>Vehicle Received</option>
-                                    <option value="2" <?php if($row->status==3): ?> selected <?php endif; ?>>Processing</option>
-                                    <option value="3" <?php if($row->status==4): ?> selected <?php endif; ?>>Finished</option>
+                                    <option value="1" <?php if($row->status==1): ?> selected <?php endif; ?>>Waiting</option>
+                                    <option value="2" <?php if($row->status==2): ?> selected <?php endif; ?>>Vehicle Received</option>
+                                    <option value="3" <?php if($row->status==3): ?> selected <?php endif; ?>>Processing</option>
+                                    <option value="4" <?php if($row->status==4): ?> selected <?php endif; ?>>Finished</option>
                                 </select>
                             </div>
                         </div>

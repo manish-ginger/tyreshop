@@ -58,6 +58,7 @@
                             <label class="col-md-3 form-label">Customer Type :</label>
                             <div class="col-md-9">
                                 <select name="cust_type" class="form-control">
+                                    <option disabled value="">Choose Customer Type</option>
                                     <option value="owner" @if ($customer->cust_type=='owner') selected @endif>Owner</option>
                                     <option value="driver" @if ($customer->cust_type=='driver') selected @endif>Driver</option>
                                     <option value="manager" @if ($customer->cust_type=='manager') selected @endif>Manager</option>
@@ -127,6 +128,7 @@
                         <label class="col-md-3 form-label">Notification Type :</label>
                         <div class="col-md-9">
                             <select name="notification_type" class="form-control" id="notification_type" required>
+                                <option disabled value="">Choose Notification Type</option>
                                 <option value="0" @if ($customer->notification_type=='0') selected @endif>Disable</option>
                                 <option value="1" @if ($customer->notification_type=='1') selected @endif>Default</option>
                                 <option value="2" @if ($customer->notification_type=='2') selected @endif>Manual</option>

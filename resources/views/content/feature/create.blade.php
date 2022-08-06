@@ -131,6 +131,7 @@ display: none;
                                                 <label class="col-md-3 form-label"> Percentage OR Amount :</label>
                                                 <div class="col-md-9">
                                                     <select name="perc_or_amount" class="form-control" required>
+                                                        <option disabled value="" selected>Choose Percentage OR Amount</option>
                                                         <option value="percentage">Percentage</option>
                                                         <option value="amount">Amount</option>
                                                       </select>

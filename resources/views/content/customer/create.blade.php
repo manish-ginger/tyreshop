@@ -56,6 +56,7 @@
                                                 <label class="col-md-3 form-label">Customer Type :</label>
                                                 <div class="col-md-9">
                                                     <select name="cust_type" class="form-control" required>
+                                                        <option disabled value="" selected>Choose Customer Type</option>
                                                         <option value="owner">Owner</option>
                                                         <option value="driver">Driver</option>
                                                         <option value="manager">Manager</option>
@@ -88,7 +89,7 @@
                                             <div class="row mb-4">
                                                 <label class="col-md-3 form-label">Customer Tyre Shop Frequency(days) :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="wash_frequency" class="form-control" placeholder="Customer Wash Frequency">
+                                                    <input type="text" name="wash_frequency" class="form-control" placeholder="Customer Tyre Shop Frequency">
                                                 </div>
                                             </div>
 
@@ -107,6 +108,7 @@
                                                 <label class="col-md-3 form-label">Notification Type :</label>
                                                 <div class="col-md-9">
                                                     <select name="notification_type" class="form-control" id="notification_type" required>
+                                                        <option disabled value="" selected>Choose Notification Type</option>
                                                         <option value="0">Disable</option>
                                                         <option value="1" selected>Default</option>
                                                         <option value="2">Manual</option>

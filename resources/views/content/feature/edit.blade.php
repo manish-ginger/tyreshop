@@ -138,6 +138,7 @@
                             <label class="col-md-3 form-label"> Percentage OR Amount:</label>
                             <div class="col-md-9">
                                 <select name="perc_or_amount" class="form-control">
+                                    <option disabled value="">Choose Percentage OR Amount</option>
                                     <option value="percentage" @if ($feature->perc_or_amount=='percentage') selected @endif>Percentage</option>
                                     <option value="amount" @if ($feature->perc_or_amount=='amount') selected @endif>Amount</option>
                                   </select>
