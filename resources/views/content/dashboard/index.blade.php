@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="mt-2 text-white">
-                                        <h6 class="">Vehicles</h6>
+                                        <h6 class="">Tyre Number</h6>
                                         <h2 class="mb-0 number-font">{{ $vehicleCount }}</h2>
                                     </div>
                                     <div class="ms-auto">
@@ -81,7 +81,7 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="mt-2 text-white">
-                                        <h6 class="">Vehicles Category</h6>
+                                        <h6 class="">Tyre Brand</h6>
                                         <h2 class="mb-0 number-font">{{ $vehicleCategoryCount }}</h2>
                                     </div>
                                     <div class="ms-auto">
@@ -98,11 +98,11 @@
                             <div class="card-body">
                                 <div class="d-flex">
                                     <div class="mt-2 text-white">
-                                        <h6 class="">Washing Type</h6>
+                                        <h6 class="">Service Type</h6>
                                         <h2 class="mb-0 number-font">{{ $washingTypeCount }}</h2>
                                     </div>
                                     <div class="ms-auto">
-                                        <i class="fe fe-droplet fs-40 text-white mt-4"></i>
+                                        <i class="fe fe-aperture fs-40 text-white mt-4"></i>
                                     </div>
                                 </div>
                             </div>

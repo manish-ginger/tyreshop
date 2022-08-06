@@ -40,7 +40,7 @@
                             <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option disabled value="">Choose Tyre brand</option>
+                                    <option disabled value="">Choose Tyre Brand</option>
                                     @foreach($vehicleCategories as $category)
                                         <option value="{{$category->id}}" @if($vehicleModel->vehicle_category_id==$category->id)selected @endif">
                                             {{$category->name}}</option>

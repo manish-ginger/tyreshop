@@ -39,6 +39,7 @@
                             <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required>
+                                    <option disabled value="">Choose Tyre Brand</option>
                                     @foreach($vehicle_categories as $vehicle_category)
                                         <option value="{{$vehicle_category->id}}" @if($vehicle_category->id==$vehicleBrand->vehicle_category_id)selected @endif >{{$vehicle_category->name}}</option>
                                     @endforeach

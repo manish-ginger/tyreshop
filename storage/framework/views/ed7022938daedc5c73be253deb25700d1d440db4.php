@@ -1,9 +1,3 @@
-<?php
-use App\Models\VehicleCategory;
-use App\Models\Shop;
-?>
-
-
 <?php $__env->startSection('styles'); ?>
 
 <?php $__env->stopSection(); ?>
@@ -12,10 +6,10 @@ use App\Models\Shop;
 
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Brand per Shop</h1>
+    <h1 class="page-title">Role</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Brand per Shop</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Role</a></li>
             <li class="breadcrumb-item active" aria-current="page">List</li>
         </ol>
     </div>
@@ -37,8 +31,11 @@ use App\Models\Shop;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Brand per Shop List</h3>
+                <h3 class="card-title">Roles List</h3>
                 <div class="card-options">
+                    <a href="<?php echo e(route('role.create')); ?>" class="btn btn-primary btn-sm">
+                        <i class="fe fe-plus"></i>
+                        Add New Role</a>
                 </div>
             </div>
             <div class="card-body">
@@ -47,49 +44,27 @@ use App\Models\Shop;
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
-
-                                <th class="wd-40p border-bottom-0">Tyre Brand</th>
-                                <th class="wd-40p border-bottom-0">Shops</th>
+                                <th class="wd-40p border-bottom-0">Name</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehiclebrand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-
-                                <td>
-                                    <form action="<?php echo e(route('vehiclebrand.update_brandpershop')); ?>" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
-                                        <?php echo csrf_field(); ?>
-                                    <input type="hidden" name="vehicle_brand_id" value="<?php echo e($vehiclebrand->id); ?>">
-                                    <?php echo e($loop->iteration); ?>
-
-                                </td>
-                                <td><?php echo e($vehiclebrand->name); ?></td>
-
-
-
-                                <td>
-                                    <?php
-                                        $shops_db = explode(',', $vehiclebrand->shops);
-                                        $c=0;
-                                        foreach ($shops as $row)
-                                      {
-                                    ?>
-                                    <?php if($c!=0): ?>
-                                        <hr>
-                                    <?php endif; ?>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" name="shops[]" value="<?php echo e($row->id); ?>" <?php if(in_array($row->id,$shops_db)): ?> checked <?php endif; ?>><?php echo e($row->name); ?></label>
-                                    <?php
-                                        $c++;
-                                      }
-                                    ?>
-                                </td>
+                                <td><?php echo e($loop->iteration); ?></td>
+                                <td><?php echo e($role->name); ?></td>
                                 <td>
                                     <div class="btn-list">
-                                        <button class="btn btn-success">Update</button>
+                                        <a href="<?php echo e(route('role.edit',encrypt($role->id))); ?>" class="btn btn-sm btn-primary">
+                                            <span class="fe fe-edit"> </span>
+                                        </a>
+                                        <a href="<?php echo e(route('role.delete',encrypt($role->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                            <span class="fe fe-trash-2"> </span>
+                                        </a>
+                                        <a href="<?php echo e(route('role.show',encrypt($role->id))); ?>" class="btn btn-sm btn-warning">
+                                            <span class="fe fe-eye"> </span>
+                                        </a>
                                     </div>
-                                    </form>
                                 </td>
                             </tr>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -126,4 +101,4 @@ use App\Models\Shop;
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/brandpershop/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/role/index.blade.php ENDPATH**/ ?>

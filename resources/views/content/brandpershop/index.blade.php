@@ -47,7 +47,7 @@ use App\Models\Shop;
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
 {{--                                <th class="wd-40p border-bottom-0">Tyre Brand</th>--}}
-                                <th class="wd-40p border-bottom-0">Tyre Size</th>
+                                <th class="wd-40p border-bottom-0">Tyre Brand</th>
                                 <th class="wd-40p border-bottom-0">Shops</th>
                                 <th class="wd-15p border-bottom-0">Action</th>
                             </tr>

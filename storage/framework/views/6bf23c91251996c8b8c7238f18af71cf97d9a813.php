@@ -6,10 +6,10 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Tyre Model</h1>
+                                <h1 class="page-title">Service Types</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Service Type</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
@@ -30,31 +30,17 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Tyre Model</div>
+                                            <div class="card-title">Add New Service Type</div>
                                         </div>
-                                        <form action="<?php echo e(route('vehiclebrand.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
+                                        <form action="<?php echo e(route('washingtype.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         <?php echo csrf_field(); ?>
                                         <div class="card-body">
-
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Brand :</label>
-                                            <div class="col-md-9">
-                                                <select name="vehicle_category_id" class="form-control"  required>
-                                                    <option disabled value="" selected>Choose Tyre Brand</option>
-                                                    <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <option value="<?php echo e($vehicle_category->id); ?>"><?php echo e($vehicle_category->name); ?></option>
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                </select>
-                                            </div>
-                                          </div>
-
-                                            <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Model Name :</label>
+                                                <label class="col-md-3 form-label">Service Type Name :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="name" class="form-control" placeholder="Tyre Model Name"  required>
+                                                    <input type="text" name="name" class="form-control" placeholder="Service Type Name"  required>
                                                 </div>
                                             </div>
-
 
                                             <!-- Row -->
                                             <div class="row">
@@ -65,10 +51,8 @@
                                             </div>
                                             <!--End Row-->
 
-                                            <br><br>
-
                                             <div class="row">
-                                                <label class="col-md-3 form-label mb-4">Icon : </label>
+                                                <label class="col-md-3 form-label mb-4">Image : </label>
                                                 <div class="col-md-9">
                                                     <input class="form-control" type="file" name="image">
                                                 </div>
@@ -81,7 +65,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Tyre Model</button> &nbsp; &nbsp;
+                                                <button class="btn btn-success">Add Service Type</button> &nbsp; &nbsp;
 
                                                 </div>
                                             </div>
@@ -96,6 +80,18 @@
             <?php $__env->stopSection(); ?>
 
         <?php $__env->startSection('scripts'); ?>
+        <script>
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+
+            togglePassword.addEventListener('click', function (e) {
+              // toggle the type attribute
+              const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+              password.setAttribute('type', type);
+              // toggle the eye slash icon
+              this.classList.toggle('fa-eye-slash');
+          });
+        </script>
 
         <!-- INPUT MASK JS-->
         <script src="<?php echo e(asset('assets/plugins/input-mask/jquery.mask.min.js')); ?>"></script>
@@ -122,4 +118,4 @@
 
         <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/vehiclebrand/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/washingtype/create.blade.php ENDPATH**/ ?>

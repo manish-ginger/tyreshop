@@ -61,6 +61,7 @@
                                                 <label class="col-md-3 form-label">Role :</label>
                                             <div class="col-md-9">
                                                 <select name="role_id" class="form-control"  required>
+                                                    <option disabled value="" selected>Choose Role</option>
                                                     @foreach($roles as $row)
                                                         <option value="{{$row->id}}">{{$row->name}}</option>
                                                     @endforeach
@@ -72,6 +73,7 @@
                                                 <label class="col-md-3 form-label">Shop :</label>
                                                 <div class="col-md-9">
                                                     <select name="shop_id" class="form-control"  required>
+                                                        <option disabled value="" selected>Choose Shop</option>
                                                         @foreach($shops as $row)
                                                             <option value="{{$row->id}}">{{$row->name}}</option>
                                                         @endforeach

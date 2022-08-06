@@ -6,17 +6,17 @@
 
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
-                                <h1 class="page-title">Tyre Model</h1>
+                                <h1 class="page-title">Users</h1>
                                 <div>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Model</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add</li>
                                     </ol>
                                 </div>
                             </div>
                     <div>
                     <?php if(Session::has('message')): ?>
-                    <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                    <div class="alert alert-info" user="alert" style="margin-bottom: 25px;">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
                     <?php echo e(Session::get('message')); ?>
 
@@ -30,49 +30,56 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <div class="card-title">Add New Tyre Model</div>
+                                            <div class="card-title">Add New User</div>
                                         </div>
-                                        <form action="<?php echo e(route('vehiclebrand.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
+                                        <form action="<?php echo e(route('user.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         <?php echo csrf_field(); ?>
                                         <div class="card-body">
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Name :</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                                </div>
+                                            </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Brand :</label>
+                                                <label class="col-md-3 form-label">Email :</label>
+                                                <div class="col-md-9">
+                                                    <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Password :</label>
+                                                <div class="col-md-9">
+                                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <label class="col-md-3 form-label">Role :</label>
                                             <div class="col-md-9">
-                                                <select name="vehicle_category_id" class="form-control"  required>
-                                                    <option disabled value="" selected>Choose Tyre Brand</option>
-                                                    <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                        <option value="<?php echo e($vehicle_category->id); ?>"><?php echo e($vehicle_category->name); ?></option>
+                                                <select name="role_id" class="form-control"  required>
+                                                    <option disabled value="" selected>Choose Role</option>
+                                                    <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                        <option value="<?php echo e($row->id); ?>"><?php echo e($row->name); ?></option>
                                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </select>
                                             </div>
-                                          </div>
+                                            </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Tyre Model Name :</label>
+                                                <label class="col-md-3 form-label">Shop :</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="name" class="form-control" placeholder="Tyre Model Name"  required>
+                                                    <select name="shop_id" class="form-control"  required>
+                                                        <option disabled value="" selected>Choose Shop</option>
+                                                        <?php $__currentLoopData = $shops; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($row->id); ?>"><?php echo e($row->name); ?></option>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
-
-                                            <!-- Row -->
-                                            <div class="row">
-                                                <label class="col-md-3 form-label mb-4">Description :</label>
-                                                <div class="col-md-9 mb-4">
-                                                    <textarea class="content" name="desc" placeholder="Description"></textarea>
-                                                </div>
-                                            </div>
-                                            <!--End Row-->
-
-                                            <br><br>
-
-                                            <div class="row">
-                                                <label class="col-md-3 form-label mb-4">Icon : </label>
-                                                <div class="col-md-9">
-                                                    <input class="form-control" type="file" name="image">
-                                                </div>
-                                            </div>
 
                                         </div>
                                         <div class="card-footer">
@@ -81,7 +88,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
-                                                <button class="btn btn-success">Add Tyre Model</button> &nbsp; &nbsp;
+                                                <button class="btn btn-success">Add User</button> &nbsp; &nbsp;
 
                                                 </div>
                                             </div>
@@ -96,6 +103,18 @@
             <?php $__env->stopSection(); ?>
 
         <?php $__env->startSection('scripts'); ?>
+        <script>
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+
+            togglePassword.addEventListener('click', function (e) {
+              // toggle the type attribute
+              const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+              password.setAttribute('type', type);
+              // toggle the eye slash icon
+              this.classList.toggle('fa-eye-slash');
+          });
+        </script>
 
         <!-- INPUT MASK JS-->
         <script src="<?php echo e(asset('assets/plugins/input-mask/jquery.mask.min.js')); ?>"></script>
@@ -122,4 +141,4 @@
 
         <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/vehiclebrand/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/user/create.blade.php ENDPATH**/ ?>

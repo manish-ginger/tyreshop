@@ -77,10 +77,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Variant :</label>
+                            <label class="col-md-3 form-label">Tyre Number :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_variant_id" class="form-control"  required id="variant">
-                                    <option disabled value="">Choose Variant</option>
+                                    <option disabled value="">Choose Tyre Number</option>
                                     <?php $__currentLoopData = $vehicleVariants; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $variant): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($variant->id); ?>" <?php if($variant->id==$vehicleTyre->vehicle_variant_id): ?> <?php endif; ?>><?php echo e($variant->variant); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

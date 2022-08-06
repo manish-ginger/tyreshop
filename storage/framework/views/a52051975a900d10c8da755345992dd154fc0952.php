@@ -38,6 +38,7 @@
                             <label class="col-md-3 form-label">Tyre Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category_id" class="form-control"  required>
+                                    <option disabled value="">Choose Tyre Brand</option>
                                     <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($vehicle_category->id); ?>" <?php if($vehicle_category->id==$vehicleBrand->vehicle_category_id): ?>selected <?php endif; ?> ><?php echo e($vehicle_category->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

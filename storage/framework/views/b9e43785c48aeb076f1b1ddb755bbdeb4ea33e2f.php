@@ -4,10 +4,10 @@
 <?php $__env->startSection('content'); ?>
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Tyre Size</h1>
+        <h1 class="page-title">Service Types</h1>
         <div>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Tyre Size</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Service Type</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Add</li>
             </ol>
         </div>
@@ -28,72 +28,43 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">Update Tyre Size</div>
+                    <div class="card-title">Update Service Type</div>
                 </div>
-                <form action="<?php echo e(route('vehiclemodel.update')); ?>" method="post" accept-charset="utf-8"
-                      enctype="multipart/form-data">
+                <form action="<?php echo e(route('washingtype.update')); ?>" method="post" accept-charset="utf-8"
+                    enctype="multipart/form-data">
                     <?php echo csrf_field(); ?>
                     <div class="card-body">
-
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Brand :</label>
-                            <div class="col-md-9">
-                                <select name="vehicle_category_id" class="form-control"  required id="category">
-                                    <option disabled value="">Choose Tyre Brand</option>
-                                    <?php $__currentLoopData = $vehicleCategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($category->id); ?>" <?php if($vehicleModel->vehicle_category_id==$category->id): ?>selected <?php endif; ?>">
-                                            <?php echo e($category->name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Model :</label>
-                            <div class="col-md-9">
-                                <select name="vehicle_brand_id" class="form-control"  required id="brand">
-                                    <?php $__currentLoopData = $vehicleBrands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($brand->id); ?>" <?php if($vehicleModel->vehicle_brand_id==$brand->id): ?>selected <?php endif; ?>>
-                                            <?php echo e($brand->name); ?></option>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <label class="col-md-3 form-label">Tyre Size Name :</label>
+                            <label class="col-md-3 form-label">Service Type Name :</label>
                             <div class="col-md-9">
                                 <input type="text" name="name" class="form-control"
-                                       value="<?php if(isset($vehicleModel->name)): ?> <?php echo e($vehicleModel->name); ?> <?php endif; ?>" required>
-                                <input type="hidden" name="vehicle_model_id"
-                                       value="<?php if(isset($vehicleModel->id)): ?> <?php echo e(encrypt($vehicleModel->id)); ?> <?php endif; ?>">
+                                    value="<?php if(isset($washingtype->name)): ?> <?php echo e($washingtype->name); ?> <?php endif; ?>" required>
+                                <input type="hidden" name="washingtypeid"
+                                    value="<?php if(isset($washingtype->id)): ?> <?php echo e(encrypt($washingtype->id)); ?> <?php endif; ?>">
                             </div>
                         </div>
-
-
-
 
                         <!-- Row -->
                         <div class="row">
                             <label class="col-md-3 form-label mb-4">Description :</label>
                             <div class="col-md-9 mb-4">
                                 <textarea class="content" name="desc" placeholder="Description">
-                                                    <?php if(isset($vehicleModel->desc)): ?>
-                                        <?php echo $vehicleModel->desc ?>
+                                                    <?php if(isset($washingtype->desc)): ?>
+                                    <?php echo $washingtype->desc ?>
                                     <?php endif; ?>
                                                     </textarea>
                             </div>
                         </div>
-                        <!--End Row-->
 
-                        <?php if($vehicleModel->image!=''): ?>
+
+                        <?php if($washingtype->image!=''): ?>
                             <div class="row">
-                                <label class="col-md-3 form-label mb-4">Image:</label>
+                                <label class="col-md-3 form-label mb-4">Icon:</label>
                                 <div class="col-md-9">
                                     <div class="col-md-12">
                                         <ul class="row col-md-12">
                                             <div class="float-left col-md-4">
-                                                <img src="<?php echo e('/' . $vehicleModel->image); ?>" class="img-responsive col-md-4" id="image_src">
+                                                <img src="<?php echo e('/' . $washingtype->image); ?>" class="img-responsive col-md-4" id="image_src">
                                                 <button class="btn btn-icon  btn-danger" id="delete_image"><i class="fe fe-trash"></i></button>
                                                 <input type="hidden" name="verify_file" id="verify_file" value="1">
                                             </div>
@@ -112,7 +83,7 @@
                             </div>
                         </div>
 
-
+                        <!--End Row-->
                         <br>
                         <br>
                         <!--Row-->
@@ -128,7 +99,7 @@
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
-                                <button class="btn btn-success">Update Tyre Size</button>
+                                <button class="btn btn-success">Update Service Type</button>
                             </div>
                         </div>
                         <!--End Row-->
@@ -141,51 +112,70 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('scripts'); ?>
+<script>
+    $(document).ready(function() {
+        $("#delete_image").click(function(e) {
+            e.preventDefault();
+            $("#verify_file").val("0");
+            $("#image_input").val("");
+            $('#image_src').attr('src','');
+
+        });
+    });
+</script>
+
 
     <script>
-        $(function(){
-            $('#category').change(function(){
-                $('#brand').find('option').remove();
-                var id = $(this).val();
-                $.ajax({
-                    url : '<?php echo e(route( 'loadBrands' )); ?>',
-                    data: {
-                        "_token": "<?php echo e(csrf_token()); ?>",
-                        "id": id
-                    },
-                    type: 'post',
-                    dataType: 'json',
-                    success: function( result )
-                    {
-                        if (!$.trim(result)){
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
 
-                            $('#brand').html('<option disabled selected>No brand for this size.  Try another size</option>');
-                        }
-                        else{
-                            $.each( result, function(k, v) {
-                                $('#brand').append($('<option>', {value:k, text:v}));
-                            });
-                        }
-                    },
-                    error: function()
-                    {
-                        //handle errors
-                        swal('Error');
-                    }
-                });
-            });
-        });
-    </script>
-
-
+    togglePassword.addEventListener('click', function (e) {
+      // toggle the type attribute
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+      // toggle the eye slash icon
+      this.classList.toggle('fa-eye-slash');
+  });
+</script>
     <script>
         $(document).ready(function() {
-            $("#delete_image").click(function(e) {
+            $(".packimg-del").click(function(e) {
                 e.preventDefault();
-                $("#verify_file").val("0");
-                $("#image_input").val("");
-                $('#image_src').attr('src','');
-
+                if (confirm("Are You Sure?")) {
+                    $(this).closest("DIV").hide();
+                    let idz = $(this).attr("id");
+                    let url = "<?php echo e(url('delete-washing typeimg')); ?>";
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        data: {
+                            "_token": "<?php echo e(csrf_token()); ?>",
+                            pkmg: idz,
+                        },
+                        success: function(response) {
+                            alert(response.message);
+                        },
+                    });
+                }
+            });
+            $(".packvid-del").click(function(e) {
+                e.preventDefault();
+                if (confirm("Are You Sure?")) {
+                    $(this).closest("DIV").hide();
+                    let idz = $(this).attr("id");
+                    let url = "<?php echo e(url('delete-shopvideo')); ?>";
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        data: {
+                            "_token": "<?php echo e(csrf_token()); ?>",
+                            pkvd: idz,
+                        },
+                        success: function(response) {
+                            alert(response.message);
+                        },
+                    });
+                }
             });
         });
     </script>
@@ -213,4 +203,4 @@
     <script src="<?php echo e(asset('assets/plugins/p-scroll/pscroll-1.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/vehiclemodel/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/washingtype/edit.blade.php ENDPATH**/ ?>
