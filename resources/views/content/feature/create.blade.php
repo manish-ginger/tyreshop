@@ -71,10 +71,10 @@ display: none;
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Vehicle Category :</label>
+                                                <label class="col-md-3 form-label">Brand :</label>
                                                 <div class="col-md-9">
                                                     <select name="vehicle_category" class="form-control" id="category">
-                                                        <option selected disabled value="">Choose Vehicle Category</option>
+                                                        <option selected disabled value="">Choose Brand</option>
                                                         @foreach ($vehicle_categories as $vehicle_category)
                                                             <option value="{{$vehicle_category->id}}">{{$vehicle_category->name}}</option>
                                                         @endforeach
@@ -83,7 +83,7 @@ display: none;
                                             </div>
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Vehicle Brand :</label>
+                                                <label class="col-md-3 form-label">Model :</label>
                                                 <div class="col-md-9">
                                                     <select name="brand" class="form-control" id="brand">
                                                     </select>
@@ -92,7 +92,7 @@ display: none;
 
 
                                             <div class="row mb-4">
-                                                <label class="col-md-3 form-label">Vehicle Model :</label>
+                                                <label class="col-md-3 form-label"> Size:</label>
                                                 <div class="col-md-9">
                                                     <select name="model" class="form-control" id="model">
                                                     </select>
@@ -239,7 +239,7 @@ display: none;
                             {
                                 if (!$.trim(result)){
 
-                                    $('#brand').html('<option disabled selected>No brand for this category.  Try another category</option>');
+                                    $('#brand').html('<option disabled selected>No model.  Try another</option>');
                                 }
                                 else{
                                     $.each( result, function(k, v) {
@@ -283,7 +283,7 @@ display: none;
                         {
                             if (!$.trim(result)){
 
-                                $('#model').html('<option disabled selected>No model for this brand and category.  Try with another brand and category</option>');
+                                $('#model').html('<option disabled selected>No size.  Try with another</option>');
                             }
                             else{
                                 $.each( result, function(k, v) {
@@ -315,7 +315,7 @@ display: none;
                         {
                             if (!$.trim(result)){
 
-                                $('#variant').html('<option disabled selected>No variant for this brand,category and model.  Try with another </option>');
+                                $('#variant').html('<option disabled selected>No number.  Try with another </option>');
                             }
                             else{
                                 $.each( result, function(k, v) {

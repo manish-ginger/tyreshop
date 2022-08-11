@@ -71,10 +71,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Category :</label>
+                            <label class="col-md-3 form-label">Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category" class="form-control" id="category">
-                                    <option disabled value="">Choose Vehicle category</option>
+                                    <option disabled value="">Choose Brand</option>
                                     <?php $__currentLoopData = $vehicle_categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <option value="<?php echo e($vehicle_category->id); ?>" <?php if($vehicle_category->id==$feature->vehicle_category): ?> selected <?php endif; ?>><?php echo e($vehicle_category->name); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Brand :</label>
+                            <label class="col-md-3 form-label">Model :</label>
                             <div class="col-md-9">
                                 <select name="brand" class="form-control" id="brand">
                                     <?php $__currentLoopData = $vehicle_brands; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Model :</label>
+                            <label class="col-md-3 form-label">Size :</label>
                             <div class="col-md-9">
                                 <select name="model" class="form-control" id="model">
                                     <?php $__currentLoopData = $vehicle_models; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vehicle_model): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -137,6 +137,7 @@
                             <label class="col-md-3 form-label"> Percentage OR Amount:</label>
                             <div class="col-md-9">
                                 <select name="perc_or_amount" class="form-control">
+                                    <option disabled value="">Choose Percentage OR Amount</option>
                                     <option value="percentage" <?php if($feature->perc_or_amount=='percentage'): ?> selected <?php endif; ?>>Percentage</option>
                                     <option value="amount" <?php if($feature->perc_or_amount=='amount'): ?> selected <?php endif; ?>>Amount</option>
                                   </select>
@@ -254,7 +255,7 @@
                     {
                         if (!$.trim(result)){
 
-                            $('#brand').html('<option disabled selected>No brand for this category.  Try another category</option>');
+                            $('#brand').html('<option disabled selected>No model.  Try another</option>');
                         }
                         else{
                             $.each( result, function(k, v) {
@@ -298,7 +299,7 @@
                 {
                     if (!$.trim(result)){
 
-                        $('#model').html('<option disabled selected>No model for this brand and category.  Try with another brand and category</option>');
+                        $('#model').html('<option disabled selected>No size.  Try with another</option>');
                     }
                     else{
                         $.each( result, function(k, v) {
@@ -330,7 +331,7 @@
                 {
                     if (!$.trim(result)){
 
-                        $('#variant').html('<option disabled selected>No variant for this brand,category and model.  Try with another </option>');
+                        $('#variant').html('<option disabled selected>No number.  Try with another </option>');
                     }
                     else{
                         $.each( result, function(k, v) {

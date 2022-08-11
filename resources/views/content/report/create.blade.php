@@ -53,7 +53,7 @@ $actual_price_sum=0;
                                                         <tr>
                                                             <th class="wd-40p border-bottom-0">From</th>
                                                             <th class="wd-40p border-bottom-0">To</th>
-                                                            <th class="wd-40p border-bottom-0">Vehicle Category</th>
+                                                            <th class="wd-40p border-bottom-0">Brand</th>
                                                             <th class="wd-40p border-bottom-0">Customer Name</th>
                                                             <th class="wd-15p border-bottom-0">Vehicle Number</th>
                                                             <th class="wd-15p border-bottom-0">Coupon</th>

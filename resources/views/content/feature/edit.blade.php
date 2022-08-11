@@ -72,10 +72,10 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Category :</label>
+                            <label class="col-md-3 form-label">Brand :</label>
                             <div class="col-md-9">
                                 <select name="vehicle_category" class="form-control" id="category">
-                                    <option disabled value="">Choose Vehicle category</option>
+                                    <option disabled value="">Choose Brand</option>
                                     @foreach ($vehicle_categories as $vehicle_category)
                                         <option value="{{$vehicle_category->id}}" @if($vehicle_category->id==$feature->vehicle_category) selected @endif>{{$vehicle_category->name}}</option>
                                     @endforeach
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Brand :</label>
+                            <label class="col-md-3 form-label">Model :</label>
                             <div class="col-md-9">
                                 <select name="brand" class="form-control" id="brand">
                                     @foreach ($vehicle_brands as $vehicle_brand)
@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Model :</label>
+                            <label class="col-md-3 form-label">Size :</label>
                             <div class="col-md-9">
                                 <select name="model" class="form-control" id="model">
                                     @foreach ($vehicle_models as $vehicle_model)
@@ -256,7 +256,7 @@
                     {
                         if (!$.trim(result)){
 
-                            $('#brand').html('<option disabled selected>No brand for this category.  Try another category</option>');
+                            $('#brand').html('<option disabled selected>No model.  Try another</option>');
                         }
                         else{
                             $.each( result, function(k, v) {
@@ -300,7 +300,7 @@
                 {
                     if (!$.trim(result)){
 
-                        $('#model').html('<option disabled selected>No model for this brand and category.  Try with another brand and category</option>');
+                        $('#model').html('<option disabled selected>No size.  Try with another</option>');
                     }
                     else{
                         $.each( result, function(k, v) {
@@ -332,7 +332,7 @@
                 {
                     if (!$.trim(result)){
 
-                        $('#variant').html('<option disabled selected>No variant for this brand,category and model.  Try with another </option>');
+                        $('#variant').html('<option disabled selected>No number.  Try with another </option>');
                     }
                     else{
                         $.each( result, function(k, v) {

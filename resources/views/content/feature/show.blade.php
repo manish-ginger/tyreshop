@@ -35,7 +35,7 @@ use App\Models\Coupon;
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Category :</label>
+                            <label class="col-md-3 form-label">Brand :</label>
                             <div class="col-md-9">
                                     @foreach ($vehicle_categories as $vehicle_category)
                                         @if($vehicle_category->id==$feature->vehicle_category) {{$vehicle_category->name}} @endif
@@ -44,7 +44,7 @@ use App\Models\Coupon;
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Brand :</label>
+                            <label class="col-md-3 form-label">Model :</label>
                             <div class="col-md-9">
                                     @foreach ($vehicle_brands as $vehicle_brand)
                                         @if($vehicle_brand->id==$feature->brand) {{$vehicle_brand->name}} @endif
@@ -53,7 +53,7 @@ use App\Models\Coupon;
                         </div>
 
                         <div class="row mb-4">
-                            <label class="col-md-3 form-label">Vehicle Model :</label>
+                            <label class="col-md-3 form-label">Size :</label>
                             <div class="col-md-9">
                                     @foreach ($vehicle_models as $vehicle_model)
                                         @if($vehicle_model->id==$feature->model) {{$vehicle_model->name}} @endif

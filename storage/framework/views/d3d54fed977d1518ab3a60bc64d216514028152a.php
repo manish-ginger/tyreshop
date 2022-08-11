@@ -57,7 +57,7 @@ use App\Http\Middleware\CheckAdminLogged;
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
                                 <th class="wd-40p border-bottom-0">Name</th>
-                                <th class="wd-40p border-bottom-0">Category</th>
+                                <th class="wd-40p border-bottom-0">Brand</th>
                                 <th class="wd-40p border-bottom-0">Duration</th>
                                 <th class="wd-15p border-bottom-0">Loyalty</th>
                                 <th class="wd-15p border-bottom-0">Loyalty Validity</th>

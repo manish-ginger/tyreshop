@@ -33,13 +33,13 @@
     <thead>
     <tr>
         <th class="wd-5p border-bottom-0">SL</th>
-        <th class="wd-40p border-bottom-0">Customer</th>
-        <th class="wd-40p border-bottom-0">Number</th>
-        <th class="wd-40p border-bottom-0">Category</th>
+        <th class="wd-40p border-bottom-0">Cust</th>
+        <th class="wd-40p border-bottom-0">No.</th>
         <th class="wd-40p border-bottom-0">Brand</th>
         <th class="wd-40p border-bottom-0">Model</th>
-        <th class="wd-40p border-bottom-0">Current Odometer</th>
-        <th class="wd-40p border-bottom-0">Next Odometer</th>
+        <th class="wd-40p border-bottom-0">Size</th>
+        <th class="wd-40p border-bottom-0">Current</th>
+        <th class="wd-40p border-bottom-0">Next</th>
         <th class="wd-40p border-bottom-0">Status</th>
         <th class="wd-40p border-bottom-0">Type</th>
         <th class="wd-40p border-bottom-0">Time</th>
