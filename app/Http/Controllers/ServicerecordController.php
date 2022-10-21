@@ -174,6 +174,7 @@ class ServicerecordController extends Controller
             $details->id = $id;
             $details->mto = $customer[0]->email;
             $details->type = 'booking_status';
+            $details->title = 'TyreShop Service Status';
 
             ChangeBookingStatus::dispatch($details);
 

@@ -165,14 +165,14 @@ class CouponController extends Controller
         }
 
         if($data->title!=request('title')){
-            if(Coupons::where('title', 'LIKE', request('title'))->count() > 0) {
+            if(Coupon::where('title', 'LIKE', request('title'))->count() > 0) {
                 return redirect()->route('coupon')
                     ->with('message', "Not Updated. Coupon with this name already exists.");
             }
         }
 
         if($data->code!=request('code')){
-            if(Coupons::where('code', 'LIKE', request('code'))->count() > 0) {
+            if(Coupon::where('code', 'LIKE', request('code'))->count() > 0) {
                 return redirect()->route('coupon')
                     ->with('message', "Not Updated. Coupon Code already exists.");
             }
