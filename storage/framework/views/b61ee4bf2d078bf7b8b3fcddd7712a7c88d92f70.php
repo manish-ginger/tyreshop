@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('styles'); ?>
 
 <?php $__env->stopSection(); ?>
@@ -17,7 +15,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -53,7 +51,7 @@
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
+                                <tr id="<?php echo e($banner->id); ?>">
                                 <td><?php echo e($loop->iteration); ?></td>
                                 <td><?php echo e($banner->caption); ?></td>
                                 <td><img src="/<?php echo e($banner->path); ?>" class="img-responsive col-md-3"></td>
@@ -62,7 +60,7 @@
                                         <a href="<?php echo e(route('banner.edit',encrypt($banner->id))); ?>" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="<?php echo e(route('banner.delete',encrypt($banner->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('banner.delete',encrypt($banner->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($banner->id); ?>">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>
@@ -101,4 +99,5 @@
 <script src="<?php echo e(asset('assets/js/table-data.js')); ?>"></script>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/content/banner/index.blade.php ENDPATH**/ ?>

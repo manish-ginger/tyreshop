@@ -16,7 +16,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -51,7 +51,7 @@
                         </thead>
                         <tbody>
                             @foreach($shops as $shop)
-                            <tr>
+                                <tr id="{{$shop->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $shop->name }}</td>
                                 <td>@if($shop->approved==0)DISABLED  @else ENABLED @endif</td>
@@ -60,7 +60,7 @@
                                         <a href="{{ route('shop.edit',encrypt($shop->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('shop.delete',encrypt($shop->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('shop.delete',encrypt($shop->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$shop->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         <a href="{{ route('shop.show',encrypt($shop->id))}}" class="btn btn-sm btn-warning">

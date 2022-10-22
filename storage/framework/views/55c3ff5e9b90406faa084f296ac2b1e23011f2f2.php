@@ -59,7 +59,7 @@ use App\Models\Shop;
 
                                 <td>
                                     <form action="<?php echo e(route('vehiclebrand.update_brandpershop')); ?>" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" class="AjaxUpdateForms">
                                         <?php echo csrf_field(); ?>
                                     <input type="hidden" name="vehicle_brand_id" value="<?php echo e($vehiclebrand->id); ?>">
                                     <?php echo e($loop->iteration); ?>

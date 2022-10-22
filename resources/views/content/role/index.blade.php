@@ -17,7 +17,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -51,7 +51,7 @@
                         </thead>
                         <tbody>
                             @foreach($roles as $role)
-                            <tr>
+                                <tr id="{{$role->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>
@@ -59,7 +59,7 @@
                                         <a href="{{ route('role.edit',encrypt($role->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('role.delete',encrypt($role->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('role.delete',encrypt($role->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$role->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         <a href="{{ route('role.show',encrypt($role->id)) }}" class="btn btn-sm btn-warning">

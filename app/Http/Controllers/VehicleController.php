@@ -67,8 +67,9 @@ class VehicleController extends Controller
                 ->where('vehicle_brand_id',request('vehicle_brand_id'))
                 ->where('vehicle_model_id',request('vehicle_model_id'))
                 ->count() > 0) {
-            return redirect()->route('vehicle.create')
-                ->with('message', "Not Added. Tyre number with this brand,model and size already exists.");
+            return 2;
+//            return redirect()->route('vehicle.create')
+//                ->with('message', "Not Added. Tyre number with this brand,model and size already exists.");
         }
 
         $data = new Vehicle;
@@ -102,9 +103,9 @@ class VehicleController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('vehicle.create')
-            ->with('message', "Vehicle Saved Successfully");
+        return 1;
+//        return redirect()->route('vehicle.create')
+//            ->with('message', "Vehicle Saved Successfully");
     }
 
     /**
@@ -191,8 +192,9 @@ class VehicleController extends Controller
                     ->where('vehicle_brand_id', request('vehicle_brand_id'))
                     ->where('vehicle_model_id', request('vehicle_model_id'))
                     ->count() > 0) {
-                return redirect()->back()
-                    ->with('message', "Not Added. Tyre Number with this brand,model and size already exists.");
+                return 2;
+//                return redirect()->back()
+//                    ->with('message', "Not Added. Tyre Number with this brand,model and size already exists.");
             }
         }
 
@@ -212,8 +214,9 @@ class VehicleController extends Controller
             'approved' => $approved,
         ]);
 
-        return redirect()->route('vehicle')
-            ->with('message', "Vehicle Updated Successfully");
+        return 1;
+//        return redirect()->route('vehicle')
+//            ->with('message', "Vehicle Updated Successfully");
     }
 
     /**
@@ -227,7 +230,8 @@ class VehicleController extends Controller
         $id = decrypt($vehicleId);
         $paId = Vehicle::where('id', $id);
         $paId->delete();
-        return redirect()->route('vehicle')
-            ->with('message', "Vehicle Removed Successfully");
+        return 1;
+//        return redirect()->route('vehicle')
+//            ->with('message', "Vehicle Removed Successfully");
     }
 }

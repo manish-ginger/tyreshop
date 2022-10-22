@@ -15,7 +15,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -50,7 +50,7 @@
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $roles; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $role): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
+                                <tr id="<?php echo e($role->id); ?>">
                                 <td><?php echo e($loop->iteration); ?></td>
                                 <td><?php echo e($role->name); ?></td>
                                 <td>
@@ -58,7 +58,7 @@
                                         <a href="<?php echo e(route('role.edit',encrypt($role->id))); ?>" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="<?php echo e(route('role.delete',encrypt($role->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('role.delete',encrypt($role->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($role->id); ?>">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         <a href="<?php echo e(route('role.show',encrypt($role->id))); ?>" class="btn btn-sm btn-warning">

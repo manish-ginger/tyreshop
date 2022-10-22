@@ -60,8 +60,9 @@ class VehicleTyreController extends Controller
                 ->where('vehicle_model_id',request('vehicle_model_id'))
                 ->where('vehicle_variant_id',request('vehicle_variant_id'))
                 ->count() > 0) {
-            return redirect()->route('vehicletyre.create')
-                ->with('message', "Not Added. Vehicle Tyre with this category,brand,model and variant already exists.");
+            return 2;
+//            return redirect()->route('vehicletyre.create')
+//                ->with('message', "Not Added. Vehicle Tyre with this category,brand,model and variant already exists.");
         }
 
 
@@ -90,9 +91,9 @@ class VehicleTyreController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('vehicletyre.create')
-            ->with('message', "Vehicle Tyre Saved Successfully");
+        return 1;
+//        return redirect()->route('vehicletyre.create')
+//            ->with('message', "Vehicle Tyre Saved Successfully");
     }
 
     public function show(Vehicle $vehicle)
@@ -165,8 +166,9 @@ class VehicleTyreController extends Controller
                     ->where('vehicle_model_id', request('vehicle_model_id'))
                     ->where('vehicle_variant_id', request('vehicle_variant_id'))
                     ->count() > 0) {
-                return redirect()->back()
-                    ->with('message', "Not Added. Vehicle Tyre with this category,brand,model and variant already exists.");
+                return 2;
+//                return redirect()->back()
+//                    ->with('message', "Not Added. Vehicle Tyre with this category,brand,model and variant already exists.");
             }
         }
 
@@ -181,8 +183,9 @@ class VehicleTyreController extends Controller
             'approved' => $approved,
         ]);
 
-        return redirect()->route('vehicletyre')
-            ->with('message', "Vehicle Tyre Updated Successfully");
+        return 1;
+//        return redirect()->route('vehicletyre')
+//            ->with('message', "Vehicle Tyre Updated Successfully");
     }
 
     public function destroy(Vehicle $vehicle,$vehicleTyreId)
@@ -190,7 +193,8 @@ class VehicleTyreController extends Controller
         $id = decrypt($vehicleTyreId);
         $paId = VehicleTyre::where('id', $id);
         $paId->delete();
-        return redirect()->route('vehicletyre')
-            ->with('message', "Vehicle Tyre Removed Successfully");
+        return 1;
+//        return redirect()->route('vehicletyre')
+//            ->with('message', "Vehicle Tyre Removed Successfully");
     }
 }

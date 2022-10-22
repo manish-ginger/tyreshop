@@ -30,8 +30,9 @@ class RoleController extends Controller
         ]);
 
         if(Role::where('name', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('role.create')
-                ->with('message', "Not Added. Role with this name already exists.");
+            return 2;
+//            return redirect()->route('role.create')
+//                ->with('message', "Not Added. Role with this name already exists.");
         }
 
 
@@ -41,9 +42,9 @@ class RoleController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('role.create')
-            ->with('message', "Role Saved Successfully");
+        return 1;
+//        return redirect()->route('role.create')
+//            ->with('message', "Role Saved Successfully");
     }
 
     public function show(Role $role,$roleId)
@@ -74,8 +75,9 @@ class RoleController extends Controller
 
         if ($role->name != request('name')){
             if (Role::where('name', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('role.create')
-                    ->with('message', "Not Added. Role with this name already exists.");
+                return 2;
+//                return redirect()->route('role.create')
+//                    ->with('message', "Not Added. Role with this name already exists.");
             }
         }
 
@@ -84,9 +86,9 @@ class RoleController extends Controller
             'permission' => json_encode(request('permission')),
         ]);
 
-
-        return redirect()->route('role')
-            ->with('message', "Role Updated Successfully");
+        return 1;
+//        return redirect()->route('role')
+//            ->with('message', "Role Updated Successfully");
     }
 
     public function destroy(Role $role,$roleId)
@@ -94,7 +96,8 @@ class RoleController extends Controller
         $id = decrypt($roleId);
         $paId = Role::where('id', $id);
         $paId->delete();
-        return redirect()->route('role')
-            ->with('message', "Role Removed Successfully");
+        return 1;
+//        return redirect()->route('role')
+//            ->with('message', "Role Removed Successfully");
     }
 }

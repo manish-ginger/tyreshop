@@ -53,18 +53,21 @@ class ShopController extends Controller
 
 
         if(Shop::where('name', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('shop.create')
-                ->with('message', "Not Added. Shop name with this name already exists.");
+            return 2;
+//            return redirect()->route('shop.create')
+//                ->with('message', "Not Added. Shop name with this name already exists.");
         }
 
         if(Shop::where('email', 'LIKE', request('email'))->count() > 0) {
-            return redirect()->route('shop.create')
-                ->with('message', "Not Added. Shop with this email already exists.");
+            return 2;
+//            return redirect()->route('shop.create')
+//                ->with('message', "Not Added. Shop with this email already exists.");
         }
 
         if(User::where('email', 'LIKE', request('email'))->count() > 0) {
-            return redirect()->route('shop.create')
-                ->with('message', "Not Added. User with this email already exists.");
+            return 2;
+//            return redirect()->route('shop.create')
+//                ->with('message', "Not Added. User with this email already exists.");
         }
 
         $data = new Shop;
@@ -103,8 +106,9 @@ class ShopController extends Controller
         $data->desc = request('desc');
         $data->save();
         }
-        return redirect()->route('shop.create')
-            ->with('message', "Shop Saved Successfully");
+        return 1;
+//        return redirect()->route('shop.create')
+//            ->with('message', "Shop Saved Successfully");
     }
 
     /**
@@ -202,16 +206,18 @@ class ShopController extends Controller
 
         if($shop->name!=request('name')) {
             if (Shop::where('name', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('shop')
-                    ->with('message', "Not Added. Shop name with this name already exists.");
+                return 2;
+//                return redirect()->route('shop')
+//                    ->with('message', "Not Added. Shop name with this name already exists.");
             }
         }
 
 
         if($shop->email!=request('email')) {
             if (User::where('email', 'LIKE', request('email'))->count() > 0) {
-                return redirect()->route('shop')
-                    ->with('message', "Not Added. User with this email already exists.");
+                return 2;
+//                return redirect()->route('shop')
+//                    ->with('message', "Not Added. User with this email already exists.");
             }
         }
 
@@ -232,9 +238,9 @@ class ShopController extends Controller
             ]);
         }
 
-
-        return redirect()->route('shop')
-            ->with('message', "Shop Updated Successfully");
+        return 1;
+//        return redirect()->route('shop')
+//            ->with('message', "Shop Updated Successfully");
     }
 
 
@@ -282,8 +288,9 @@ class ShopController extends Controller
 
         $paId = Shop::where('id', $id);
         $paId->delete();
-        return redirect()->route('shop')
-            ->with('message', "Shop Removed Successfully");
+        return 1;
+//        return redirect()->route('shop')
+//            ->with('message', "Shop Removed Successfully");
     }
 
 }

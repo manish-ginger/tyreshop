@@ -35,7 +35,8 @@ class WashingTypeController extends Controller
             'shops' => $shops,
         ]);
 
-        return redirect()->route('washingtype');
+        return 1;
+//        return redirect()->route('washingtype');
     }
 
 
@@ -62,8 +63,9 @@ class WashingTypeController extends Controller
         ]);
 
         if(WashingType::where('name', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('washingtype.create')
-                ->with('message', "Not Added. Washing type with this name already exists.");
+            return 2;
+//            return redirect()->route('washingtype.create')
+//                ->with('message', "Not Added. Washing type with this name already exists.");
         }
 
 
@@ -87,9 +89,9 @@ class WashingTypeController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('washingtype.create')
-            ->with('message', "Washing type Saved Successfully");
+        return 1;
+//        return redirect()->route('washingtype.create')
+//            ->with('message', "Washing type Saved Successfully");
     }
 
     /**
@@ -109,9 +111,9 @@ class WashingTypeController extends Controller
      * @param  \App\Models\WashingType  $washingType
      * @return \Illuminate\Http\Response
      */
-    public function edit(WashingType $washingType,$washingTypeId)
+    public function edit(WashingType $washingType,$servicetypeId)
     {
-        $id = decrypt($washingTypeId);
+        $id = decrypt($servicetypeId);
         $washingtype = WashingType::find($id);
         return view('content.washingtype.edit', compact('washingtype'));
     }
@@ -161,8 +163,9 @@ class WashingTypeController extends Controller
 
         if ($washingtype->name != request('name')){
             if (WashingType::where('name', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('washingtype.create')
-                    ->with('message', "Not Added. Washing type with this name already exists.");
+                return 2;
+//                return redirect()->route('washingtype.create')
+//                    ->with('message', "Not Added. Washing type with this name already exists.");
             }
         }
 
@@ -171,9 +174,9 @@ class WashingTypeController extends Controller
             'desc' => request('desc'),
         ]);
 
-
-        return redirect()->route('washingtype')
-            ->with('message', "Washing type Updated Successfully");
+        return 1;
+//        return redirect()->route('washingtype')
+//            ->with('message', "Washing type Updated Successfully");
     }
 
 
@@ -183,12 +186,13 @@ class WashingTypeController extends Controller
      * @param  \App\Models\WashingType  $washingType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WashingType $washingType,$washingTypeId)
+    public function destroy(WashingType $washingType,$servicetypeId)
     {
-        $id = decrypt($washingTypeId);
+        $id = decrypt($servicetypeId);
         $paId = WashingType::where('id', $id);
         $paId->delete();
-        return redirect()->route('washingtype')
-            ->with('message', "Washing type Removed Successfully");
+        return 1;
+//        return redirect()->route('washingtype')
+//            ->with('message', "Washing type Removed Successfully");
     }
 }

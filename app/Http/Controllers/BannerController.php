@@ -57,8 +57,9 @@ class BannerController extends Controller
                     $insert['path'] = $path;
              }
         banner::insert($insert);
-        return redirect()->route('banner.create')
-        ->with('message',"Banner Saved Successfully");
+        return 1;
+//        return redirect()->route('banner.create')
+//        ->with('message',"Banner Saved Successfully");
     }
 
     /**
@@ -123,8 +124,8 @@ class BannerController extends Controller
                 'image' => $name,
             ]);
         }
-
-        return redirect()->route('banner.create')->with('message', "Banner Updated Successfully");
+        return 1;
+//        return redirect()->route('banner.create')->with('message', "Banner Updated Successfully");
     }
 
     /**
@@ -138,7 +139,8 @@ class BannerController extends Controller
         $id = decrypt($bannerId);
         $baId = Banner::where('id',$id);
         $baId->delete();
-        return redirect()->route('banner')
-        ->with('message',"Removed Successfully");
+        return 1;
+//        return redirect()->route('banner')
+//        ->with('message',"Removed Successfully");
     }
 }

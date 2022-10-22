@@ -74,8 +74,9 @@ class NotificationController extends Controller
 //            ]);
 //        }
 
-        return redirect()->route('notification')
-            ->with('message', "Notification Settings Saved Successfully");
+        return 1;
+//        return redirect()->route('notification')
+//            ->with('message', "Notification Settings Saved Successfully");
     }
 
     /**

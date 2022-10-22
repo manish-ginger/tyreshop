@@ -58,7 +58,7 @@ use App\Models\Shop;
 
                                 <td>
                                     <form action="{{ route('vehiclebrand.update_brandpershop') }}" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" class="AjaxUpdateForms">
                                         @csrf
                                     <input type="hidden" name="vehicle_brand_id" value="{{$vehiclebrand->id}}">
                                     {{ $loop->iteration }}

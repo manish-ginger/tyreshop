@@ -17,7 +17,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -52,7 +52,7 @@
                         </thead>
                         <tbody>
                             @foreach($banners as $banner)
-                            <tr>
+                                <tr id="{{$banner->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $banner->caption }}</td>
                                 <td><img src="/{{ $banner->path }}" class="img-responsive col-md-3"></td>
@@ -61,7 +61,7 @@
                                         <a href="{{ route('banner.edit',encrypt($banner->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('banner.delete',encrypt($banner->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('banner.delete',encrypt($banner->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$banner->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>

@@ -15,14 +15,7 @@
             </ol>
         </div>
     </div>
-    <div>
-        @if(Session::has('message'))
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                {{ Session::get('message') }}
-            </div>
-        @endif
-    </div>
+
     <!-- PAGE-HEADER END -->
 
     <!-- Row -->
@@ -45,7 +38,7 @@
                             <tr>
                                 <td>
                                     <form action="{{ route('notification.store') }}" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" id="submitAjaxUpdate">
                                         @csrf
 
                                         @if(count($shops)>0)
@@ -61,10 +54,19 @@
                                 <td>
                                     <button class="btn btn-success">Save</button>
                                     </form>
+
                                 </td>
                             </tr>
                             </tbody>
                         </table>
+                        <div class="alert_show">
+                            @if(Session::has('message'))
+                                <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                    {{ Session::get('message') }}
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

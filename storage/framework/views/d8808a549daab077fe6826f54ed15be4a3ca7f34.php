@@ -21,7 +21,7 @@ use App\Models\Shop;
         </div>
 
     </div>
-    <div>
+    <div class="alert_show">
         <?php if(Session::has('message')): ?>
             <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -60,7 +60,7 @@ use App\Models\Shop;
                             <tbody>
                             <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php if($user->name!='Admin'): ?>
-                                <tr>
+                                <tr id="<?php echo e($user->id); ?>">
                                     <td><?php echo e($loop->iteration); ?></td>
                                     <td><?php echo e($user->name); ?></td>
                                     <td><?php echo e($user->email); ?></td>
@@ -81,7 +81,7 @@ use App\Models\Shop;
                                             <a href="<?php echo e(route('user.edit',encrypt($user->id))); ?>" class="btn btn-sm btn-primary">
                                                 <span class="fe fe-edit"> </span>
                                             </a>
-                                            <a href="<?php echo e(route('user.delete',encrypt($user->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                            <a href="<?php echo e(route('user.delete',encrypt($user->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($user->id); ?>">
                                                 <span class="fe fe-trash-2"> </span>
                                             </a>
                                             <a href="<?php echo e(route('user.show',encrypt($user->id))); ?>" class="btn btn-sm btn-warning">

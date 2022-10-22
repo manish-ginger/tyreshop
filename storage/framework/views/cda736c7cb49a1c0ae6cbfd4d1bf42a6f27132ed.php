@@ -66,7 +66,7 @@
                                         <h2 class="mb-0 number-font"><?php echo e($vehicleCount); ?></h2>
                                     </div>
                                     <div class="ms-auto">
-                                        <i class=" lnr lnr-circle fs-30 text-white mt-4"></i>
+                                        <i class=" lnr lnr-car fs-30 text-white mt-4"></i>
                                     </div>
                                 </div>
                             </div>

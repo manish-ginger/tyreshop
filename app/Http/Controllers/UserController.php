@@ -38,13 +38,15 @@ class UserController extends Controller
         ]);
 
         if(User::where('name', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('user.create')
-                ->with('message', "Not Added. User with this name already exists.");
+            return 2;
+//            return redirect()->route('user.create')
+//                ->with('message', "Not Added. User with this name already exists.");
         }
 
         if(User::where('email', 'LIKE', request('email'))->count() > 0) {
-            return redirect()->route('user.create')
-                ->with('message', "Not Added. User with this email already exists.");
+            return 2;
+//            return redirect()->route('user.create')
+//                ->with('message', "Not Added. User with this email already exists.");
         }
 
 
@@ -58,9 +60,9 @@ class UserController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('user.create')
-            ->with('message', "User Saved Successfully");
+        return 1;
+//        return redirect()->route('user.create')
+//            ->with('message', "User Saved Successfully");
     }
 
     public function show(User $user,$userId)
@@ -93,15 +95,17 @@ class UserController extends Controller
 
         if ($user->name != request('name')){
             if (User::where('name', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('user.create')
-                    ->with('message', "Not Added. User with this name already exists.");
+                return 2;
+//                return redirect()->route('user.create')
+//                    ->with('message', "Not Added. User with this name already exists.");
             }
         }
 
         if ($user->email != request('email')){
             if (User::where('email', 'LIKE', request('email'))->count() > 0) {
-                return redirect()->route('user.create')
-                    ->with('message', "Not Added. User with this email already exists.");
+                return 2;
+//                return redirect()->route('user.create')
+//                    ->with('message', "Not Added. User with this email already exists.");
             }
         }
 
@@ -119,8 +123,9 @@ class UserController extends Controller
             ]);
         }
 
-        return redirect()->route('user')
-            ->with('message', "User Updated Successfully");
+        return 1;
+//        return redirect()->route('user')
+//            ->with('message', "User Updated Successfully");
     }
 
     public function destroy(User $user,$userId)
@@ -128,7 +133,8 @@ class UserController extends Controller
         $id = decrypt($userId);
         $paId = User::where('id', $id);
         $paId->delete();
-        return redirect()->route('user')
-            ->with('message', "User Removed Successfully");
+        return 1;
+//        return redirect()->route('user')
+//            ->with('message', "User Removed Successfully");
     }
 }

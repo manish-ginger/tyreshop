@@ -22,7 +22,7 @@ use App\Models\VehicleBrand;
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -61,7 +61,7 @@ use App\Models\VehicleBrand;
                         </thead>
                         <tbody>
                             @foreach($vehicles as $vehicle)
-                            <tr>
+                                <tr id="{{$vehicle->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $vehicle->variant }}</td>
                                 <td>
@@ -91,7 +91,7 @@ use App\Models\VehicleBrand;
                                         <a href="{{ route('vehicle.edit',encrypt($vehicle->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('vehicle.delete',encrypt($vehicle->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('vehicle.delete',encrypt($vehicle->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$vehicle->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>

@@ -49,8 +49,9 @@ class VehicleModelController extends Controller
         ]);
 
         if(VehicleModel::where('name', 'LIKE', request('name'))->where('vehicle_category_id',request('vehicle_category_id'))->where('vehicle_brand_id',request('vehicle_brand_id'))->count() > 0) {
-            return redirect()->route('vehiclemodel.create')
-                ->with('message', "Not Added. Vehicle Model with this category and brand already exists.");
+            return 2;
+//            return redirect()->route('vehiclemodel.create')
+//                ->with('message', "Not Added. Vehicle Model with this category and brand already exists.");
         }
 
 
@@ -74,8 +75,9 @@ class VehicleModelController extends Controller
         }
 
         $data->save();
-        return redirect()->route('vehiclemodel.create')
-            ->with('message', "Vehicle model Saved Successfully");
+        return 1;
+//        return redirect()->route('vehiclemodel.create')
+//            ->with('message', "Vehicle model Saved Successfully");
 
     }
 
@@ -141,8 +143,9 @@ class VehicleModelController extends Controller
 
         if($vehicleModel->name!=request('name')) {
             if (VehicleModel::where('name', 'LIKE', request('name'))->where('vehicle_category_id', request('vehicle_category_id'))->where('vehicle_brand_id', request('vehicle_brand_id'))->count() > 0) {
-                return redirect()->back()
-                    ->with('message', "Not Added. Vehicle Model with this category and brand already exists.");
+                return 2;
+//                return redirect()->back()
+//                    ->with('message', "Not Added. Vehicle Model with this category and brand already exists.");
             }
         }
 
@@ -153,8 +156,9 @@ class VehicleModelController extends Controller
             'vehicle_brand_id' => request('vehicle_brand_id'),
         ]);
 
-        return redirect()->route('vehiclemodel')
-            ->with('message', "Vehicle model updated Successfully");
+        return 1;
+//        return redirect()->route('vehiclemodel')
+//            ->with('message', "Vehicle model updated Successfully");
 
     }
 
@@ -164,7 +168,8 @@ class VehicleModelController extends Controller
         $id = decrypt($vehicleModelId);
         $vehicleModel = VehicleModel::where('id', $id);
         $vehicleModel->delete();
-        return redirect()->route('vehiclemodel')
-            ->with('message', "Vehicle Model Removed Successfully");
+        return 1;
+//        return redirect()->route('vehiclemodel')
+//            ->with('message', "Vehicle Model Removed Successfully");
     }
 }

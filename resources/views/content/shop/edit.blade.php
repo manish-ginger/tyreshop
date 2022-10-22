@@ -20,14 +20,7 @@ use App\Models\VehicleCategory;
         </div>
     </div>
     @endif
-    <div>
-        @if (Session::has('message'))
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                {{ Session::get('message') }}
-            </div>
-        @endif
-    </div>
+
     <!-- PAGE-HEADER END -->
 
     <!-- ROW-1 OPEN -->
@@ -40,7 +33,7 @@ use App\Models\VehicleCategory;
                 </div>
                 @endif
                 <form action="{{ route('shop.update') }}" method="post" accept-charset="utf-8"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="submitAjaxUpdate">
                     @csrf
                     <div class="card-body">
                         <div class="row mb-4">
@@ -226,7 +219,8 @@ use App\Models\VehicleCategory;
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
                                 @if (!isset($type))
-                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
+{{--                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>--}}
+                                    <input type="reset" class="btn btn-danger" value="Revert">
                                 <button class="btn btn-success">Update Shop</button>
                                 @endif
                             </div>
@@ -234,6 +228,14 @@ use App\Models\VehicleCategory;
                         <!--End Row-->
                     </div>
                 </form>
+                    <div class="alert_show">
+                        @if (Session::has('message'))
+                            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                {{ Session::get('message') }}
+                            </div>
+                        @endif
+                    </div>
             </div>
             @if (isset($type))
                 <button onclick="history.back()" class="btn btn-success" style="float: right;">Go Back</button>

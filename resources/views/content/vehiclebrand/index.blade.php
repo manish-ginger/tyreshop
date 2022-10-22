@@ -21,7 +21,7 @@ use App\Models\Shop;
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -57,7 +57,7 @@ use App\Models\Shop;
                         </thead>
                         <tbody>
                             @foreach($vehicleBrands as $vehiclebrand)
-                            <tr>
+                                <tr id="{{$vehiclebrand->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $vehiclebrand->name }}</td>
                                 <td>
@@ -76,7 +76,7 @@ use App\Models\Shop;
                                         <a href="{{ route('vehiclebrand.edit',encrypt($vehiclebrand->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('vehiclebrand.delete',encrypt($vehiclebrand->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('vehiclebrand.delete',encrypt($vehiclebrand->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$vehiclebrand->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>

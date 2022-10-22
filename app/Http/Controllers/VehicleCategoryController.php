@@ -42,8 +42,9 @@ class VehicleCategoryController extends Controller
         ]);
 
         if(VehicleCategory::where('name', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('vehiclecategory.create')
-                ->with('message', "Not Added. Vehicle Category with this name already exists.");
+            return 2;
+//            return redirect()->route('vehiclecategory.create')
+//                ->with('message', "Not Added. Vehicle Category with this name already exists.");
         }
 
 
@@ -65,6 +66,7 @@ class VehicleCategoryController extends Controller
         }
 
         $data->save();
+        return 1;
         return redirect()->route('vehiclecategory.create')
             ->with('message', "Vehicle category Saved Successfully");
     }
@@ -140,8 +142,9 @@ class VehicleCategoryController extends Controller
 
         if($vehicleCategory->name!=request('name')){
             if(VehicleCategory::where('name', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('vehiclecategory.create')
-                    ->with('message', "Not Updated. Vehicle Category with this name already exists.");
+                return 2;
+//                return redirect()->route('vehiclecategory.create')
+//                    ->with('message', "Not Updated. Vehicle Category with this name already exists.");
             }
         }
 
@@ -151,9 +154,9 @@ class VehicleCategoryController extends Controller
         ]);
 
 
-
-        return redirect()->route('vehiclecategory')
-            ->with('message', "Vehicle category Updated Successfully");
+        return 1;
+//        return redirect()->route('vehiclecategory')
+//            ->with('message', "Vehicle category Updated Successfully");
     }
 
     /**
@@ -167,7 +170,8 @@ class VehicleCategoryController extends Controller
         $id = decrypt($vehicleCategoryId);
         $vehicleCategory = VehicleCategory::where('id', $id);
         $vehicleCategory->delete();
-        return redirect()->route('vehiclecategory')
-            ->with('message', "Vehicle Category Removed Successfully");
+        return 1;
+//        return redirect()->route('vehiclecategory')
+//            ->with('message', "Vehicle Category Removed Successfully");
     }
 }

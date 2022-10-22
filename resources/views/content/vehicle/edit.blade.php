@@ -14,14 +14,7 @@
             </ol>
         </div>
     </div>
-    <div>
-        @if (Session::has('message'))
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                {{ Session::get('message') }}
-            </div>
-        @endif
-    </div>
+
     <!-- PAGE-HEADER END -->
 
     <!-- ROW-1 OPEN -->
@@ -32,7 +25,7 @@
                     <div class="card-title">Update Tyre Number</div>
                 </div>
                 <form action="{{ route('vehicle.update') }}" method="post" accept-charset="utf-8"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="submitAjaxUpdate">
                     @csrf
                     <div class="card-body">
 
@@ -192,13 +185,22 @@
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
-                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
+{{--                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>--}}
+                                <input type="reset" class="btn btn-danger" value="Revert">
                                 <button class="btn btn-success">Update Tyre Number</button>
                             </div>
                         </div>
                         <!--End Row-->
                     </div>
                 </form>
+                <div class="alert_show">
+                    @if (Session::has('message'))
+                        <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                            {{ Session::get('message') }}
+                        </div>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

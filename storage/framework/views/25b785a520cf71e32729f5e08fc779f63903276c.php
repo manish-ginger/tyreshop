@@ -15,7 +15,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -52,7 +52,7 @@
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $washingtypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $washingtype): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
+                                <tr id="<?php echo e($washingtype->id); ?>">
                                 <td><?php echo e($loop->iteration); ?></td>
                                 <td><?php echo e($washingtype->name); ?></td>
                                 <td>
@@ -62,7 +62,7 @@
                                 </td>
                                 <td>
                                     <form action="<?php echo e(route('washingtype.update_washingtypepershop')); ?>" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" class="AjaxUpdateForms">
                                         <?php echo csrf_field(); ?>
                                         <input type="hidden" name="washingtype_id" value="<?php echo e($washingtype->id); ?>">
                                     <?php
@@ -90,7 +90,7 @@
                                         <a href="<?php echo e(route('washingtype.edit',encrypt($washingtype->id))); ?>" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="<?php echo e(route('washingtype.delete',encrypt($washingtype->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('washingtype.delete',encrypt($washingtype->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($washingtype->id); ?>">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>

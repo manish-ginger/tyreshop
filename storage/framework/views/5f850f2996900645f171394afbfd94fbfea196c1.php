@@ -13,15 +13,7 @@
             </ol>
         </div>
     </div>
-    <div>
-        <?php if(Session::has('message')): ?>
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                <?php echo e(Session::get('message')); ?>
 
-            </div>
-        <?php endif; ?>
-    </div>
     <!-- PAGE-HEADER END -->
 
     <!-- Row -->
@@ -44,7 +36,7 @@
                             <tr>
                                 <td>
                                     <form action="<?php echo e(route('notification.store')); ?>" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" id="submitAjaxUpdate">
                                         <?php echo csrf_field(); ?>
 
                                         <?php if(count($shops)>0): ?>
@@ -60,10 +52,20 @@
                                 <td>
                                     <button class="btn btn-success">Save</button>
                                     </form>
+
                                 </td>
                             </tr>
                             </tbody>
                         </table>
+                        <div class="alert_show">
+                            <?php if(Session::has('message')): ?>
+                                <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                    <?php echo e(Session::get('message')); ?>
+
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>

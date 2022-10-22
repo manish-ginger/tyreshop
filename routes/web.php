@@ -113,13 +113,13 @@ Route::post('update-tyresize', [VehicleModelController::class, 'update'])->name(
 Route::get('delete-tyresize/{vehicleModelId}', [VehicleModelController::class, 'destroy'])->name('vehiclemodel.delete');
 
 // Washing Type Routes
-Route::get('washingtype', [WashingTypeController::class, 'index'])->name('washingtype');
-Route::post('update-washingtypepershop', [WashingTypeController::class, 'update_washingtypepershop'])->name('washingtype.update_washingtypepershop');
-Route::get('add-washingtype', [WashingTypeController::class, 'create'])->name('washingtype.create');
-Route::post('save-washingtype', [WashingTypeController::class, 'store'])->name('washingtype.store');
-Route::get('edit-washingtype/{washingtypeId}', [WashingTypeController::class, 'edit'])->name('washingtype.edit');
-Route::post('update-washingtype', [WashingTypeController::class, 'update'])->name('washingtype.update');
-Route::get('delete-washingtype/{washingtypeId}', [WashingTypeController::class, 'destroy'])->name('washingtype.delete');
+Route::get('servicetype', [WashingTypeController::class, 'index'])->name('washingtype');
+Route::post('update-servicetypepershop', [WashingTypeController::class, 'update_washingtypepershop'])->name('washingtype.update_washingtypepershop');
+Route::get('add-servicetype', [WashingTypeController::class, 'create'])->name('washingtype.create');
+Route::post('save-servicetype', [WashingTypeController::class, 'store'])->name('washingtype.store');
+Route::get('edit-servicetype/{servicetypeId}', [WashingTypeController::class, 'edit'])->name('washingtype.edit');
+Route::post('update-servicetype', [WashingTypeController::class, 'update'])->name('washingtype.update');
+Route::get('delete-servicetype/{servicetypeId}', [WashingTypeController::class, 'destroy'])->name('washingtype.delete');
 
 // Role Routes
     Route::get('role', [RoleController::class, 'index'])->name('role');

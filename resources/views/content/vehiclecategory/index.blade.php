@@ -17,7 +17,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -52,7 +52,7 @@
                         </thead>
                         <tbody>
                             @foreach($vehicleCategorys as $vehiclecategory)
-                            <tr>
+                                <tr id="{{$vehiclecategory->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $vehiclecategory->name }}</td>
                                 <td>
@@ -65,7 +65,7 @@
                                         <a href="{{ route('vehiclecategory.edit',encrypt($vehiclecategory->id)) }}" class="btn btn-sm btn-primary">
                                             <span class="fe fe-edit"> </span>
                                         </a>
-                                        <a href="{{ route('vehiclecategory.delete',encrypt($vehiclecategory->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('vehiclecategory.delete',encrypt($vehiclecategory->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$vehiclecategory->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                     </div>
