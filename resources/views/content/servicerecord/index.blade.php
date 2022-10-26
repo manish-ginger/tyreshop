@@ -21,7 +21,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -66,7 +66,7 @@
                         </thead>
                         <tbody>
                             @foreach($rows as $row)
-                            <tr>
+                                <tr id="{{$row->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->vehicle_number }}</td>
                                 <td>
@@ -79,6 +79,7 @@
                                 <td>
                                     @if($row->booking_type==0) Pre Booked @endif
                                     @if($row->booking_type==1) Direct @endif
+                                    @if($row->booking_type==2) Special Request @endif
                                 </td>
                                 <td>
                                     @php
@@ -100,7 +101,7 @@
                                         </a>
                                         @endif
                                             @if(CheckAdminLogged::role_control('servicerecord.delete')==1)
-                                        <a href="{{ route('servicerecord.delete',encrypt($row->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('servicerecord.delete',encrypt($row->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$row->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         @endif

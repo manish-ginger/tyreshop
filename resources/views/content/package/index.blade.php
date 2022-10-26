@@ -20,7 +20,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -58,7 +58,7 @@
                         </thead>
                         <tbody>
                             @foreach($packages as $package)
-                            <tr>
+                                <tr id="{{$package->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $package->title }}</td>
                                 @if((CheckAdminLogged::role_control('package.edit')==1)||(CheckAdminLogged::role_control('package.show')==1)||(CheckAdminLogged::role_control('package.delete')==1))
@@ -70,7 +70,7 @@
                                         </a>
                                         @endif
                                             @if(CheckAdminLogged::role_control('package.delete')==1)
-                                        <a href="{{ route('package.delete',encrypt($package->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('package.delete',encrypt($package->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$package->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         @endif

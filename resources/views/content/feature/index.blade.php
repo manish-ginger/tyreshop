@@ -25,7 +25,7 @@ use App\Http\Middleware\CheckAdminLogged;
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -69,7 +69,7 @@ use App\Http\Middleware\CheckAdminLogged;
                         </thead>
                         <tbody>
                             @foreach($features as $feature)
-                            <tr>
+                                <tr id="{{$feature->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $feature->feature_name }}</td>
 
@@ -96,7 +96,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                         </a>
                                         @endif
                                         @if(CheckAdminLogged::role_control('feature.delete')==1)
-                                        <a href="{{ route('feature.delete',encrypt($feature->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('feature.delete',encrypt($feature->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$feature->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                             @endif

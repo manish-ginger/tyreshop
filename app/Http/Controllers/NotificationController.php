@@ -78,8 +78,9 @@ class NotificationController extends Controller
             $data->save();
         }
 
-        return redirect()->route('notification')
-            ->with('message', "Notification Saved Successfully");
+        return 1;
+//        return redirect()->route('notification')
+//            ->with('message', "Notification Saved Successfully");
     }
 
     /**

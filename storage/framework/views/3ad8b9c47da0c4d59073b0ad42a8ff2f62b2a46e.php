@@ -20,7 +20,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -59,7 +59,7 @@
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $package): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
+                                <tr id="<?php echo e($package->id); ?>">
                                 <td><?php echo e($loop->iteration); ?></td>
                                 <td><?php echo e($package->title); ?></td>
                                 <?php if((CheckAdminLogged::role_control('package.edit')==1)||(CheckAdminLogged::role_control('package.show')==1)||(CheckAdminLogged::role_control('package.delete')==1)): ?>
@@ -71,7 +71,7 @@
                                         </a>
                                         <?php endif; ?>
                                             <?php if(CheckAdminLogged::role_control('package.delete')==1): ?>
-                                        <a href="<?php echo e(route('package.delete',encrypt($package->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('package.delete',encrypt($package->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($package->id); ?>">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                         <?php endif; ?>

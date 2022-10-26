@@ -76,7 +76,9 @@
                                 </li>
                                 <?php endif; ?>
 
-
+                                <?php if(CheckAdminLogged::role_control('servicerecord')==1): ?>
+                                    <li class="slide"> <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('servicerecord.specialrequest')); ?>"><i class="side-menu__icon fe fe-activity"></i><span class="side-menu__label">Special Requests</span></a></li>
+                                <?php endif; ?>
 
                             <?php if(CheckAdminLogged::role_control('report.create')==1): ?>
                                 <li class="slide"> <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo e(route('report.create')); ?>"><i class="side-menu__icon fe fe-database"></i><span class="side-menu__label">Reports</span></a></li>

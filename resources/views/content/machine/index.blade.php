@@ -20,7 +20,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -60,7 +60,7 @@
                         </thead>
                         <tbody>
                             @foreach($machines as $machine)
-                            <tr>
+                                <tr id="{{$machine->id}}">
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $machine->title }}</td>
                                 <td>@if($machine->status==0)NO  @else YES @endif</td>
@@ -78,7 +78,7 @@
                                         </a>
                                         @endif
                                         @if(CheckAdminLogged::role_control('machine.delete')==1)
-                                        <a href="{{ route('machine.delete',encrypt($machine->id)) }}" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="{{ route('machine.delete',encrypt($machine->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$machine->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                             @endif

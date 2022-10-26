@@ -11,15 +11,7 @@
             </ol>
         </div>
     </div>
-    <div>
-        <?php if(Session::has('message')): ?>
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                <?php echo e(Session::get('message')); ?>
 
-            </div>
-        <?php endif; ?>
-    </div>
     <!-- PAGE-HEADER END -->
 
     <!-- ROW-1 OPEN -->
@@ -30,7 +22,7 @@
                     <div class="card-title">Update Customer</div>
                 </div>
                 <form action="<?php echo e(route('customer.update')); ?>" method="post" accept-charset="utf-8"
-                    enctype="multipart/form-data">
+                    enctype="multipart/form-data" id="submitAjaxUpdate">
                     <?php echo csrf_field(); ?>
                     <div class="card-body">
                         <div class="row mb-4">
@@ -170,13 +162,23 @@
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
-                                <button onclick="window.location.reload();" class="btn btn-secondary">Revert</button>
+
+                                <input type="reset" class="btn btn-danger" value="Revert">
                                 <button class="btn btn-success">Update Customer </button>
                             </div>
                         </div>
                         <!--End Row-->
                     </div>
                 </form>
+                <div class="alert_show">
+                    <?php if(Session::has('message')): ?>
+                        <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                            <?php echo e(Session::get('message')); ?>
+
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>

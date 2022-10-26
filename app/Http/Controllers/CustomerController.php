@@ -213,8 +213,10 @@ class CustomerController extends Controller
         $data->shop_id =Session::get('Shop_ID');
         $data->save();
 
-        return redirect()->route('customer.create')
-            ->with('message', "Customer Saved Successfully");
+
+        return 1;
+//        return redirect()->route('customer.create')
+//            ->with('message', "Customer Saved Successfully");
 
 }
     /**
@@ -277,8 +279,9 @@ class CustomerController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-        return redirect()->route('customer')
-            ->with('message', "Customer Updated Successfully");
+        return 1;
+//        return redirect()->route('customer')
+//            ->with('message', "Customer Updated Successfully");
     }
 
     /**
@@ -292,7 +295,8 @@ class CustomerController extends Controller
         $id = decrypt($custId);
         $paId = Customer::where('id', $id);
         $paId->delete();
-        return redirect()->route('customer')
-            ->with('message', "Removed Successfully");
+        return 1;
+//        return redirect()->route('customer')
+//            ->with('message', "Removed Successfully");
     }
 }

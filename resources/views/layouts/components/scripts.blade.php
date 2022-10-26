@@ -32,23 +32,213 @@
     <!-- CONFIRM JS FOR DELETE -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
+        $("#submitAjaxAdd").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    form[0].reset();
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Added Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Added Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Adding Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Adding Failed</div>');
+
+                    }
+                    else if(data==3){
+                        $('.alert_show').html('');
+                        toastr.error('No slots Available.Choose Special Request as booking type. Adding Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>No slots Available.Choose Special Request as booking type. Adding Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Adding Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Adding Failed</div>');
+
+                    }
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+        });
+
+        $("#submitAjaxUpdate").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Updated Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updated Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Updating Failed</div>');
+
+                    }
+                    else if(data==3){
+                        $('.alert_show').html('');
+                        toastr.error('No slots Available.Choose Special Request as booking type. Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>No slots Available.Choose Special Request as booking type. Updating Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Update Failed</div>');
+
+                    }
+
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+        });
+
+        $(".AjaxUpdateForms").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Updated Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updated Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Updating Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updating Failed</div>');
+
+                    }
+
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+        });
+
         $('.confirm_delete').click(function(event) {
             var form = $(this).closest("form");
             var name = $(this).data("name");
             var url = $(this).attr('href');
+            var urlPart = $(this).attr('data-id');
+
             event.preventDefault();
             swal({
-                    title: `Are you sure ?`,
-                    buttons: true,
-                    dangerMode: true,
-                })
+                title: `Are you sure ?`,
+                buttons: true,
+                dangerMode: true,
+            })
                 .then((willDelete) => {
                     if (willDelete) {
-                        window.location = url;
+                        // window.location = url;
+                        deleteRow(url,urlPart);
                     }
                 });
         });
+        function deleteRow(url,urlPart){
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(data){
+                    if(data==1){
+                        $('#'+urlPart).remove();
+                        // $('#basic-datatable').DataTable().rows('#'+urlPart).remove().draw();
+                        $('.alert_show').html('');
+                        toastr.success('Deleted Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Deleted Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Delete Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Delete Failed</div>');
+
+                    }
+
+                },
+                error: function(data){
+                    $('.alert_show').html('');
+                    toastr.error('Error');
+                }
+            });
+        }
     </script>
 
 

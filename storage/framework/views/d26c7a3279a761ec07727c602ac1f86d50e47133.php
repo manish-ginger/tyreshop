@@ -18,7 +18,7 @@
         </ol>
     </div>
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -54,7 +54,7 @@
                             <tr>
                                 <td>
                                     <form action="<?php echo e(route('notification.store')); ?>" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" id="submitAjaxUpdate">
                                         <?php echo csrf_field(); ?>
                                         <textarea class="content" name="content" placeholder="Description"><?php if(isset($row->content)): ?> <?php echo e($row->content); ?> <?php endif; ?></textarea>
 

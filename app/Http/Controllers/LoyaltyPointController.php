@@ -51,8 +51,9 @@ class LoyaltyPointController extends Controller
 
         $data->save();
 
-        return redirect()->route('loyaltypoint.create')
-            ->with('message', "Loyalty point reward Saved Successfully");
+        return 1;
+//        return redirect()->route('loyaltypoint.create')
+//            ->with('message', "Loyalty point reward Saved Successfully");
     }
 
     public function show(LoyaltyPoint $loyalty)
@@ -88,9 +89,9 @@ class LoyaltyPointController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-
-        return redirect()->route('loyaltypoint')
-            ->with('message', "Loyalty point reward Updated Successfully");
+        return 1;
+//        return redirect()->route('loyaltypoint')
+//            ->with('message', "Loyalty point reward Updated Successfully");
     }
 
     public function destroy(LoyaltyPoint $loyalty,$loyaltypointId)
@@ -98,7 +99,8 @@ class LoyaltyPointController extends Controller
         $id = decrypt($loyaltypointId);
         $paId = LoyaltyPoint::where('id', $id);
         $paId->delete();
-        return redirect()->route('loyaltypoint')
-            ->with('message', "Loyalty point reward Removed Successfully");
+        return 1;
+//        return redirect()->route('loyaltypoint')
+//            ->with('message', "Loyalty point reward Removed Successfully");
     }
 }

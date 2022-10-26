@@ -82,9 +82,9 @@ class FeatureController extends Controller
 
         $data->save();
 
-
-        return redirect()->route('feature.create')
-            ->with('message', "Service Saved Successfully");
+        return 1;
+//        return redirect()->route('feature.create')
+//            ->with('message', "Service Saved Successfully");
     }
 
     /**
@@ -169,8 +169,9 @@ class FeatureController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-        return redirect()->route('feature')
-            ->with('message', "Service Updated Successfully");
+        return 1;
+//        return redirect()->route('feature')
+//            ->with('message', "Service Updated Successfully");
     }
 
     /**
@@ -184,7 +185,8 @@ class FeatureController extends Controller
         $id = decrypt($featureId);
         $paId = Feature::where('id', $id);
         $paId->delete();
-        return redirect()->route('feature')
-            ->with('message', "Service Removed Successfully");
+        return 1;
+//        return redirect()->route('feature')
+//            ->with('message', "Service Removed Successfully");
     }
 }

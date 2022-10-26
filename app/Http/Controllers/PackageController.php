@@ -50,8 +50,9 @@ class PackageController extends Controller
         ]);
 
         if(Package::where('title', 'LIKE', request('name'))->count() > 0) {
-            return redirect()->route('package.create')
-                ->with('message', "Not Added. Package with this name already exists.");
+            return 2;
+//            return redirect()->route('package.create')
+//                ->with('message', "Not Added. Package with this name already exists.");
         }
 
         $data = new Package;
@@ -81,8 +82,9 @@ class PackageController extends Controller
             packageimg::insert($insert);
         }
 
-        return redirect()->route('package.create')
-            ->with('message', "Package Saved Successfully");
+        return 1;
+//        return redirect()->route('package.create')
+//            ->with('message', "Package Saved Successfully");
     }
     /**
      * Display the specified resource.
@@ -128,8 +130,9 @@ class PackageController extends Controller
 
         if($pack->title!=request('name')){
             if(Package::where('title', 'LIKE', request('name'))->count() > 0) {
-                return redirect()->route('package')
-                    ->with('message', "Not Updated. Package with this name already exists.");
+                return 2;
+//                return redirect()->route('package')
+//                    ->with('message', "Not Updated. Package with this name already exists.");
             }
         }
 
@@ -160,8 +163,9 @@ class PackageController extends Controller
             $paimgId = Packageimg::where('pack_id', $packId);
             $paimgId->delete();
         }
-        return redirect()->route('package')
-            ->with('message', "Updated Successfully");
+        return 1;
+//        return redirect()->route('package')
+//            ->with('message', "Updated Successfully");
     }
 
     /**
@@ -177,7 +181,8 @@ class PackageController extends Controller
         $paId->delete();
         $paimgId = Packageimg::where('pack_id', $id);
         $paimgId->delete();
-        return redirect()->route('package')
-            ->with('message', "Removed Successfully");
+        return 1;
+//        return redirect()->route('package')
+//            ->with('message', "Removed Successfully");
     }
 }

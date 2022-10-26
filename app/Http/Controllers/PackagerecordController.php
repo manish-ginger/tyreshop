@@ -49,14 +49,24 @@ class PackagerecordController extends Controller
             'package_id' => 'required',
         ]);
 
+
+                    if(Packagerecord::where('shop_id', 'LIKE', Session::get('Shop_ID'))->where('customer_id', 'LIKE', request('customer_id'))->where('package_id', 'LIKE', request('package_id'))->count() > 0) {
+                        return 2;
+//                return redirect()->route('packagerecord')
+//                    ->with('message', "Not Added. Package Record with this vehicle number already exists.");
+            }
+
+
         $data = new Packagerecord();
         $data->customer_id = request('customer_id');
         $data->package_id = request('package_id');
         $data->shop_id =Session::get('Shop_ID');
         $data->save();
 
-        return redirect()->route('packagerecord.create')
-            ->with('message', "Package History Saved Successfully");
+
+        return 1;
+//        return redirect()->route('packagerecord.create')
+//            ->with('message', "Package History Saved Successfully");
     }
 
     /**
@@ -103,14 +113,24 @@ class PackagerecordController extends Controller
         $id = decrypt(request('id'));
         $data = Packagerecord::find($id);
 
+            if(($data->customer_id!=request('customer_id'))||($data->package_id!=request('package_id'))) {
+                if (Packagerecord::where('shop_id', 'LIKE', Session::get('Shop_ID'))->where('customer_id', 'LIKE', request('customer_id'))->where('package_id', 'LIKE', request('package_id'))->count() > 0) {
+                    return 2;
+//                return redirect()->route('packagerecord')
+//                    ->with('message', "Not Updated. Package Record with this vehicle number already exists.");
+                }
+            }
+
+
         $data->update([
             'customer_id' => request('customer_id'),
             'package_id' => request('package_id'),
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-        return redirect()->route('packagerecord')
-            ->with('message', "Package History Updated Successfully");
+        return 1;
+//        return redirect()->route('packagerecord')
+//            ->with('message', "Package History Updated Successfully");
     }
 
     /**
@@ -124,7 +144,8 @@ class PackagerecordController extends Controller
         $id = decrypt($id);
         $row = Packagerecord::where('id', $id);
         $row->delete();
-        return redirect()->route('packagerecord')
-            ->with('message', "Package History Removed Successfully");
+        return 1;
+//        return redirect()->route('packagerecord')
+//            ->with('message', "Package History Removed Successfully");
     }
 }

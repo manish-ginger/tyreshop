@@ -38,8 +38,10 @@ class WorkingdaysController extends Controller
         $data->to = request('to');
         $data->save();
 
-        return redirect()->route('workingdays.create')
-            ->with('message', "Working Day Saved Successfully");
+
+        return 1;
+//        return redirect()->route('workingdays.create')
+//            ->with('message', "Working Day Saved Successfully");
     }
 
 
@@ -91,8 +93,9 @@ class WorkingdaysController extends Controller
             ]);
         }
 
-        return redirect()->route('workingdays')
-            ->with('message', "Working days created successfully");
+        return 1;
+//        return redirect()->route('workingdays')
+//            ->with('message', "Working days created successfully");
     }
 
 
@@ -101,7 +104,8 @@ class WorkingdaysController extends Controller
         $id = decrypt($workingdayId);
         $paId = WorkingDays::where('id', $id);
         $paId->delete();
-        return redirect()->route('workingdays')
-            ->with('message', "Working days Removed Successfully");
+        return 1;
+//        return redirect()->route('workingdays')
+//            ->with('message', "Working days Removed Successfully");
     }
 }

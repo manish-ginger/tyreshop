@@ -18,7 +18,7 @@
         </ol>
     </div>
 </div>
-<div>
+<div class="alert_show">
     @if(Session::has('message'))
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -53,7 +53,7 @@
                             <tr>
                                 <td>
                                     <form action="{{ route('notification.store') }}" method="post" accept-charset="utf-8"
-                                          enctype="multipart/form-data">
+                                          enctype="multipart/form-data" id="submitAjaxUpdate">
                                         @csrf
                                         <textarea class="content" name="content" placeholder="Description">@if (isset($row->content)) {{ $row->content }} @endif</textarea>
 {{--                                    <input type="text" name="content" class="form-control"--}}

@@ -19,15 +19,7 @@ use Carbon\Carbon;
             </ol>
         </div>
     </div>
-    <div>
-        <?php if(Session::has('message')): ?>
-            <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                <?php echo e(Session::get('message')); ?>
 
-            </div>
-        <?php endif; ?>
-    </div>
     <!-- PAGE-HEADER END -->
 
     <!-- ROW-1 OPEN -->
@@ -37,7 +29,7 @@ use Carbon\Carbon;
                 <div class="card-header">
                     <div class="card-title">Add New Customer Package</div>
                 </div>
-                <form action="<?php echo e(route('packagerecord.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
+                <form action="<?php echo e(route('packagerecord.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data" id="submitAjaxAdd">
                     <?php echo csrf_field(); ?>
                     <div class="card-body">
 
@@ -76,7 +68,8 @@ use Carbon\Carbon;
                         <div class="row">
                             <div class="col-md-3"></div>
                             <div class="col-md-9 text-end">
-                                <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
+
+                                <input type="reset" class="btn btn-danger" value="Discard">
                                 <button class="btn btn-success">Add Customer Package</button> &nbsp; &nbsp;
 
                             </div>
@@ -84,6 +77,15 @@ use Carbon\Carbon;
                         <!--End Row-->
                     </div>
                 </form>
+                <div class="alert_show">
+                    <?php if(Session::has('message')): ?>
+                        <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                            <?php echo e(Session::get('message')); ?>
+
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>

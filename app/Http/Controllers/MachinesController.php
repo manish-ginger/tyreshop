@@ -45,8 +45,9 @@ class MachinesController extends Controller
         ]);
 
         if(Machines::where('title', 'LIKE', request('title'))->count() > 0) {
-            return redirect()->route('machine.create')
-                ->with('message', "Not Added. Machine with this name already exists.");
+            return 2;
+//            return redirect()->route('machine.create')
+//                ->with('message', "Not Added. Machine with this name already exists.");
         }
 
         $data = new Machines();
@@ -73,8 +74,9 @@ class MachinesController extends Controller
 
         $data->save();
 
-        return redirect()->route('machine.create')
-            ->with('message', "Machine Saved Successfully");
+        return 1;
+//        return redirect()->route('machine.create')
+//            ->with('message', "Machine Saved Successfully");
     }
 
     /**
@@ -148,8 +150,9 @@ class MachinesController extends Controller
 
         if($data->title!=request('title')){
             if(Machines::where('title', 'LIKE', request('title'))->count() > 0) {
-                return redirect()->route('machine')
-                    ->with('message', "Not Updated. Machine with this name already exists.");
+                return 2;
+//                return redirect()->route('machine')
+//                    ->with('message', "Not Updated. Machine with this name already exists.");
             }
         }
 
@@ -160,9 +163,9 @@ class MachinesController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-
-        return redirect()->route('machine')
-            ->with('message', "Machine Updated Successfully");
+        return 1;
+//        return redirect()->route('machine')
+//            ->with('message', "Machine Updated Successfully");
     }
 
     /**
@@ -176,7 +179,8 @@ class MachinesController extends Controller
         $id = decrypt($machineId);
         $paId = Machines::where('id', $id);
         $paId->delete();
-        return redirect()->route('machine')
-            ->with('message', "Machine Removed Successfully");
+        return 1;
+//        return redirect()->route('machine')
+//            ->with('message', "Machine Removed Successfully");
     }
 }

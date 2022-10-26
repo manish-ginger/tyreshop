@@ -49,13 +49,15 @@ class CouponController extends Controller
         ]);
 
         if(Coupon::where('title', 'LIKE', request('title'))->count() > 0) {
-            return redirect()->route('coupon.create')
-                ->with('message', "Not Added. Coupon with this name already exists.");
+            return 2;
+//            return redirect()->route('coupon.create')
+//                ->with('message', "Not Added. Coupon with this name already exists.");
         }
 
         if(Coupon::where('code', 'LIKE', request('code'))->count() > 0) {
-            return redirect()->route('coupon.create')
-                ->with('message', "Not Added. Coupon Code already exists.");
+            return 2;
+//            return redirect()->route('coupon.create')
+//                ->with('message', "Not Added. Coupon Code already exists.");
         }
 
 
@@ -87,8 +89,9 @@ class CouponController extends Controller
 
         $data->save();
 
-        return redirect()->route('coupon.create')
-            ->with('message', "Coupon Saved Successfully");
+        return 1;
+//        return redirect()->route('coupon.create')
+//            ->with('message', "Coupon Saved Successfully");
     }
 
     /**
@@ -166,15 +169,17 @@ class CouponController extends Controller
 
         if($data->title!=request('title')){
             if(Coupon::where('title', 'LIKE', request('title'))->count() > 0) {
-                return redirect()->route('coupon')
-                    ->with('message', "Not Updated. Coupon with this name already exists.");
+                return 2;
+//                return redirect()->route('coupon')
+//                    ->with('message', "Not Updated. Coupon with this name already exists.");
             }
         }
 
         if($data->code!=request('code')){
             if(Coupon::where('code', 'LIKE', request('code'))->count() > 0) {
-                return redirect()->route('coupon')
-                    ->with('message', "Not Updated. Coupon Code already exists.");
+                return 2;
+//                return redirect()->route('coupon')
+//                    ->with('message', "Not Updated. Coupon Code already exists.");
             }
         }
 
@@ -189,9 +194,9 @@ class CouponController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-
-        return redirect()->route('coupon')
-            ->with('message', "Coupon Updated Successfully");
+        return 1;
+//        return redirect()->route('coupon')
+//            ->with('message', "Coupon Updated Successfully");
     }
 
 
@@ -206,7 +211,8 @@ class CouponController extends Controller
         $id = decrypt($couponId);
         $paId = Coupon::where('id', $id);
         $paId->delete();
-        return redirect()->route('coupon')
-            ->with('message', "Coupon Removed Successfully");
+        return 1;
+//        return redirect()->route('coupon')
+//            ->with('message', "Coupon Removed Successfully");
     }
 }

@@ -20,7 +20,7 @@
     </div>
 
 </div>
-<div>
+<div class="alert_show">
     <?php if(Session::has('message')): ?>
     <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
@@ -61,7 +61,7 @@
                         </thead>
                         <tbody>
                             <?php $__currentLoopData = $machines; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $machine): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
+                                <tr id="<?php echo e($machine->id); ?>">
                                 <td><?php echo e($loop->iteration); ?></td>
                                 <td><?php echo e($machine->title); ?></td>
                                 <td><?php if($machine->status==0): ?>NO  <?php else: ?> YES <?php endif; ?></td>
@@ -79,7 +79,7 @@
                                         </a>
                                         <?php endif; ?>
                                         <?php if(CheckAdminLogged::role_control('machine.delete')==1): ?>
-                                        <a href="<?php echo e(route('machine.delete',encrypt($machine->id))); ?>" class="btn  btn-sm btn-danger confirm_delete">
+                                        <a href="<?php echo e(route('machine.delete',encrypt($machine->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($machine->id); ?>">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
                                             <?php endif; ?>

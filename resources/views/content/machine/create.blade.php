@@ -16,14 +16,7 @@
                                     </ol>
                                 </div>
                             </div>
-                    <div>
-                    @if(Session::has('message'))
-                    <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
-                    {{ Session::get('message') }}
-                    </div>
-                    @endif
-                    </div>
+
                             <!-- PAGE-HEADER END -->
 
                             <!-- ROW-1 OPEN -->
@@ -33,7 +26,7 @@
                                         <div class="card-header">
                                             <div class="card-title">Add New Machine</div>
                                         </div>
-                                        <form action="{{ route('machine.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
+                                        <form action="{{ route('machine.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data" id="submitAjaxAdd">
                                         @csrf
                                         <div class="card-body">
                                             <div class="row mb-4">
@@ -75,7 +68,8 @@
                                             <div class="row">
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-9 text-end">
-                                                <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
+{{--                                                <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;--}}
+                                                    <input type="reset" class="btn btn-danger" value="Discard">
                                                 <button class="btn btn-success">Add Machine</button> &nbsp; &nbsp;
 
                                                 </div>
@@ -83,6 +77,14 @@
                                             <!--End Row-->
                                         </div>
                                         </form>
+                                        <div class="alert_show">
+                                            @if(Session::has('message'))
+                                                <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>
+                                                    {{ Session::get('message') }}
+                                                </div>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </div>

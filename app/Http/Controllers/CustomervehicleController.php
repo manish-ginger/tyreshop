@@ -63,8 +63,9 @@ class CustomervehicleController extends Controller
         $data->shop_id =Session::get('Shop_ID');
         $data->save();
 
-        return redirect()->route('customervehicle.create')
-            ->with('message', "Customer Vehicle Saved Successfully");
+        return 1;
+//        return redirect()->route('customervehicle.create')
+//            ->with('message', "Customer Vehicle Saved Successfully");
 
     }
 
@@ -128,8 +129,9 @@ class CustomervehicleController extends Controller
             'shop_id' => Session::get('Shop_ID'),
         ]);
 
-        return redirect()->route('customervehicle')
-            ->with('message', "Customer Vehicle Updated Successfully");
+        return 1;
+//        return redirect()->route('customervehicle')
+//            ->with('message', "Customer Vehicle Updated Successfully");
 
     }
 
@@ -144,7 +146,8 @@ class CustomervehicleController extends Controller
         $id = decrypt($id);
         $paId = Customervehicle::where('id', $id);
         $paId->delete();
-        return redirect()->route('customervehicle')
-            ->with('message', "Customer Vehicle Removed Successfully");
+        return 1;
+//        return redirect()->route('customervehicle')
+//            ->with('message', "Customer Vehicle Removed Successfully");
     }
 }

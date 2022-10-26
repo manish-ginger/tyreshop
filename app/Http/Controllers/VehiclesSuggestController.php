@@ -47,7 +47,8 @@ class VehiclesSuggestController extends Controller
         $data->brand = request('brand');
         $data->save();
 
-        return redirect()->route('message.create')
-            ->with('message', "Message Sent Successfully");
+        return 1;
+//        return redirect()->route('message.create')
+//            ->with('message', "Message Sent Successfully");
     }
 }

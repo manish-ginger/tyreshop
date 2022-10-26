@@ -29,6 +29,13 @@ class ServicerecordController extends Controller
         return view('content.servicerecord.index', compact('rows'));
     }
 
+    public function specialrequest()
+    {
+        $shop_id=Session::get('Shop_ID');
+        $rows =Servicerecord::where('shop_id','=',$shop_id)->where('booking_type','=',2)->get();
+        return view('content.servicerecord.specialrequest', compact('rows'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -78,10 +85,30 @@ class ServicerecordController extends Controller
         $data->curr_odo_reading = request('curr_odo_reading');
         $data->next_odo_reading = request('next_odo_reading');
         $data->shop_id =Session::get('Shop_ID');
+
+
+        //slot checking
+        $booking_type=request('booking_type');
+        if(($booking_type==0)||($booking_type==1)) {
+            $service_data = Feature::where('id', 'LIKE', request('service_id'))->get();
+            if (count($service_data) == 1) {
+                $service_data_slots = $service_data[0]->slots;
+                if ($service_data_slots != ''){
+                    $service_count = Servicerecord::where('service_id', 'LIKE', request('service_id'))->where('date', 'LIKE', request('date'))->count();
+
+                    if ($service_count > $service_data_slots) {
+                        return 3;
+                    }
+                }
+            }
+        }
+
+
         $data->save();
 
-        return redirect()->route('servicerecord.create')
-            ->with('message', "Booking Saved Successfully");
+        return 1;
+//        return redirect()->route('servicerecord.create')
+//            ->with('message', "Booking Saved Successfully");
     }
 
     /**
@@ -150,6 +177,24 @@ class ServicerecordController extends Controller
 //            }
 //        }
 
+        //slot checking
+        if($data->date!=request('date')) {
+            $booking_type = request('booking_type');
+            if (($booking_type == 0) || ($booking_type == 1)) {
+                $service_data = Feature::where('id', 'LIKE', request('service_id'))->get();
+                if (count($service_data) == 1) {
+                    $service_data_slots = $service_data[0]->slots;
+                    if ($service_data_slots != '') {
+                        $service_count = Servicerecord::where('service_id', 'LIKE', request('service_id'))->where('date', 'LIKE', request('date'))->count();
+                        if ($service_count > $service_data_slots) {
+                            return 3;
+                        }
+                    }
+                }
+            }
+        }
+
+
         $data->update([
             'vehicle_number' => request('vehicle_number'),
             'status' => request('status'),
@@ -183,8 +228,9 @@ class ServicerecordController extends Controller
 //            Mail::to($mto)->send(new redcontact($details));
         }
 
-        return redirect()->route('servicerecord')
-            ->with('message', "Booking Updated Successfully");
+        return 1;
+//        return redirect()->route('servicerecord')
+//            ->with('message', "Booking Updated Successfully");
     }
 
     /**
@@ -198,7 +244,8 @@ class ServicerecordController extends Controller
         $id = decrypt($id);
         $servicerecord = Servicerecord::where('id', $id);
         $servicerecord->delete();
-        return redirect()->route('servicerecord')
-            ->with('message', "Booking Removed Successfully");
+        return 1;
+//        return redirect()->route('servicerecord')
+//            ->with('message', "Booking Removed Successfully");
     }
 }

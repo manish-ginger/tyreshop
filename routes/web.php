@@ -144,6 +144,7 @@ Route::get('delete-customervehicle/{id}', [CustomervehicleController::class, 'de
 
 // Service Record Routes
 Route::get('servicerecord', [ServicerecordController::class, 'index'])->name('servicerecord');
+Route::get('specialrequest-servicerecord', [ServicerecordController::class, 'specialrequest'])->name('servicerecord.specialrequest');
 Route::get('add-servicerecord', [ServicerecordController::class, 'create'])->name('servicerecord.create');
 Route::post('save-servicerecord', [ServicerecordController::class, 'store'])->name('servicerecord.store');
 Route::get('edit-servicerecord/{id}', [ServicerecordController::class, 'edit'])->name('servicerecord.edit');

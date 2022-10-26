@@ -130,6 +130,7 @@
                             <div class="col-md-9">
                                 @if($row->booking_type==0) Pre Booked @endif
                                 @if($row->booking_type==1) Direct @endif
+                                @if($row->booking_type==2) Special Request @endif
                             </div>
                         </div>
 
