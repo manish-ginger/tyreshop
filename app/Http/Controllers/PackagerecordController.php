@@ -53,7 +53,7 @@ class PackagerecordController extends Controller
                     if(Packagerecord::where('shop_id', 'LIKE', Session::get('Shop_ID'))->where('customer_id', 'LIKE', request('customer_id'))->where('package_id', 'LIKE', request('package_id'))->count() > 0) {
                         return 2;
 //                return redirect()->route('packagerecord')
-//                    ->with('message', "Not Added. Package Record with this vehicle number already exists.");
+//                    ->with('message', "Not Added. Package Record already exists.");
             }
 
 
@@ -117,7 +117,7 @@ class PackagerecordController extends Controller
                 if (Packagerecord::where('shop_id', 'LIKE', Session::get('Shop_ID'))->where('customer_id', 'LIKE', request('customer_id'))->where('package_id', 'LIKE', request('package_id'))->count() > 0) {
                     return 2;
 //                return redirect()->route('packagerecord')
-//                    ->with('message', "Not Updated. Package Record with this vehicle number already exists.");
+//                    ->with('message', "Not Updated. Package Record already exists.");
                 }
             }
 
