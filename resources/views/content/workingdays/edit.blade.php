@@ -6,7 +6,7 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Machine</h1>
+        <h1 class="page-title">Working Day</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Working Day</a></li>
