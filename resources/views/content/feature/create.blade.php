@@ -135,7 +135,7 @@ display: none;
                                                 <label class="col-md-3 form-label"> Coupon Code:</label>
                                                 <div class="col-md-9">
                                                     <select name="coupon" class="form-control" required>
-                                                        <option selected disabled>
+						<option selected disabled value="">
                                                         @if(count($coupons)>0)
                                                         Choose a coupon
                                                             @else
