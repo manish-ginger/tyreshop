@@ -124,6 +124,9 @@ class BannerController extends Controller
                 'image' => $name,
             ]);
         }
+        $pack->update([
+            'caption' => $caption,
+        ]);
         return 1;
 //        return redirect()->route('banner.create')->with('message', "Banner Updated Successfully");
     }

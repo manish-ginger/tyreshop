@@ -38,7 +38,7 @@ use App\Models\VehicleBrand;
             <div class="card-header">
                 <h3 class="card-title">Tyre Size List</h3>
                 <div class="card-options">
-                    <a href="{{route('vehiclemodel.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('vehiclemodel.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Tyre Size</a>
                 </div>
@@ -76,7 +76,7 @@ use App\Models\VehicleBrand;
                                 </td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="{{ route('vehiclemodel.edit',encrypt($vehiclemodel->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('vehiclemodel.edit',encrypt($vehiclemodel->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="{{ route('vehiclemodel.delete',encrypt($vehiclemodel->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$vehiclemodel->id}}">

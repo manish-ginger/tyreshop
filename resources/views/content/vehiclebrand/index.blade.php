@@ -38,7 +38,7 @@ use App\Models\Shop;
             <div class="card-header">
                 <h3 class="card-title">Tyre Model List</h3>
                 <div class="card-options">
-                    <a href="{{route('vehiclebrand.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('vehiclebrand.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Tyre Model</a>
                 </div>
@@ -73,7 +73,7 @@ use App\Models\Shop;
                                 </td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="{{ route('vehiclebrand.edit',encrypt($vehiclebrand->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('vehiclebrand.edit',encrypt($vehiclebrand->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="{{ route('vehiclebrand.delete',encrypt($vehiclebrand->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$vehiclebrand->id}}">

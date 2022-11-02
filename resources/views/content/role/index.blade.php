@@ -34,7 +34,7 @@
             <div class="card-header">
                 <h3 class="card-title">Roles List</h3>
                 <div class="card-options">
-                    <a href="{{route('role.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('role.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Role</a>
                 </div>
@@ -56,13 +56,13 @@
                                 <td>{{ $role->name }}</td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="{{ route('role.edit',encrypt($role->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('role.edit',encrypt($role->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="{{ route('role.delete',encrypt($role->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$role->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
-                                        <a href="{{ route('role.show',encrypt($role->id)) }}" class="btn btn-sm btn-warning">
+                                        <a href="{{ route('role.show',encrypt($role->id)) }}" class="btn btn-sm btn-warning form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                     </div>

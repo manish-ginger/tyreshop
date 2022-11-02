@@ -38,7 +38,7 @@ use App\Models\Shop;
                 <div class="card-header">
                     <h3 class="card-title">Users List</h3>
                     <div class="card-options">
-                        <a href="{{route('user.create')}}" class="btn btn-primary btn-sm">
+                        <a href="{{route('user.create')}}" class="btn btn-primary btn-sm form_box">
                             <i class="fe fe-plus"></i>
                             Add New User</a>
                     </div>
@@ -77,13 +77,13 @@ use App\Models\Shop;
                                     </td>
                                     <td>
                                         <div class="btn-list">
-                                            <a href="{{ route('user.edit',encrypt($user->id)) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('user.edit',encrypt($user->id)) }}" class="btn btn-sm btn-primary form_box">
                                                 <span class="fe fe-edit"> </span>
                                             </a>
                                             <a href="{{ route('user.delete',encrypt($user->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$user->id}}">
                                                 <span class="fe fe-trash-2"> </span>
                                             </a>
-                                            <a href="{{ route('user.show',encrypt($user->id)) }}" class="btn btn-sm btn-warning">
+                                            <a href="{{ route('user.show',encrypt($user->id)) }}" class="btn btn-sm btn-warning form_box">
                                                 <span class="fe fe-eye"> </span>
                                             </a>
                                         </div>

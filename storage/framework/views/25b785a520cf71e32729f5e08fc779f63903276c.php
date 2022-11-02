@@ -33,7 +33,7 @@
             <div class="card-header">
                 <h3 class="card-title">Service Types List</h3>
                 <div class="card-options">
-                    <a href="<?php echo e(route('washingtype.create')); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo e(route('washingtype.create')); ?>" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Service Type</a>
                 </div>
@@ -87,7 +87,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="<?php echo e(route('washingtype.edit',encrypt($washingtype->id))); ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?php echo e(route('washingtype.edit',encrypt($washingtype->id))); ?>" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="<?php echo e(route('washingtype.delete',encrypt($washingtype->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($washingtype->id); ?>">

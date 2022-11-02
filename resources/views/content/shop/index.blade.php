@@ -33,7 +33,7 @@
             <div class="card-header">
                 <h3 class="card-title">Shops List</h3>
                 <div class="card-options">
-                    <a href="{{route('shop.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('shop.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Shop</a>
                 </div>
@@ -57,13 +57,13 @@
                                 <td>@if($shop->approved==0)DISABLED  @else ENABLED @endif</td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="{{ route('shop.edit',encrypt($shop->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('shop.edit',encrypt($shop->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="{{ route('shop.delete',encrypt($shop->id)) }}" class="btn  btn-sm btn-danger confirm_delete" data-id="{{$shop->id}}">
                                             <span class="fe fe-trash-2"> </span>
                                         </a>
-                                        <a href="{{ route('shop.show',encrypt($shop->id))}}" class="btn btn-sm btn-warning">
+                                        <a href="{{ route('shop.show',encrypt($shop->id))}}" class="btn btn-sm btn-warning form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                     </div>

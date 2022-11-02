@@ -33,7 +33,7 @@
             <div class="card-header">
                 <h3 class="card-title">Banners List</h3>
                 <div class="card-options">
-                    <a href="<?php echo e(route('banner.create')); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo e(route('banner.create')); ?>" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Banner</a>
                 </div>
@@ -57,7 +57,7 @@
                                 <td><img src="/<?php echo e($banner->path); ?>" class="img-responsive col-md-3"></td>
                                 <td>
                                     <div class="btn-list">
-                                        <a href="<?php echo e(route('banner.edit',encrypt($banner->id))); ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?php echo e(route('banner.edit',encrypt($banner->id))); ?>" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <a href="<?php echo e(route('banner.delete',encrypt($banner->id))); ?>" class="btn  btn-sm btn-danger confirm_delete" data-id="<?php echo e($banner->id); ?>">

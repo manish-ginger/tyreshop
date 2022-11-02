@@ -81,6 +81,9 @@
 
                 }
             });
+            if (actionUrl.indexOf('save-messages') !== -1) {
+                $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+            }
         });
 
         $("#submitAjaxUpdate").submit(function(e) {
@@ -130,6 +133,9 @@
 
                 }
             });
+            if (actionUrl.indexOf('save-messages') !== -1) {
+                $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+            }
         });
 
         $(".AjaxUpdateForms").submit(function(e) {
@@ -181,7 +187,9 @@
             });
         });
 
-        $('.confirm_delete').click(function(event) {
+        $('.table-responsive').on('click', '.confirm_delete', function(){
+
+            // $('.confirm_delete').click(function(event) {
             var form = $(this).closest("form");
             var name = $(this).data("name");
             var url = $(this).attr('href');
@@ -206,7 +214,8 @@
                 type: "GET",
                 success: function(data){
                     if(data==1){
-                        $('#'+urlPart).remove();
+                        $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+                        // $('#'+urlPart).remove();
                         // $('#basic-datatable').DataTable().rows('#'+urlPart).remove().draw();
                         $('.alert_show').html('');
                         toastr.success('Deleted Successfully');
@@ -253,5 +262,244 @@ else
 }
 </script>
 
+    <script src="<?php echo e(asset('colorbox/jquery.colorbox.js')); ?>"></script>
+    <script>
+        // // Get the modal
+        // var modal = document.getElementById("show_dailog");
+        //
+        // // When the user clicks anywhere outside of the modal, close it
+        // window.onclick = function(event) {
+        //     if (event.target == modal) {
+        //         // $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+        //         $('.show_content').empty();
+        //         modal.style.display = "none";
+        //     }
+        // }
+        //
+        // $(document).keydown(function(event) {
+        //     if (event.keyCode == 27) {
+        //         $('.show_content').empty();
+        //         $('#show_dailog').hide();
+        //     }
+        // });
+        //
+        // function form_box(e,this_form_box){
+        //     e.preventDefault();
+        //     var seclastUrl = '';
+        //     var split = '';
+        //     var href = this_form_box.attr('href');
+        //
+        //     if (href.indexOf('edit-') !== -1) {
+        //         split = href.split("/");
+        //         seclastUrl = split[split.length - 2];
+        //     }
+        //
+        //
+        //     var lastUrl = href.substring(href.lastIndexOf('/') + 1);
+        //     var fetchUrl='';
+        //     if (href.indexOf('edit-') !== -1) {
+        //         fetchUrl=seclastUrl+'/'+lastUrl;
+        //     }
+        //     else{
+        //         fetchUrl=seclastUrl+lastUrl;
+        //     }
+        //     if(fetchUrl!=''){
+        //         $('.show_content').load(fetchUrl, function(responseTxt, statusTxt, xhr){
+        //             if(statusTxt == "success"){
+        //                 modal.style.display = "block";
+        //             }
+        //         });
+        //     }
+        // }
+        //
+        // var this_form_box;
+        // $('.table-responsive').on('click', '.form_box', function(e){
+        //     this_form_box = $(this);
+        //     form_box(e,this_form_box);
+        // });
+        //
+        // $(".form_box").click(function(e){
+        //     this_form_box = $(this);
+        //     form_box(e,this_form_box);
+        // });
 
+
+
+            $(document).ready(function(){
+                    $('.table-responsive').on('click', '.form_box', function(){
+                        $(this).colorbox({iframe:true, width:"65%", height:"65%",speed:300});
+                    });
+                    $('.form_box').colorbox({iframe:true, width:"65%", height:"65%",speed:300,opacity:'0.5'});
+            });
+
+        $(document).bind('cbox_open', function(){
+                $('#cboxContent').css("background-color", "#000");
+                $('#cboxContent').css("opacity", "0.5");
+        });
+
+        $(document).bind('cbox_complete', function(){
+            $('#cboxContent').css("opacity", "1");
+        });
+
+        $(document).bind('cbox_cleanup', function(){
+            $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+        });
+
+    </script>
+    <script>
+        $('.table-responsive').on('submit', '#submitAjaxAdd', function(e){
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    form[0].reset();
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Added Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Added Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Adding Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Adding Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Adding Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Adding Failed</div>');
+
+                    }
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+            if (actionUrl.indexOf('save-messages') !== -1) {
+                $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+            }
+        });
+
+        $('.table-responsive').on('submit', '#submitAjaxUpdate', function(e){
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Updated Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updated Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Updating Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Update Failed</div>');
+
+                    }
+
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+            if (actionUrl.indexOf('save-messages') !== -1) {
+                $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+            }
+        });
+
+        $('.table-responsive').on('submit', '.AjaxUpdateForms', function(e){
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            var data_form=new FormData(this);
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: data_form,
+                processData: false,
+                contentType: false,
+                success: function(data)
+                {
+                    if(data==1){
+                        $('.alert_show').html('');
+                        toastr.success('Updated Successfully');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updated Successfully</div>');
+                        setTimeout(function(){$('.alert_show').html('');}, 3000);
+
+                    }
+                    else if(data==2){
+                        $('.alert_show').html('');
+                        toastr.error('Field values already exist or taken! Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Field values already exist or taken! Updating Failed</div>');
+
+                    }
+                    else{
+                        $('.alert_show').html('');
+                        toastr.error('Updating Failed','Error');
+                        $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>Updating Failed</div>');
+
+                    }
+
+                },
+                error: function(data){
+                    var response = JSON.parse(data.responseText);
+                    var errorString = '<ul>';
+                    $.each( response.errors, function( key, value) {
+                        errorString += '<li>' + value + '</li>';
+                    });
+                    errorString += '</ul>';
+                    $('.alert_show').html('');
+                    toastr.error(errorString,'Error');
+                    $(".alert_show").html('<div class="alert alert-info" role="alert"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true">×</button>'+errorString+'</div>');
+
+                }
+            });
+            $('#basic-datatable').load(window.location.href + ' #basic-datatable' );
+        })
+
+    </script>
 <?php /**PATH /opt/lampp/htdocs/tyre_superadmin/resources/views/layouts/components/scripts.blade.php ENDPATH**/ ?>
