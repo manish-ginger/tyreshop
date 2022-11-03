@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
 
-                                            
+
                                             <!-- Row -->
                                             <div class="row">
                                                 <label class="col-md-3 form-label mb-4">Description :</label>
@@ -61,7 +61,7 @@
                                                 <div class="col-md-9 text-end">
                                                 <button class="btn btn-danger" onclick="window.location.reload();">Discard</button> &nbsp; &nbsp;
                                                 <button class="btn btn-success">Add Vehicle Category</button> &nbsp; &nbsp;
-                                                
+
                                                 </div>
                                             </div>
                                             <!--End Row-->
@@ -75,7 +75,7 @@
             @endsection
 
         @section('scripts')
-        
+
         <!-- INPUT MASK JS-->
         <script src="{{asset('assets/plugins/input-mask/jquery.mask.min.js')}}"></script>
 

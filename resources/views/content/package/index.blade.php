@@ -38,7 +38,7 @@
                 <h3 class="card-title">Packages List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('package.create')==1)
-                    <a href="{{route('package.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('package.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Package</a>
                     @endif
@@ -65,7 +65,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('package.edit')==1)
-                                        <a href="{{ route('package.edit',encrypt($package->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('package.edit',encrypt($package->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -75,7 +75,7 @@
                                         </a>
                                         @endif
                                             @if(CheckAdminLogged::role_control('package.show')==1)
-                                        <a href="{{ route('package.show',encrypt($package->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('package.show',encrypt($package->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                         @endif

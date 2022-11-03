@@ -38,7 +38,7 @@
                 <h3 class="card-title">Machines List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('machine.create')==1)
-                    <a href="{{route('machine.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('machine.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Machine</a>
                         @endif
@@ -73,7 +73,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('machine.edit')==1)
-                                        <a href="{{ route('machine.edit',encrypt($machine->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('machine.edit',encrypt($machine->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -83,7 +83,7 @@
                                         </a>
                                             @endif
                                             @if(CheckAdminLogged::role_control('machine.show')==1)
-                                            <a href="{{ route('machine.show',encrypt($machine->id)) }}" class="btn btn-sm btn-primary">
+                                            <a href="{{ route('machine.show',encrypt($machine->id)) }}" class="btn btn-sm btn-primary form_box">
                                                 <span class="fe fe-eye"> </span>
                                             </a>
                                             @endif

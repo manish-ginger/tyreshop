@@ -1,7 +1,7 @@
 @php
 use App\Models\Coupon;
 @endphp
-@extends('layouts.app')
+@extends('layouts.app-modal')
 
 @section('styles')
 @endsection

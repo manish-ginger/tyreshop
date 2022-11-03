@@ -44,7 +44,7 @@ use App\Http\Middleware\CheckAdminLogged;
                 <h3 class="card-title">Customer Vehicles List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('customervehicle.create')==1)
-                    <a href="{{route('customervehicle.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('customervehicle.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Customer vehicle</a>
                     @endif
@@ -111,7 +111,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('customervehicle.edit')==1)
-                                        <a href="{{ route('customervehicle.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('customervehicle.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif

@@ -40,7 +40,7 @@
                 <h3 class="card-title">Booking</h3>
                 <div class="card-options">
                     <?php if(CheckAdminLogged::role_control('servicerecord.create')==1): ?>
-                    <a href="<?php echo e(route('servicerecord.create')); ?>" class="btn btn-primary btn-sm">
+                    <a href="<?php echo e(route('servicerecord.create')); ?>" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Booking</a>
                     <?php endif; ?>
@@ -98,7 +98,7 @@
                                 <td>
                                     <div class="btn-list">
                                         <?php if(CheckAdminLogged::role_control('servicerecord.edit')==1): ?>
-                                        <a href="<?php echo e(route('servicerecord.edit',encrypt($row->id))); ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?php echo e(route('servicerecord.edit',encrypt($row->id))); ?>" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         <?php endif; ?>
@@ -108,7 +108,7 @@
                                         </a>
                                         <?php endif; ?>
                                             <?php if(CheckAdminLogged::role_control('servicerecord.show')==1): ?>
-                                        <a href="<?php echo e(route('servicerecord.show',encrypt($row->id))); ?>" class="btn btn-sm btn-primary">
+                                        <a href="<?php echo e(route('servicerecord.show',encrypt($row->id))); ?>" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                         <?php endif; ?>

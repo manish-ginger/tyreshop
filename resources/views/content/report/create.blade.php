@@ -43,6 +43,7 @@ $actual_price_sum=0;
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
+{{--                                        <form action="{{ route('report.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data" id="form_report_ajax">--}}
                                         <form action="{{ route('report.store') }}" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         @csrf
 
@@ -147,6 +148,9 @@ $actual_price_sum=0;
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="report_ajax_content">
                             </div>
 
                 @if(isset($rows_services))

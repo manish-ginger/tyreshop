@@ -43,7 +43,7 @@ use App\Http\Middleware\CheckAdminLogged;
                 <h3 class="card-title">Services List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('feature.create')==1)
-                    <a href="{{route('feature.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('feature.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Service</a>
                     @endif
@@ -91,7 +91,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('feature.edit')==1)
-                                        <a href="{{ route('feature.edit',encrypt($feature->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('feature.edit',encrypt($feature->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -101,7 +101,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                         </a>
                                             @endif
                                             @if(CheckAdminLogged::role_control('feature.show')==1)
-                                        <a href="{{ route('feature.show',encrypt($feature->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('feature.show',encrypt($feature->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                         @endif

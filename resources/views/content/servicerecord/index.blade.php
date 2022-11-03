@@ -39,7 +39,7 @@
                 <h3 class="card-title">Booking</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('servicerecord.create')==1)
-                    <a href="{{route('servicerecord.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('servicerecord.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Booking</a>
                     @endif
@@ -96,7 +96,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('servicerecord.edit')==1)
-                                        <a href="{{ route('servicerecord.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('servicerecord.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -106,7 +106,7 @@
                                         </a>
                                         @endif
                                             @if(CheckAdminLogged::role_control('servicerecord.show')==1)
-                                        <a href="{{ route('servicerecord.show',encrypt($row->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('servicerecord.show',encrypt($row->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                         @endif

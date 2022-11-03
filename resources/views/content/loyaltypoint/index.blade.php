@@ -36,7 +36,7 @@
                 <h3 class="card-title">Loyalty Point Reward </h3>
                 @if(count($loyalties)==0)
                 <div class="card-options">
-                    <a href="{{route('loyaltypoint.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('loyaltypoint.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Create Loyalty Point Reward</a>
                 </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered text-nowrap border-bottom">
+                    <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
                         <thead>
                             <tr>
                                 <th class="wd-40p border-bottom-0">Loyalty Money</th>
@@ -67,7 +67,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('loyaltypoint.edit')==1)
-                                        <a href="{{ route('loyaltypoint.edit',encrypt($loyalty->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('loyaltypoint.edit',encrypt($loyalty->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif

@@ -1,7 +1,7 @@
 @php
 use Carbon\Carbon;
 @endphp
-@extends('layouts.app')
+@extends('layouts.app-modal')
 
 @section('styles')
 @endsection

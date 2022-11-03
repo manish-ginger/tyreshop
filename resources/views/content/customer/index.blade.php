@@ -38,7 +38,7 @@
                 <h3 class="card-title">Customers List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('customer.create')==1)
-                    <a href="{{route('customer.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('customer.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Customer</a>
                     @endif
@@ -71,7 +71,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('customer.edit')==1)
-                  `                      <a href="{{ route('customer.edit',encrypt($customer->id)) }}" class="btn btn-sm btn-primary">
+                  `                      <a href="{{ route('customer.edit',encrypt($customer->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -81,7 +81,7 @@
                                         </a>
                                             @endif
                                             @if(CheckAdminLogged::role_control('customer.show')==1)
-                                        <a href="{{ route('customer.show',encrypt($customer->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('customer.show',encrypt($customer->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                             @endif

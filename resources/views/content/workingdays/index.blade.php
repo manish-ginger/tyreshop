@@ -42,7 +42,7 @@ use App\Http\Middleware\CheckAdminLogged;
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered text-nowrap border-bottom">
+                    <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
                         <thead>
                             <tr>
                                 <th class="wd-5p border-bottom-0">SL</th>
@@ -74,7 +74,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('workingdays.edit')==1)
-                                        <a href="{{ route('workingdays.edit',encrypt($day)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('workingdays.edit',encrypt($day)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif

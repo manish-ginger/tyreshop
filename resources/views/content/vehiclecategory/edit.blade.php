@@ -42,10 +42,10 @@
                                     value="@if (isset($vehicleCategory->name)) {{ $vehicleCategory->name }} @endif" required>
                                 <input type="hidden" name="vehicle_cat_id"
                                     value="@if (isset($vehicleCategory->id)) {{ encrypt($vehicleCategory->id) }} @endif">
-                            </div>  
+                            </div>
                         </div>
 
-                        
+
                         <!-- Row -->
                         <div class="row">
                             <label class="col-md-3 form-label mb-4">Description :</label>
@@ -63,9 +63,9 @@
                         <!--Row-->
                         <hr>
                         <hr>
-                        
-                        
-                        
+
+
+
                     </div>
                     <div class="card-footer">
                         <!--Row-->

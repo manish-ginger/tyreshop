@@ -58,8 +58,8 @@ Route::group(['middleware' => ['admin_auth','prevent-back-history']], function()
     Route::post('reset-admin', [CustomAuthController::class, 'resetadmin'])->name('login.resetadmin');
 
 // Vehicle Suggest Routes
-Route::get('add-message', [VehiclesSuggestController::class, 'create'])->name('message.create');
-Route::post('save-message', [VehiclesSuggestController::class, 'store'])->name('message.store');
+Route::get('add-messages', [VehiclesSuggestController::class, 'create'])->name('message.create');
+Route::post('save-messages', [VehiclesSuggestController::class, 'store'])->name('message.store');
 
 // Coupon Routes
 Route::get('coupon', [CouponController::class, 'index'])->name('coupon');
@@ -115,11 +115,11 @@ Route::get('delete-package/{packId}', [PackageController::class, 'destroy'])->na
 // Package Image Routes
 Route::post('delete-packageimg', [PackageimgController::class, 'destroy'])->name('packageimg.delete');
 // Shop Routes
-Route::get('shop', [ShopController::class, 'index'])->name('shop');
-Route::post('save-shop', [ShopController::class, 'store'])->name('shop.store');
-Route::get('edit-shop/{shopId}', [ShopController::class, 'edit'])->name('shop.edit');
-Route::post('update-shop', [ShopController::class, 'update'])->name('shop.update');
-Route::get('delete-shop/{shopId}', [ShopController::class, 'destroy'])->name('shop.delete');
+//Route::get('shop', [ShopController::class, 'index'])->name('shop');
+//Route::post('save-shop', [ShopController::class, 'store'])->name('shop.store');
+//Route::get('edit-shop/{shopId}', [ShopController::class, 'edit'])->name('shop.edit');
+//Route::post('update-shop', [ShopController::class, 'update'])->name('shop.update');
+//Route::get('delete-shop/{shopId}', [ShopController::class, 'destroy'])->name('shop.delete');
 // Customer Routes
 Route::get('reminderUser', [CustomerController::class, 'reminderUser'])->name('reminderUser');
 Route::post('loadBrands', [CustomerController::class, 'loadBrands'])->name('loadBrands');

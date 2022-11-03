@@ -44,6 +44,7 @@ $actual_price_sum=0;
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="card">
+
                                         <form action="<?php echo e(route('report.store')); ?>" method="post"  accept-charset="utf-8" enctype="multipart/form-data">
                                         <?php echo csrf_field(); ?>
 
@@ -148,6 +149,9 @@ $actual_price_sum=0;
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="report_ajax_content">
                             </div>
 
                 <?php if(isset($rows_services)): ?>

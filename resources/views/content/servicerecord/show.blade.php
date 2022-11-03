@@ -6,7 +6,7 @@
     use App\Models\VehicleCategory;
     use App\Models\Feature;
 @endphp
-@extends('layouts.app')
+@extends('layouts.app-modal')
 
 @section('styles')
 @endsection

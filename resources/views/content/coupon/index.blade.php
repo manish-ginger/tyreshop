@@ -38,7 +38,7 @@
                 <h3 class="card-title">Coupons List</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('coupon.create')==1)
-                    <a href="{{route('coupon.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('coupon.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Coupon</a>
                     @endif
@@ -81,7 +81,7 @@
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('coupon.edit')==1)
-                                        <a href="{{ route('coupon.edit',encrypt($coupon->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('coupon.edit',encrypt($coupon->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif
@@ -91,7 +91,7 @@
                                         </a>
                                             @endif
                                             @if(CheckAdminLogged::role_control('coupon.show')==1)
-                                        <a href="{{ route('coupon.show',encrypt($coupon->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('coupon.show',encrypt($coupon->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-eye"> </span>
                                         </a>
                                             @endif

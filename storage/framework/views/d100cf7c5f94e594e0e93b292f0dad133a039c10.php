@@ -73,6 +73,7 @@
                                     <option selected disabled value="">Choose Booking Type</option>
                                     <option value="0">Pre Booked</option>
                                     <option value="1">Direct</option>
+                                    <option value="2">Special Request</option>
                                 </select>
                             </div>
                         </div>
@@ -182,4 +183,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/servicerecord/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app-modal', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/tyre_shopadmin/resources/views/content/servicerecord/create.blade.php ENDPATH**/ ?>

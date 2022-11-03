@@ -40,7 +40,7 @@ use App\Http\Middleware\CheckAdminLogged;
                 <h3 class="card-title">Customer Package</h3>
                 <div class="card-options">
                     @if(CheckAdminLogged::role_control('packagerecord.create')==1)
-                    <a href="{{route('packagerecord.create')}}" class="btn btn-primary btn-sm">
+                    <a href="{{route('packagerecord.create')}}" class="btn btn-primary btn-sm form_box">
                         <i class="fe fe-plus"></i>
                         Add New Customer Package</a>
                     @endif
@@ -79,7 +79,7 @@ use App\Http\Middleware\CheckAdminLogged;
                                 <td>
                                     <div class="btn-list">
                                         @if(CheckAdminLogged::role_control('packagerecord.edit')==1)
-                                        <a href="{{ route('packagerecord.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('packagerecord.edit',encrypt($row->id)) }}" class="btn btn-sm btn-primary form_box">
                                             <span class="fe fe-edit"> </span>
                                         </a>
                                         @endif

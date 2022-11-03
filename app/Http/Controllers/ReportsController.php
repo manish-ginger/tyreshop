@@ -31,7 +31,6 @@ class ReportsController extends Controller
     }
 
 
-
     public static function report_booking_rows(Request $request)
     {
         $from = request('from');
@@ -131,6 +130,8 @@ class ReportsController extends Controller
         $packages = Package::latest()->get();
 
         $show_empty=1;
+
+//        return view('content.report.createajax',compact('request','show_empty','rows_services','rows_packages','customervehicles','vehicle_categories','customers','coupons','packages'));
         return view('content.report.create',compact('request','show_empty','rows_services','rows_packages','customervehicles','vehicle_categories','customers','coupons','packages'));
     }
 
