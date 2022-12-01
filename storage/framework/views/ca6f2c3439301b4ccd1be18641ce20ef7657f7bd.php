@@ -60,12 +60,12 @@
 
 
 
-    $(document).ready(function(){
-        $('.table-responsive').on('click', '.form_box', function(){
-            $(this).colorbox({iframe:true, width:"65%", height:"65%",speed:300});
-        });
-        $('.form_box').colorbox({iframe:true, width:"65%", height:"65%",speed:300,opacity:'0.5'});
-    });
+    // $(document).ready(function(){
+    //     $('.table-responsive').on('click', '.form_box', function(){
+    //         $(this).colorbox({iframe:true, width:"65%", height:"65%",speed:300});
+    //     });
+    //     $('.form_box').colorbox({iframe:true, width:"65%", height:"65%",speed:300,opacity:'0.5'});
+    // });
 
     $(document).bind('cbox_open', function(){
         $('#cboxContent').css("background-color", "#000");

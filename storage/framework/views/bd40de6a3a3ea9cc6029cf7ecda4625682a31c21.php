@@ -38,13 +38,13 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Special Requests</h3>
-                <div class="card-options">
-                    <?php if(CheckAdminLogged::role_control('servicerecord.create')==1): ?>
-                    <a href="<?php echo e(route('servicerecord.create')); ?>" class="btn btn-primary btn-sm form_box">
-                        <i class="fe fe-plus"></i>
-                        Add New Booking</a>
-                    <?php endif; ?>
-                </div>
+
+
+
+
+
+
+
             </div>
             <div class="card-body">
 

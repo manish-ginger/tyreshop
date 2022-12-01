@@ -42,39 +42,28 @@ class CheckAdminLogged
         }
     }
 
-    public static function role_control($route_name){
-        $role_id=Session::get('Role_ID');
+    
+   
+   
+   public static function role_control($route_name){
         $admin_access=Session::get('Admin_Access');
         $allow=0;
 
-        if($admin_access=='yes'){
-            $allow=1;
-            return $allow;
-        }
+        if($admin_access=='yes'){return 1;}
 
-        $dashboard=$machine=$workingdays=$coupon=$feature=$servicerecord=$package=$packagerecord=$loyaltypoint=$notification=$customer=$customervehicle=$message=$report=array();
         $permission_data=Session::get('role_data');
+        $route_fragmented = explode(".", $route_name);
+        ${$route_fragmented[0]}=array();
+        if(!isset($route_fragmented[1])){array_push($route_fragmented,'index');}
 
         foreach ($permission_data as $key => $value)
         {
-            if($key=="'dashboard'"){$dashboard=$value;}
-            if($key=="'machine'"){$machine=$value;}
-            if($key=="'workingdays'"){$workingdays=$value;}
-            if($key=="'coupon'"){$coupon=$value;}
-            if($key=="'feature'"){$feature=$value;}
-            if($key=="'servicerecord'"){$servicerecord=$value;}
-            if($key=="'package'"){$package=$value;}
-            if($key=="'packagerecord'"){$packagerecord=$value;}
-            if($key=="'loyaltypoint'"){$loyaltypoint=$value;}
-            if($key=="'notification'"){$notification=$value;}
-            if($key=="'customer'"){$customer=$value;}
-            if($key=="'customervehicle'"){$customervehicle=$value;}
-            if($key=="'message'"){$message=$value;}
-            if($key=="'report'"){$report=$value;}
+            $section_name = str_replace("'", "", $key);
+            if($section_name==$route_fragmented[0]) {
+                ${$section_name} = $value;
+            }
         }
 
-        $route_fragmented = explode(".", $route_name);
-        if(!isset($route_fragmented[1])){array_push($route_fragmented,'index');}
         if(in_array($route_fragmented[1],${$route_fragmented[0]})) {$allow=1;}
         return $allow;
     }
