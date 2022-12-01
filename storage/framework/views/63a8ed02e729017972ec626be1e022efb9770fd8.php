@@ -23,9 +23,9 @@
 
 <body class="app sidebar-mini ltr">
         <!-- global-loader -->
-        <div id="global-loader">
-            <img src="<?php echo e(asset('assets/images/loader.svg')); ?>" class="loader-img" alt="Loader">
-        </div>
+
+
+
         <!-- global-loader closed -->
 
         <!-- page -->
@@ -69,7 +69,7 @@
 
             <?php echo $__env->yieldContent('modal'); ?>
 
-            <?php echo $__env->make('layouts.components.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
 
         </div>
         <!-- page -->

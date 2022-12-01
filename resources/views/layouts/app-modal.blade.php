@@ -23,9 +23,9 @@
 
 <body class="app sidebar-mini ltr">
         <!-- global-loader -->
-        <div id="global-loader">
-            <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-        </div>
+{{--        <div id="global-loader">--}}
+{{--            <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">--}}
+{{--        </div>--}}
         <!-- global-loader closed -->
 
         <!-- page -->
@@ -69,7 +69,7 @@
 
             @yield('modal')
 
-            @include('layouts.components.footer')
+{{--            @include('layouts.components.footer')--}}
 
         </div>
         <!-- page -->
