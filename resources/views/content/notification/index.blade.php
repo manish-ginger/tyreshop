@@ -27,6 +27,9 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
+                        @if(count($shops)==0)
+                            <a href="{{route('shop.create')}}" class="form_box">Create Shops to set notifications</a>
+                        @else
                         <table class="table table-bordered text-nowrap border-bottom">
                             <thead>
                             <tr>
@@ -59,6 +62,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        @endif
                         <div class="alert_show">
                             @if(Session::has('message'))
                                 <div class="alert alert-info" role="alert" style="margin-bottom: 25px;">
