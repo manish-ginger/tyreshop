@@ -36,7 +36,7 @@ class AddValidityToShops extends Migration
             $table->string('working_time_from');
             $table->string('working_time_to');
             $table->string('featured_machines');
-            $table->longText('desc')->nullable();
+//            $table->longText('desc')->nullable();
         });
     }
 }
